@@ -1,12 +1,31 @@
+$(window).scroll(function() {
+  if ($(document).scrollTop() > 50) {
+    $('nav').addClass('shrink');
+  } else {
+    $('nav').removeClass('shrink');
+  }
+});
+
 jQuery(document).ready(function () {
 
-    
+
     jQuery.waitForImages.hasImgProperties = ['background','backgroundImage'];
     jQuery('body').waitForImages(function() {
         jQuery(".page-mask").delay(1200).fadeOut('slow');
         jQuery('body').css('overflowY','auto');
     });
 
+/*-------------------------------------------------*/
+/* =  Static Heights on Portrait
+/*-------------------------------------------------*/
+
+    var heights = $(".frame").map(function() {
+        return $(this).height();
+    }).get(),
+
+    maxHeight = Math.max.apply(null, heights);
+
+    $(".frame").height(maxHeight);
 
 /*-------------------------------------------------*/
 /* =  Animated content
@@ -24,22 +43,14 @@ jQuery(document).ready(function () {
 /*==========================*/
 /* Sticky Navigation
 /*==========================*/
-     
+
     jQuery("#navigation").sticky({topSpacing:0});
 
-    
-/*==========================*/
-/* Video Background Overlay
-/*==========================*/
-
-    var winheight = jQuery(window).height();
-
-    jQuery(".video-overlay").css( "height", winheight );
 
 
 /* ==============================================
 Drop Down Menu Fade Effect
-=============================================== */  
+=============================================== */
 
     $('.nav-toggle').hover(function() {
         'use strict';
@@ -66,22 +77,22 @@ Drop Down Menu Fade Effect
 
     var navigationHeight = jQuery("#navigation").outerHeight();
 
-    jQuery('.align-center a, .caption-inside a, .top-logo a, .video-section a').click(function(){
+    jQuery('.align-center a, .caption-inside a, .top-logo a').click(function(){
         jQuery('html, body').animate({
             scrollTop: jQuery( $.attr(this, 'href') ).offset().top - navigationHeight + 44
         }, 800, 'easeInQuad');
-        
+
         /* Fix jumping of navigation. */
         setTimeout(function() {
             jQuery(window).trigger('scroll');
         }, 900);
-        
+
         return false;
     });
 
 
 
-    
+
 
 /*==========================*/
 /* FullScreen Slider
@@ -102,41 +113,41 @@ Drop Down Menu Fade Effect
                 },
                 after: function(last,current){
                     jQuery('.slide-content').fadeIn().animate({top:'0'},{queue:false, easing: 'easeOutQuad', duration: 650});
-                }   
-                
-                
-                        
+                }
+
+
+
             },
-            
-            
-            
+
+
+
             onFirstImageLoaded: function(){
                 //jQuery('#cycle-loader').delay(1000).hide();
                 jQuery('#fullscreen-slider').delay(1000).fadeIn('slow');
                 jQuery('.slide-content').fadeIn().animate({top:'0'});
                 jQuery('.slide-content a').bind('click',function(event){
-                    var $anchor = jQuery(this);              
+                    var $anchor = jQuery(this);
                     jQuery('html, body').stop().animate({
                     scrollTop: jQuery($anchor.attr('href')).offset().top -44
-                    }, 1500,'easeInOutExpo');               
+                    }, 1500,'easeInOutExpo');
                     event.preventDefault();
-                    });         
+                    });
             }
         });
 
         // Helper function to Fill and Center the HTML5 Video
         jQuery('video,object').maximage('maxcover');
-        
-        
-        
-        
+
+
+
+
 
         // To show it is dynamic html text
-        
+
     });
 
 
-    
+
 
 /*----------------------------------------------------*/
 /*  Parallax section
@@ -144,11 +155,11 @@ Drop Down Menu Fade Effect
     //Calculating page width
     pageWidth = jQuery(window).width();
 
-    //Parallax  
+    //Parallax
     jQuery(window).bind('load', function () {
         if(pageWidth > 980) {
             parallaxInit();
-        }                       
+        }
     });
 
     function parallaxInit() {
@@ -157,7 +168,7 @@ Drop Down Menu Fade Effect
         jQuery('.quote-wrap').parallax("30%", 0.1);
         jQuery('.subscription-wrap').parallax("30%", 0.1);
         jQuery('.image-parallax').parallax("50%", 0.1);
-        
+
     }
 
 
@@ -165,7 +176,7 @@ Drop Down Menu Fade Effect
     jQuery('.about-wrap .parallax-layer')
         .hparallax({
           mouseport: jQuery('.about-wrap')
-    }); 
+    });
 
 
 /*----------------------------------------------------*/
@@ -179,8 +190,8 @@ Drop Down Menu Fade Effect
           jQuery(this).find(".progress-bar").animate({
             width: b + "%"
           }, 1300, "easeOutCirc");
-        }); 
-    });   
+        });
+    });
 
 
 /*----------------------------------------------------*/
@@ -190,16 +201,16 @@ Drop Down Menu Fade Effect
     jQuery('.fun-wrap .fun-box').each(function () {
         jQuery(this).fappear(function() {
             jQuery('.fun').countTo();
-        }); 
+        });
     });
 
 
- 
+
 /*----------------------------------------------------*/
 /*  Scroll To Top Section
 /*----------------------------------------------------*/
     jQuery(document).ready(function () {
-    
+
         jQuery(window).scroll(function () {
             if (jQuery(this).scrollTop() > 100) {
                 jQuery('.scrollup').fadeIn();
@@ -207,14 +218,14 @@ Drop Down Menu Fade Effect
                 jQuery('.scrollup').fadeOut();
             }
         });
-    
+
         jQuery('.scrollup').click(function () {
             jQuery("html, body").animate({
                 scrollTop: 0
             }, 600);
             return false;
         });
-    
+
     });
 
 
@@ -270,7 +281,7 @@ Drop Down Menu Fade Effect
         });
 
         jQuery('a[data-rel^="prettyPhoto"]').prettyPhoto();
-    });     
+    });
 
 
 
@@ -281,48 +292,12 @@ Drop Down Menu Fade Effect
 
 
 /*----------------------------------------------------*/
-/*  Jquery Google map Section
-/*----------------------------------------------------*/
-        
-    //Google map
-    jQuery('#maps').gMap({
-        address: "House: 325, Road: 2, Mirpur DOHS, Dhaka, Bangladesh",
-        zoom: 16,
-        controls: {
-         panControl: true,
-         zoomControl: true,
-         mapTypeControl: true,
-         scaleControl: true,
-         streetViewControl: true,
-         overviewMapControl: true
-     },
-        markers: [{
-            latitude: 23.835369,
-            longitude: 90.367172,
-            html: "<h4>FIFO Themes</h4>Wordpress, HTML5/CSS Themes",
-            popup: true
-        }]
-    });
-
-
-
-
-/*===============================================*/
-/*  Video Script
-/*===============================================*/
-
-    jQuery(function(){
-        jQuery(".player").mb_YTPlayer();
-    }); 
-
-
-/*----------------------------------------------------*/
 /*  Carousel Section
 /*----------------------------------------------------*/
 
-    
-    jQuery('.testimonials-carousel').carousel({interval: false, wrap: false});   
-    
+
+    jQuery('.testimonials-carousel').carousel({interval: false, wrap: false});
+
     jQuery('.testimonials-carousel-widget').carousel({interval: 5000, pause: "hover"});
 
 });
@@ -337,7 +312,7 @@ Drop Down Menu Fade Effect
 
 
 
-    jQuery(document).ready(function(){ 
+    jQuery(document).ready(function(){
 
         // Portfolio
         (function($) {
@@ -345,11 +320,11 @@ Drop Down Menu Fade Effect
             var $container = $('#portfolio-wrap'),
                 $items = $container.find('.portfolio-item'),
                 portfolioLayout = 'fitRows';
-                
+
                 if( $container.hasClass('portfolio-centered') ) {
                     portfolioLayout = 'masonry';
                 }
-                        
+
                 $container.isotope({
                     filter: '*',
                     animationEngine: 'best-available',
@@ -362,12 +337,12 @@ Drop Down Menu Fade Effect
                 masonry: {
                 }
                 }, refreshWaypoints());
-                
+
                 function refreshWaypoints() {
                     setTimeout(function() {
-                    }, 1000);   
+                    }, 1000);
                 }
-                        
+
                 $('#filters a').on('click', function() {
                         var selector = $(this).attr('data-filter');
                         $container.isotope({ filter: selector }, refreshWaypoints());
@@ -375,11 +350,11 @@ Drop Down Menu Fade Effect
                         $(this).addClass('active');
                         return false;
                 });
-                
-                function getColumnNumber() { 
-                    var winWidth = $(window).width(), 
+
+                function getColumnNumber() {
+                    var winWidth = $(window).width(),
                     columnNumber = 1;
-                
+
                     if (winWidth > 1200) {
                         columnNumber = 4;
                     } else if (winWidth > 950) {
@@ -392,36 +367,36 @@ Drop Down Menu Fade Effect
                         columnNumber = 1;
                     }
                         return columnNumber;
-                    }       
-                    
+                    }
+
                     function setColumns() {
-                        var winWidth = $(window).width(), 
-                        columnNumber = getColumnNumber(), 
+                        var winWidth = $(window).width(),
+                        columnNumber = getColumnNumber(),
                         itemWidth = Math.floor(winWidth / columnNumber);
-                        
-                        $container.find('.portfolio-item').each(function() { 
-                            $(this).css( { 
-                            width : itemWidth + 'px' 
+
+                        $container.find('.portfolio-item').each(function() {
+                            $(this).css( {
+                            width : itemWidth + 'px'
                         });
                     });
                 }
-                
-                function setPortfolio() { 
+
+                function setPortfolio() {
                     setColumns();
                     $container.isotope('reLayout');
                 }
-                    
-                $container.imagesLoaded(function () { 
+
+                $container.imagesLoaded(function () {
                     setPortfolio();
                 });
-                
-                $(window).on('resize', function () { 
-                setPortfolio();          
+
+                $(window).on('resize', function () {
+                setPortfolio();
             });
         })(jQuery);
-    
 
-    
+
+
 
     });
 
@@ -433,17 +408,17 @@ Drop Down Menu Fade Effect
 
 
 jQuery(document).ready(function(){
-    
+
     var onMobile = false;
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) { onMobile = true; }
-    
+
     jQuery('.fullwidth-slider').bxSlider({
         mode: "fade",
         speed: 1000,
         pager: false,
         nextText: '<i class="fa fa-angle-right"></i>',
-        prevText: '<i class="fa fa-angle-left"></i>', 
-        
+        prevText: '<i class="fa fa-angle-left"></i>',
+
         onSlideBefore: function($slideElement) {
             ($slideElement).find('.slide-caption').fadeOut().animate({top:'100px'},{queue:false, easing: 'easeOutQuad', duration: 550});
             ($slideElement).find('.slide-caption').hide().animate({top:'-100px'});
@@ -451,34 +426,34 @@ jQuery(document).ready(function(){
         onSlideAfter: function($slideElement) {
             ($slideElement).find('.slide-caption').fadeIn().animate({top:'0'},{queue:false, easing: 'easeOutQuad', duration: 450});
         },
-        
+
     });
-    
+
     jQuery('.bx-wrapper .bx-controls-direction a').attr('data-500','top:83%; opacity: 0;').attr('data-start','top:50%; opacity: 1;');
-    
-    
+
+
     if( ( onMobile === false ) && ( jQuery('.parallax-slider').length ) ) {
-    
+
         skrollr.init({
             edgeStrategy: 'set',
             smoothScrolling: false,
             forceHeight: false
         });
-        
+
     }
 
 
     jQuery('.text-slide').bxSlider({
         controls: false,
-        adaptiveHeight: true, 
-        pager: false,       
+        adaptiveHeight: true,
+        pager: false,
         auto:true,
         mode:'fade',
         pause: 3000,
-    });   
+    });
 
-    
-});  
+
+});
 
 /*----------------------------------------------------*/
 /*  Contact Form Section
@@ -490,7 +465,7 @@ jQuery(document).ready(function(){
         var subject = $("#subject").val();
         var text = $("#text").val();
         var dataString = 'name=' + name + '&email=' + email + '&subject=' + subject + '&text=' + text;
-        
+
 
         function isValidEmail(emailAddress) {
             var pattern = new RegExp(/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i);

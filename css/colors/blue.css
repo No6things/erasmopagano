@@ -1,14 +1,14 @@
 /*Blue #2eaef0 & #026ea6 */
 
-.btn:focus, .btn-2, 
-ul.why li:before, 
-.progress .progress-bar, 
-.accordionMod .panel-heading .current, 
-#current:after, 
-.flat .plan li.plan-name, 
-.flat .plan.featured:hover li.plan-name, 
-#filters ul li a:hover h5, 
-#filters ul li a.active h5, 
+.btn:focus, .btn-2,
+ul.why li:before,
+.progress .progress-bar,
+.accordionMod .panel-heading .current,
+#current:after,
+.flat .plan li.plan-name,
+.flat .plan.featured:hover li.plan-name,
+#filters ul li a:hover h5,
+#filters ul li a.active h5,
 .cl-effect-21 a::before,
 .cl-effect-21 a::after,
 .cl-effect-21 .active a::before,
@@ -17,9 +17,26 @@ ul.why li:before,
     background: #2eaef0;
 }
 
+.blue{
+  color: #334378 !important;
+}
+
+.orange{
+  color: #f47721 !important;
+}
+
 .bg-color {
     background: #2eaef0;
-	color: #fff;
+	  color: #fff;
+}
+
+.product-wrap > .container > .row > .big-title, .about-wrap > .container > .row > .big-title {
+  color: #f47721;
+  text-shadow: 0px 0px 12px rgba(255, 255, 255, 1);
+}
+
+.subscription-wrap ul {
+  color: #000000;
 }
 
 .subscribe-btn {
@@ -31,12 +48,9 @@ div.content-box.big div.content-box-info p, .content-box-info h4 {
 	color: #e7f7ff;
 }
 
-.about-wrap {
-    background: #2eaef0 no-repeat fixed center center;
-}
 
 
-.subscribe-btn:focus, .subscribe-btn:hover, 
+.subscribe-btn:focus, .subscribe-btn:hover,
 .ch-item .ch-info-front {
 	background: #026ea6;
 	color: white;
@@ -66,23 +80,23 @@ div.content-box.big div.content-box-info p, .content-box-info h4 {
 	border-bottom-color:#2eaef0;
 }
 
-a, a:hover, a:focus, 
-.flat .plan li > strong, 
-#slider_left i:hover, 
-#slider_right i:hover, 
-.text-color, 
+a, a:hover, a:focus,
+.flat .plan li > strong,
+#slider_left i:hover,
+#slider_right i:hover,
+.text-color,
 .cl-effect-21 a:hover,
 .cl-effect-21 a:focus,
 .cl-effect-21 .active a,
 .cl-effect-21 .active a:focus,
-.navbar-nav > li > a:hover, 
-.navbar-nav > li > a:focus, 
+.navbar-nav > li > a:hover,
+.navbar-nav > li > a:focus,
 .navbar-nav > li.active > a,
 .post-date a.date strong,
-.pagination > li > a, 
+.pagination > li > a,
 .pagination > li > span,
 .fun,
 .btn-1:hover,
 .btn-1:active {
-    color: #2eaef0;
+    color: #f6978f;
 }
