@@ -1,22 +1,22 @@
 $(window).scroll(function() {
-  if ($(document).scrollTop() > 50) {
-    $('nav').addClass('shrink');
+  if ($(document).scrollTop() < 1000) {
+    $('nav').removeClass('shrink').css("background", "rgba(255,255,255,0.9)");
   } else {
-    $('nav').removeClass('shrink');
+    $('nav').addClass('shrink').css("background", "rgba(255,255,255,1)");
+
   }
 });
 
 jQuery(document).ready(function () {
 
-
-    jQuery.waitForImages.hasImgProperties = ['background','backgroundImage'];
+  jQuery.waitForImages.hasImgProperties = ['background','backgroundImage'];
     jQuery('body').waitForImages(function() {
         jQuery(".page-mask").delay(1200).fadeOut('slow');
         jQuery('body').css('overflowY','auto');
     });
 
 /*-------------------------------------------------*/
-/* =  Static Heights on Portrait
+/* =  Static Heights on Portrait and Home Slider
 /*-------------------------------------------------*/
 
     var heights = $(".frame").map(function() {
@@ -26,6 +26,15 @@ jQuery(document).ready(function () {
     maxHeight = Math.max.apply(null, heights);
 
     $(".frame").height(maxHeight);
+
+    var heightsh = $(".frameh").map(function() {
+        return $(this).height();
+    }).get(),
+
+    maxHeighth = Math.max.apply(null, heightsh);
+
+    $(".frameh").height(maxHeighth);
+
 
 /*-------------------------------------------------*/
 /* =  Animated content
@@ -426,6 +435,40 @@ jQuery(document).ready(function(){
         onSlideAfter: function($slideElement) {
             ($slideElement).find('.slide-caption').fadeIn().animate({top:'0'},{queue:false, easing: 'easeOutQuad', duration: 450});
         },
+
+    });
+
+    jQuery('.bxslider').bxSlider({
+      slideWidth: 300,
+      slideMargin: 100,
+      minSlides: 3,
+      maxSlides: 3,
+      moveSlides: 2,
+      captions:true,
+      autoHover: true,
+      controls:false
+    });
+
+    jQuery('.bxslider2').bxSlider({
+      autoHover: true,
+      controls:false,
+      pager: false
+    });
+
+    jQuery('.bxslider3').bxSlider({
+      autoHover: true,
+      controls:false,
+      pager: false
+    });
+
+    jQuery('.service-slide').hover(function(){
+      $(this).children('.caption1').addClass('fadeInUp');
+      $(this).children('.caption1').removeClass('fadeOutDown');
+
+
+    },function(){
+      $(this).children('.caption1').addClass('fadeOutDown');
+      $(this).children('.caption1').removeClass('fadeInUp');
 
     });
 
