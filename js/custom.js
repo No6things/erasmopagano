@@ -9,6 +9,7 @@ $(window).scroll(function() {
 
 jQuery(document).ready(function () {
 
+
   jQuery.waitForImages.hasImgProperties = ['background','backgroundImage'];
     jQuery('body').waitForImages(function() {
         jQuery(".page-mask").delay(1200).fadeOut('slow');
@@ -26,14 +27,12 @@ jQuery(document).ready(function () {
     maxHeight = Math.max.apply(null, heights);
 
     $(".frame").height(maxHeight);
+    $(".frameh").height($(window).height());
 
-    var heightsh = $(".frameh").map(function() {
-        return $(this).height();
-    }).get(),
 
-    maxHeighth = Math.max.apply(null, heightsh);
-
-    $(".frameh").height(maxHeighth);
+/*-------------------------------------------------*/
+/* =  Static Heights on Portrait and Home Slider
+/*-------------------------------------------------*/
 
 
 /*-------------------------------------------------*/
@@ -147,10 +146,6 @@ Drop Down Menu Fade Effect
         // Helper function to Fill and Center the HTML5 Video
         jQuery('video,object').maximage('maxcover');
 
-
-
-
-
         // To show it is dynamic html text
 
     });
@@ -172,11 +167,9 @@ Drop Down Menu Fade Effect
     });
 
     function parallaxInit() {
-        jQuery('.landing-left').parallax("30%", 0.1);
-        jQuery('.testimonial-wrap').parallax("30%", 0.1);
-        jQuery('.quote-wrap').parallax("30%", 0.1);
+
+        jQuery('.product-wrap').parallax("30%", 0.1);
         jQuery('.subscription-wrap').parallax("30%", 0.1);
-        jQuery('.image-parallax').parallax("50%", 0.1);
 
     }
 
@@ -187,31 +180,6 @@ Drop Down Menu Fade Effect
           mouseport: jQuery('.about-wrap')
     });
 
-
-/*----------------------------------------------------*/
-/*  Animated Progress Bars
-/*----------------------------------------------------*/
-
-    jQuery('.skills li').each(function () {
-        jQuery(this).fappear(function() {
-          jQuery(this).animate({opacity:1,left:"0px"},800);
-          var b = jQuery(this).find(".progress-bar").attr("data-width");
-          jQuery(this).find(".progress-bar").animate({
-            width: b + "%"
-          }, 1300, "easeOutCirc");
-        });
-    });
-
-
-/*----------------------------------------------------*/
-/*  Animated Count To
-/*----------------------------------------------------*/
-
-    jQuery('.fun-wrap .fun-box').each(function () {
-        jQuery(this).fappear(function() {
-            jQuery('.fun').countTo();
-        });
-    });
 
 
 
@@ -239,43 +207,6 @@ Drop Down Menu Fade Effect
 
 
 
-
-
-/*----------------------------------------------------*/
-/*  Accordion Section
-/*----------------------------------------------------*/
-
-    jQuery('.accordionMod').each(function (index) {
-        var thisBox = jQuery(this).children(),
-            thisMainIndex = index + 1;
-        jQuery(this).attr('id', 'accordion' + thisMainIndex);
-        thisBox.each(function (i) {
-            var thisIndex = i + 1,
-                thisParentIndex = thisMainIndex,
-                thisMain = jQuery(this).parent().attr('id'),
-                thisTriggers = jQuery(this).find('.accordion-toggle'),
-                thisBoxes = jQuery(this).find('.accordion-inner');
-            jQuery(this).addClass('panel');
-            thisBoxes.wrap('<div id=\"collapseBox' + thisParentIndex + '_' + thisIndex + '\" class=\"panel-collapse collapse\" />');
-            thisTriggers.wrap('<div class=\"panel-heading\" />');
-            thisTriggers.attr('data-toggle', 'collapse').attr('data-parent', '#' + thisMain).attr('data-target', '#collapseBox' + thisParentIndex + '_' + thisIndex);
-        });
-        jQuery('.accordion-toggle').prepend('<span class=\"icon\" />');
-        jQuery("div.accordion-item:first-child .accordion-toggle").addClass("current");
-        jQuery("div.accordion-item:first-child .icon").addClass("iconActive");
-        jQuery("div.accordion-item:first-child .panel-collapse").addClass("in");
-        jQuery('.accordionMod .accordion-toggle').click(function () {
-            if (jQuery(this).parent().parent().find('.panel-collapse').is('.in')) {
-                jQuery(this).removeClass('current');
-                jQuery(this).find('.icon').removeClass('iconActive');
-            } else {
-                jQuery(this).addClass('current');
-                jQuery(this).find('.icon').addClass('iconActive');
-            }
-            jQuery(this).parent().parent().siblings().find('.accordion-toggle').removeClass('current');
-            jQuery(this).parent().parent().siblings().find('.accordion-toggle > .icon').removeClass('iconActive');
-        });
-    });
 
 
 /*----------------------------------------------------*/
@@ -353,6 +284,7 @@ Drop Down Menu Fade Effect
                 }
 
                 $('#filters a').on('click', function() {
+                        $('#portfolio-wrap').show();
                         var selector = $(this).attr('data-filter');
                         $container.isotope({ filter: selector }, refreshWaypoints());
                         $('#filters a').removeClass('active');
@@ -376,16 +308,17 @@ Drop Down Menu Fade Effect
                         columnNumber = 1;
                     }
                         return columnNumber;
-                    }
+                }
 
-                    function setColumns() {
-                        var winWidth = $(window).width(),
-                        columnNumber = getColumnNumber(),
-                        itemWidth = Math.floor(winWidth / columnNumber);
+                function setColumns() {
+                    var winWidth = $(window).width()-100,
+                    columnNumber = getColumnNumber(),
+                    itemWidth = Math.floor(winWidth / columnNumber);
 
-                        $container.find('.portfolio-item').each(function() {
-                            $(this).css( {
-                            width : itemWidth + 'px'
+                    $container.find('.portfolio-item').each(function() {
+                        $(this).css( {
+                          width : itemWidth + 'px',
+                          height: itemWidth + 'px'
                         });
                     });
                 }
@@ -403,9 +336,6 @@ Drop Down Menu Fade Effect
                 setPortfolio();
             });
         })(jQuery);
-
-
-
 
     });
 
@@ -461,16 +391,6 @@ jQuery(document).ready(function(){
       pager: false
     });
 
-    jQuery('.service-slide').hover(function(){
-      $(this).children('.caption1').addClass('fadeInUp');
-      $(this).children('.caption1').removeClass('fadeOutDown');
-
-
-    },function(){
-      $(this).children('.caption1').addClass('fadeOutDown');
-      $(this).children('.caption1').removeClass('fadeInUp');
-
-    });
 
     jQuery('.bx-wrapper .bx-controls-direction a').attr('data-500','top:83%; opacity: 0;').attr('data-start','top:50%; opacity: 1;');
 

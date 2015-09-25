@@ -36,7 +36,6 @@ body {
         height:100%;
         width:100%;
         color: #334378;
-        background:#FFFFFF;
         font-family: "Karla",sans-serif;
         font-size: 21px;
         line-height: 24px;
@@ -61,6 +60,10 @@ h1 {
 .container-fluid{
   padding-left:0;
   padding-right: 0;
+}
+
+.frameh{
+  width: 100%;
 }
 
 .wrap {
@@ -115,13 +118,25 @@ ul li {
 /*-------------------------------------------------------*/
 
 input.form-control, textarea.form-control {
-    border: solid 1px #CCC;
     background: #fff !important;
+    border-style: solid none none none;
+    border-width: 1px;
+    border-color: #828282;
+    border-radius: 0;
     box-shadow: none !important;
+    color: #828282;
+    font-size: 32px;
+    text-transform: uppercase;
+    padding-top:1px;
+
 }
 
+ textarea.form-control{
+   border-bottom-style: solid;
+ }
+
 .form-control {
-    height: 44px;
+    height: 65px;
 }
 
 
@@ -129,6 +144,33 @@ input:hover, textarea:hover,
 input:focus, textarea:focus {
     border-color: #C9C9C9;
 }
+
+input #inner-editor{
+  height: 65px;
+}
+
+::-webkit-input-placeholder {
+  font-size: inherit;
+  -webkit-transition: 0.5s ease;
+  -moz-transition:  0.5s ease;
+  -o-transition: 0.5s ease;
+  -ms-transition: 0.5s ease;
+  transition: 0.5s ease;
+}
+::-moz-placeholder { max-height: auto; } /* firefox 19+ */
+:-ms-input-placeholder { max-height: auto; } /* ie */
+input:-moz-placeholder { max-height: auto; }
+
+input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholder {
+  color:#f6978f;
+  font-size: 12px;
+  font-weight: bolder;
+  line-height: 8px;
+  display: block !important;
+}
+input:focus::-moz-placeholder { max-height: 10px; } /* firefox 19+ */
+input:focus:-ms-input-placeholder { max-height: 10px; } /* ie */
+input:focus:-moz-placeholder { max-height: 10px; }
 
 
 
@@ -517,7 +559,7 @@ ul.text-slide {
 
 /* Button 2c */
 .btn-2 {
-    border-radius: 5px;
+    border-radius: 0;
 }
 
 .btn-2:hover {
@@ -563,9 +605,10 @@ ul.text-slide {
     border-radius: 0;
     margin-bottom: 0;
     z-index: 9999;
-    -webkit-transition: height 1s;
-    -moz-transition: height 1s;
-    transition: height 1s;
+    max-height: 166px;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    transition: 1s;
 }
 
 .navbar-custom .navbar-nav > li > a {
@@ -579,7 +622,6 @@ ul.text-slide {
     outline: none;
     text-decoration: none;
     text-transform: uppercase;
-
 }
 
 .navbar-custom li {
@@ -591,9 +633,10 @@ ul.text-slide {
 }
 
 .site-logo img{
-  -webkit-transition: height 1s;
-  -moz-transition: height 1s;
-  transition: height 1s;
+  max-height: 120px;
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  transition: 1s;
 }
 
 .dropdown-menu > li > a {
@@ -604,7 +647,6 @@ ul.text-slide {
     outline: none;
     text-decoration: none;
     text-transform: uppercase;
-
 }
 
 .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
@@ -618,8 +660,7 @@ ul.text-slide {
 }
 
 .shrink{
-
-  height: 130px;
+  max-height: 130px;
 }
 
 .shrink li{
@@ -630,7 +671,7 @@ ul.text-slide {
 
 .shrink img{
   padding: 0 0 0 20px;
-  height: 90px;
+  max-height: 90px;
 
 }
 
@@ -696,9 +737,8 @@ nav a:focus {
 .big-title h2 {
     padding: 12px 10px 10px;
     color: inherit;
-    font-size: 44px;
+    font-size: 50px;
     line-height: 50px;
-    margin: 0 auto 50px;
     text-align: center;
     text-transform: uppercase;
     text-shadow: inherit;
@@ -790,6 +830,10 @@ section.portfolio {
     padding: 120px 0 0;
 }
 
+#section3{
+  padding-bottom: 100px;
+}
+
 
 
 /*-------------------------------------------------------*/
@@ -818,9 +862,17 @@ section.portfolio {
     z-index:10;
     position:absolute;
     opacity: 0;
+    max-height: 0;
+    transition: 1s ease;
 }
 
- .bxslider2   li, .bxslider3   li{
+.bxslider > li:hover .caption1{
+  max-height: 100px;
+  opacity:1;
+}
+
+
+ .bxslider2   li, .bxslider3   li, .caption1 > ul > li{
   margin: 0;
 }
 
@@ -870,18 +922,9 @@ section.portfolio {
    overflow: hidden;
 }
 
-
 .product-wrap {
   background: url('../img/parallax2.jpg') 50% no-repeat fixed;
   background-size: cover;
-}
-
-.testimonial-wrap {
-    background: url('../img/plx2.jpg') 50% 0 no-repeat fixed;
-}
-
-.quote-wrap {
-    background: url('../img/plx5.jpg') 50% 0 no-repeat fixed;
 }
 
 .subscription-wrap {
@@ -889,9 +932,12 @@ section.portfolio {
     background-size: cover;
 }
 
-.fun-wrap {
-    background: url('../img/plx3.jpg') 50% 0 no-repeat fixed;
-}
+.seal-wrap {
+    background: url('../img/sello.png') no-repeat;
+    background-size: contain;
+    background-position: right -1px top;
+    z-index: 1000;
+  }
 
 
 .parallax-overlay {
@@ -953,10 +999,23 @@ section.portfolio {
     #portfolio-wrap {
         position: relative;
         padding: 0;
-        width: 100%;
-        margin: 0 auto;
-        margin-bottom: 50px;
+        background-color: #fff;
+        margin: 0 50px;
         display: block;
+    }
+
+    #portfolio-wrap .row{
+      padding: 50px;
+    }
+
+    #portfolio-wrap .h2{
+      font-size: 63px;
+      padding: 0;
+    }
+
+    .portfolio-thumb{
+      bottom: 0;
+      position: fixed;
     }
 
     #portfolio-wrap .one-four {
@@ -973,6 +1032,10 @@ section.portfolio {
         overflow: hidden;
     }
 
+    #portfolio-wrap .row{
+      width: 100%;
+    }
+
 .portfolio-item .img-holder {
     display:block;
     overflow:hidden;
@@ -980,6 +1043,9 @@ section.portfolio {
 }
 
 .img-holder img {
+    margin: 1px;
+    padding: 70px;
+    background-color: #DCB8A6;
     -webkit-transition: all .5s ease-in-out;
     -moz-transition: all .5s ease-in-out;
     -o-transition: all .5s ease-in-out;
@@ -1385,7 +1451,7 @@ section.portfolio {
 /* 20. Subscription section
 /*-------------------------------------------------------*/
 
-.subscrption-wrap .big-title h2::hover, .subscrption-wrap .big-title h2::focus{
+.subscription-wrap .big-title h2::hover, .subscription-wrap .big-title h2::focus{
   opacity:1;
   filter:alpha(opacity=100);
   -webkit-transform:scale(1);
@@ -1401,7 +1467,7 @@ section.portfolio {
   font-weight: 600;
 }
 
-.subscrption-wrap .big-title h2::after,.subscrption-wrap .big-title h2::before {
+.subscription-wrap .big-title h2::after,.subscription-wrap .big-title h2::before {
   border: none;
 }
 
@@ -1435,9 +1501,7 @@ section.portfolio {
 /* 21. Contact form section
 /*-------------------------------------------------------*/
 
-#contact input {
-    margin-bottom: 20px;
-}
+
 
 #contact textarea {
     height: 172px;
@@ -1445,7 +1509,7 @@ section.portfolio {
 }
 
 #contact .btn {
-    padding: 10px 40px;
+    padding: 10px 25px;
     margin-top: 20px;
     margin-bottom:20px;
 }
@@ -1772,19 +1836,18 @@ a.scrollup:hover i,a.scrollup:focus i {
 
 @media (max-width: 767px) {
 
-    .posts-block {
-        margin-bottom: 50px;
+    .service-slide{
+      margin-right: 20px !important;
+      width: 96px !important;
+    }
+    .caption1{
+      width: 96px !important;
+      max-height: 36px !important;
     }
 
-    .blog-small article .post-image {
-        width: 99.7%;
-    }
-
-    .blog-small article .post-content-wrap {
-        float: left;
-        margin: 0;
-        padding: 0;
-        width: 95%;
+    #portfolio-wrap img{
+      margin-top: 20px;
+      width: 100%;
     }
 
 }

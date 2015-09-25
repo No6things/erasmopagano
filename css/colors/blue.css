@@ -14,7 +14,7 @@ ul.why li:before,
 .cl-effect-21 .active a::before,
 .cl-effect-21 .active a::after,
 .post-date a.date i, .service-icon i  {
-    background: #2eaef0;
+    background: #f6978f;
 }
 
 .blue{
@@ -30,7 +30,7 @@ ul.why li:before,
 	  color: #fff;
 }
 
-.product-wrap > .container > .row > .big-title, .about-wrap > .container > .row > .big-title {
+.product-wrap > .container > .row > .big-title, .about-wrap > .container > .row > .big-title, #portfolio-wrap  .big-title {
   color: #f47721;
   text-shadow: 0px 0px 12px rgba(255, 255, 255, 1);
 }
@@ -72,7 +72,7 @@ div.content-box.big div.content-box-info p, .content-box-info h4 {
 }
 
 .btn-2:hover, .btn-2:active, .btn-2 {
-	box-shadow: 0 4px #026ea6;
+	box-shadow: 0 4px #f8dde1;
 }
 
 
@@ -98,5 +98,5 @@ a, a:hover, a:focus,
 .fun,
 .btn-1:hover,
 .btn-1:active {
-    color: #f6978f;
+    color: #f47721;
 }
