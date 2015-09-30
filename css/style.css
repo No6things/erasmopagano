@@ -850,11 +850,18 @@ section.portfolio {
 /* 10. Service section
 /*-------------------------------------------------------*/
 
+.service-slide > img{
+  outline: solid 1px black;
+}
 
+.mid{
+  margin-right: 94px !important;
+}
 
 .caption1{
     background-color: rgb(246, 151, 143);
-    bottom:1px;
+    left: 1px;
+    bottom:0;
     color:white;
     font-size: 15px;
     font-weight: 100;
@@ -872,7 +879,7 @@ section.portfolio {
 }
 
 
- .bxslider2   li, .bxslider3   li, .caption1 > ul > li{
+ .bxslider2   li, .bxslider3   li, .bxslider4 li, .caption1 > ul > li{
   margin: 0;
 }
 
@@ -880,9 +887,7 @@ section.portfolio {
   padding: 0;
 }
 
-/*.slide:hover{
-    background: #566473 !important
-}
+
 
 
 /*-------------------------------------------------------*/
@@ -997,43 +1002,40 @@ section.portfolio {
 /* Portfolio Items */
 
     #portfolio-wrap {
-        position: relative;
-        padding: 0;
-        background-color: #fff;
-        margin: 0 50px;
-        display: block;
-    }
-
-    #portfolio-wrap .row{
-      padding: 50px;
-    }
-
-    #portfolio-wrap .h2{
-      font-size: 63px;
+      background-color: #fff;
+      display: block;
+      margin: 0 50px;
+      position: relative;
       padding: 0;
     }
 
-    .portfolio-thumb{
-      bottom: 0;
-      position: fixed;
+    #portfolio-wrap .row{
+      margin:0;
+      padding: 50px 0 50px 50px;
+      width: 100%;
     }
 
+    #portfolio-wrap .col-lg-4{
+      padding: 0;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      margin-bottom: 50px;
+    }
+
+
     #portfolio-wrap .one-four {
-        margin: 0!important;
-        line-height:0;
-        width: 25%;
-        padding: 0;
-        position:relative;
+      margin: 0!important;
+      line-height:0;
+      padding: 0;
+      position:relative;
+      width: 25%;
     }
 
     .portfolio-item {
         padding: 0;
         position: relative;
         overflow: hidden;
-    }
-
-    #portfolio-wrap .row{
-      width: 100%;
     }
 
 .portfolio-item .img-holder {
@@ -1044,7 +1046,7 @@ section.portfolio {
 
 .img-holder img {
     margin: 1px;
-    padding: 70px;
+    padding: 50px;
     background-color: #DCB8A6;
     -webkit-transition: all .5s ease-in-out;
     -moz-transition: all .5s ease-in-out;
@@ -1137,7 +1139,22 @@ section.portfolio {
     transition: all 0.3s ease 0s;
 }
 
-/* Portfolio Isotope Transitions */
+/* Portfolio Footer*/
+.portfolio-thumb{
+  bottom: 0;
+  border-style: none none double none;
+  border-width: 12px;
+  border-color: #f47721;
+  padding-left: 20px;
+  text-align: left;
+}
+
+.portfolio-thumb h2{
+  font-size: 63px;
+  color:#334378;
+  margin:0;
+  padding:0;
+}
 
     .isotope, .isotope .isotope-item {
         -webkit-transition-duration: 0.8s;
@@ -1734,20 +1751,6 @@ a.scrollup:hover i,a.scrollup:focus i {
 
 
 @media (min-width: 768px) and (max-width: 979px)  {
-
-    .carousel-controls, .testimonials .carousel-controls.pull-right {
-        text-align: center;
-        float: none !important;
-        display: table;
-        margin: 0 auto;
-
-        -webkit-transform: rotate(90deg);
-        -moz-transform:    rotate(90deg);
-        -ms-transform:     rotate(90deg);
-        -o-transform:      rotate(90deg);
-        trasform: rotate(90deg);
-    }
-
     .slide-content h1, .slide-caption h1, .video-section h1, .text-slide li {
         font-size: 50px;
     }

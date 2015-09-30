@@ -1,5 +1,5 @@
 $(window).scroll(function() {
-  if ($(document).scrollTop() < 1000) {
+  if ($(document).scrollTop() < $(window).height()) {
     $('nav').removeClass('shrink').css("background", "rgba(255,255,255,0.9)");
   } else {
     $('nav').addClass('shrink').css("background", "rgba(255,255,255,1)");
@@ -97,61 +97,6 @@ Drop Down Menu Fade Effect
 
         return false;
     });
-
-
-
-
-
-/*==========================*/
-/* FullScreen Slider
-/*==========================*/
-
-    jQuery(function (){
-        jQuery('#fullscreen-slider').maximage({
-            cycleOptions: {
-                fx: 'fade',
-                speed: 1000, // Has to match the speed for CSS transitions in jQuery.maximage.css (lines 30 - 33)
-                timeout: 0,
-                prev: '#slider_left',
-                next: '#slider_right',
-                pause: 1,
-                before: function(last,current){
-                    jQuery('.slide-content').fadeOut().animate({top:'500px'},{queue:false, easing: 'easeOutQuad', duration: 750});
-                    jQuery('.slide-content').fadeOut().animate({top:'-500px'});
-                },
-                after: function(last,current){
-                    jQuery('.slide-content').fadeIn().animate({top:'0'},{queue:false, easing: 'easeOutQuad', duration: 650});
-                }
-
-
-
-            },
-
-
-
-            onFirstImageLoaded: function(){
-                //jQuery('#cycle-loader').delay(1000).hide();
-                jQuery('#fullscreen-slider').delay(1000).fadeIn('slow');
-                jQuery('.slide-content').fadeIn().animate({top:'0'});
-                jQuery('.slide-content a').bind('click',function(event){
-                    var $anchor = jQuery(this);
-                    jQuery('html, body').stop().animate({
-                    scrollTop: jQuery($anchor.attr('href')).offset().top -44
-                    }, 1500,'easeInOutExpo');
-                    event.preventDefault();
-                    });
-            }
-        });
-
-        // Helper function to Fill and Center the HTML5 Video
-        jQuery('video,object').maximage('maxcover');
-
-        // To show it is dynamic html text
-
-    });
-
-
-
 
 /*----------------------------------------------------*/
 /*  Parallax section
@@ -258,19 +203,13 @@ Drop Down Menu Fade Effect
         (function($) {
             "use strict";
             var $container = $('#portfolio-wrap'),
-                $items = $container.find('.portfolio-item'),
-                portfolioLayout = 'fitRows';
-
-                if( $container.hasClass('portfolio-centered') ) {
-                    portfolioLayout = 'masonry';
-                }
-
+                portfolioLayout = 'masonry';
                 $container.isotope({
                     filter: '*',
                     animationEngine: 'best-available',
                     layoutMode: portfolioLayout,
                     animationOptions: {
-                    duration: 750,
+                    duration: 75000,
                     easing: 'linear',
                     queue: false
                 },
@@ -278,63 +217,66 @@ Drop Down Menu Fade Effect
                 }
                 }, refreshWaypoints());
 
-                function refreshWaypoints() {
-                    setTimeout(function() {
-                    }, 1000);
+
+            function refreshWaypoints() {
+                setTimeout(function() {
+                }, 1000);
+            }
+
+            $('#filters a').on('click', function() {
+                    $("html, body").animate({ scrollDown: $(window).height + 50 }, 1000);
+                    $('#portfolio-wrap').show();
+                    var selector = $(this).attr('data-filter');
+                    $container.isotope({ filter: selector }, refreshWaypoints());
+                    $('#filters a').removeClass('active');
+                    $(this).addClass('active');
+                    return false;
+            });
+
+            function getColumnNumber() {
+                var winWidth = $(window).width(),
+                columnNumber = 1;
+
+                if (winWidth > 1200) {
+                    columnNumber = 6;
+                } else if (winWidth > 950) {
+                    columnNumber = 5;
+                } else if (winWidth > 600) {
+                    columnNumber = 4;
+                } else if (winWidth > 400) {
+                    columnNumber = 4;
+                } else if (winWidth > 250) {
+                    columnNumber = 4;
                 }
+                    return columnNumber;
+            }
 
-                $('#filters a').on('click', function() {
-                        $('#portfolio-wrap').show();
-                        var selector = $(this).attr('data-filter');
-                        $container.isotope({ filter: selector }, refreshWaypoints());
-                        $('#filters a').removeClass('active');
-                        $(this).addClass('active');
-                        return false;
-                });
+            function setColumns() {
+                var winWidth = $(window).width()-100,
+                columnNumber = getColumnNumber(),
+                itemWidth = Math.floor(winWidth / columnNumber);
 
-                function getColumnNumber() {
-                    var winWidth = $(window).width(),
-                    columnNumber = 1;
-
-                    if (winWidth > 1200) {
-                        columnNumber = 4;
-                    } else if (winWidth > 950) {
-                        columnNumber = 4;
-                    } else if (winWidth > 600) {
-                        columnNumber = 3;
-                    } else if (winWidth > 400) {
-                        columnNumber = 2;
-                    } else if (winWidth > 250) {
-                        columnNumber = 1;
-                    }
-                        return columnNumber;
-                }
-
-                function setColumns() {
-                    var winWidth = $(window).width()-100,
-                    columnNumber = getColumnNumber(),
-                    itemWidth = Math.floor(winWidth / columnNumber);
-
-                    $container.find('.portfolio-item').each(function() {
-                        $(this).css( {
-                          width : itemWidth + 'px',
-                          height: itemWidth + 'px'
-                        });
+                $container.find('.one-four').each(function() {
+                    $(this).css( {
+                      width : itemWidth + 'px',
+                      height: itemWidth + 'px'
                     });
-                }
-
-                function setPortfolio() {
-                    setColumns();
-                    $container.isotope('reLayout');
-                }
-
-                $container.imagesLoaded(function () {
-                    setPortfolio();
                 });
+            }
 
-                $(window).on('resize', function () {
+            function setPortfolio() {
+                setColumns();
+                $container.isotope('layout');
+            }
+
+            $container.imagesLoaded(function () {
                 setPortfolio();
             });
+
+            $(window).on('resize', function () {
+                setPortfolio();
+            });
+
         })(jQuery);
 
     });
@@ -370,13 +312,14 @@ jQuery(document).ready(function(){
 
     jQuery('.bxslider').bxSlider({
       slideWidth: 300,
-      slideMargin: 100,
+      slideMargin: 95,
       minSlides: 3,
       maxSlides: 3,
       moveSlides: 2,
       captions:true,
       autoHover: true,
-      controls:false
+      controls:false,
+      infiniteLoop: false
     });
 
     jQuery('.bxslider2').bxSlider({
@@ -386,6 +329,12 @@ jQuery(document).ready(function(){
     });
 
     jQuery('.bxslider3').bxSlider({
+      autoHover: true,
+      controls:false,
+      pager: false
+    });
+
+    jQuery('.bxslider4').bxSlider({
       autoHover: true,
       controls:false,
       pager: false
