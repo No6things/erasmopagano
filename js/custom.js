@@ -3,13 +3,11 @@ $(window).scroll(function() {
     $('nav').removeClass('shrink').css("background", "rgba(255,255,255,0.9)");
   } else {
     $('nav').addClass('shrink').css("background", "rgba(255,255,255,1)");
-
   }
 });
+var sliders = new Array();
 
 jQuery(document).ready(function () {
-
-
   jQuery.waitForImages.hasImgProperties = ['background','backgroundImage'];
     jQuery('body').waitForImages(function() {
         jQuery(".page-mask").delay(1200).fadeOut('slow');
@@ -126,8 +124,6 @@ Drop Down Menu Fade Effect
     });
 
 
-
-
 /*----------------------------------------------------*/
 /*  Scroll To Top Section
 /*----------------------------------------------------*/
@@ -152,8 +148,6 @@ Drop Down Menu Fade Effect
 
 
 
-
-
 /*----------------------------------------------------*/
 /*  PrettyPhoto
 /*----------------------------------------------------*/
@@ -168,8 +162,6 @@ Drop Down Menu Fade Effect
         jQuery('a[data-rel^="prettyPhoto"]').prettyPhoto();
     });
 
-
-
     jQuery("#horizontal-tabs").tytabs({
         tabinit: "1",
         fadespeed: "fast"
@@ -182,105 +174,9 @@ Drop Down Menu Fade Effect
 
 
     jQuery('.testimonials-carousel').carousel({interval: false, wrap: false});
-
     jQuery('.testimonials-carousel-widget').carousel({interval: 5000, pause: "hover"});
 
 });
-
-
-
-
-/*----------------------------------------------------*/
-/*  Portfolio Isotope
-/*----------------------------------------------------*/
-
-
-
-
-    jQuery(document).ready(function(){
-
-        // Portfolio
-        (function($) {
-            "use strict";
-            var $container = $('#portfolio-wrap'),
-                portfolioLayout = 'masonry';
-                $container.isotope({
-                    filter: '*',
-                    animationEngine: 'best-available',
-                    layoutMode: portfolioLayout,
-                    animationOptions: {
-                    duration: 75000,
-                    easing: 'linear',
-                    queue: false
-                },
-                masonry: {
-                }
-                }, refreshWaypoints());
-
-
-            function refreshWaypoints() {
-                setTimeout(function() {
-                }, 1000);
-            }
-
-            $('#filters a').on('click', function() {
-                    $("html, body").animate({ scrollDown: $(window).height + 50 }, 1000);
-                    $('#portfolio-wrap').show();
-                    var selector = $(this).attr('data-filter');
-                    $container.isotope({ filter: selector }, refreshWaypoints());
-                    $('#filters a').removeClass('active');
-                    $(this).addClass('active');
-                    return false;
-            });
-
-            function getColumnNumber() {
-                var winWidth = $(window).width(),
-                columnNumber = 1;
-
-                if (winWidth > 1200) {
-                    columnNumber = 6;
-                } else if (winWidth > 950) {
-                    columnNumber = 5;
-                } else if (winWidth > 600) {
-                    columnNumber = 4;
-                } else if (winWidth > 400) {
-                    columnNumber = 4;
-                } else if (winWidth > 250) {
-                    columnNumber = 4;
-                }
-                    return columnNumber;
-            }
-
-            function setColumns() {
-                var winWidth = $(window).width()-100,
-                columnNumber = getColumnNumber(),
-                itemWidth = Math.floor(winWidth / columnNumber);
-
-                $container.find('.one-four').each(function() {
-                    $(this).css( {
-                      width : itemWidth + 'px',
-                      height: itemWidth + 'px'
-                    });
-                });
-            }
-
-            function setPortfolio() {
-                setColumns();
-                $container.isotope('layout');
-            }
-
-            $container.imagesLoaded(function () {
-                setPortfolio();
-            });
-
-            $(window).on('resize', function () {
-                setPortfolio();
-            });
-
-        })(jQuery);
-
-    });
-
 
 
 /*----------------------------------------------------*/
@@ -289,7 +185,6 @@ Drop Down Menu Fade Effect
 
 
 jQuery(document).ready(function(){
-
     var onMobile = false;
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) { onMobile = true; }
 
@@ -334,11 +229,16 @@ jQuery(document).ready(function(){
       pager: false
     });
 
-    jQuery('.bxslider4').bxSlider({
-      autoHover: true,
-      controls:false,
-      pager: false
+    $('.bxslider5').each(function(i, slider) {
+        sliders[i] = $(slider).bxSlider({
+          autoHover: true,
+          infiniteLoop: false,
+          mode: 'fade',
+          pager: false,
+          slideSelector: '.slide'
+        });
     });
+
 
 
     jQuery('.bx-wrapper .bx-controls-direction a').attr('data-500','top:83%; opacity: 0;').attr('data-start','top:50%; opacity: 1;');
@@ -366,6 +266,101 @@ jQuery(document).ready(function(){
 
 
 });
+
+/*----------------------------------------------------*/
+/*  Portfolio Isotope
+/*----------------------------------------------------*/
+    jQuery(document).ready(function(){
+
+        // Portfolio
+        (function($) {
+            "use strict";
+            var $container = $('#portfolio-wrap');
+
+            function refreshWaypoints() {
+                setTimeout(function() {
+                }, 10);
+            }
+
+            function getColumnNumber() {
+                var winWidth = $(window).width(),
+                    columnNumber = 1;
+
+                if (winWidth > 1200) {
+                    columnNumber = 6;
+                } else if (winWidth > 950) {
+                    columnNumber = 5;
+                } else if (winWidth > 600) {
+                    columnNumber = 4;
+                } else if (winWidth > 400) {
+                    columnNumber = 4;
+                } else if (winWidth > 250) {
+                    columnNumber = 4;
+                }
+                    return columnNumber;
+            }
+
+            function setColumns() {
+                var winWidth = $(window).width()-200,
+                    columnNumber = getColumnNumber(),
+                    itemWidth = Math.floor(winWidth / columnNumber);
+                console.log(winWidth);
+
+                $container.find('.one-four').each(function() {
+                    $(this).css( {
+                      width : itemWidth + 'px',
+                      height: itemWidth + 'px'
+                    });
+                });
+            }
+
+            function setPortfolio() {
+                setColumns();
+                $container.isotope('layout');
+            }
+
+            $container.imagesLoaded(function () {
+                setPortfolio();
+            });
+
+            $(window).on('resize', function () {
+                setPortfolio();
+            });
+
+            $('#filters a').on('click', function() {
+                    $('#portfolio-wrap').show();
+
+                    var selector = $(this).attr('data-filter');
+                    $container.isotope({ filter: selector }, refreshWaypoints());
+                    if (selector == '.pr') {
+                      sliders[0].reloadSlider();
+                    } else if ( selector == '.cu'){
+                      sliders[1].reloadSlider();
+                    } else {
+                      sliders[2].reloadSlider();
+                    }
+                    $('#filters a').removeClass('active');
+                    $(this).addClass('active');
+
+                    setPortfolio();
+                    return false;
+            });
+
+            $container.isotope({
+                animationEngine: 'best-available',
+                layoutMode: 'masonry',
+                animationOptions: {
+                  duration: 75000,
+                  easing: 'linear',
+                  queue: false
+                },
+                masonry: {
+                }
+            }, refreshWaypoints());
+        })(jQuery);
+
+    });
+
 
 /*----------------------------------------------------*/
 /*  Contact Form Section

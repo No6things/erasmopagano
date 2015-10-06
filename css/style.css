@@ -670,7 +670,7 @@ ul.text-slide {
 }
 
 .shrink img{
-  padding: 0 0 0 20px;
+  padding: 0 0 0 35px;
   max-height: 90px;
 
 }
@@ -1025,6 +1025,7 @@ section.portfolio {
 
 
     #portfolio-wrap .one-four {
+      display: inline-block;
       margin: 0!important;
       line-height:0;
       padding: 0;
@@ -1036,23 +1037,35 @@ section.portfolio {
         padding: 0;
         position: relative;
         overflow: hidden;
+        width: 100%;
+    }
+
+    .portfolio-item .row:first-child{
+      padding:0 !important;
+    }
+
+    .slide{
+      z-index: 15 !important;
     }
 
 .portfolio-item .img-holder {
     display:block;
+    height: 100%;
     overflow:hidden;
     position: relative;
 }
 
 .img-holder img {
+    background-color: #DCB8A6;
+    height: 100%;
     margin: 1px;
     padding: 50px;
-    background-color: #DCB8A6;
     -webkit-transition: all .5s ease-in-out;
     -moz-transition: all .5s ease-in-out;
     -o-transition: all .5s ease-in-out;
     -ms-transition: all .5s ease-in-out;
     transition: all .5s ease-in-out;
+    width: 100%;
 }
 
 .img-holder:hover img {
@@ -1188,116 +1201,6 @@ section.portfolio {
         transition-duration: 0s;
     }
 
-
-
-/*-------------------------------------------------------*/
-/* 14. Accordion Tab
-/*-------------------------------------------------------*/
-
-.accordionMod .panel-heading .accordion-toggle {
-    position: relative;
-    cursor: pointer;
-    margin: 0;
-    padding: 10px 40px;
-}
-
-.accordion-body,.panel-heading {
-    background: #fff;
-    border-radius: 0;
-    padding: 0;
-}
-
-.accordionMod .panel-heading .accordion-toggle .icon:before {
-    content: "\f067";
-    font-family: FontAwesome;
-    font-weight: 300;
-    display: block;
-    width: 14px;
-    height: 14px;
-    position: absolute;
-    left: 15px;
-    top: 11px;
-}
-
-.accordionMod .panel-heading .accordion-toggle .iconActive:before {
-    content: "\f068";
-    font-family: FontAwesome;
-}
-
-.accordionMod .panel-heading .current {
-    color: #fff;
-}
-
-.panel-group .panel {
-    border-radius: 0;
-    box-shadow: none;
-    border: none;
-}
-
-.panel-group .panel + .panel {
-    margin-top: 10px;
-}
-
-/* Tabs */
-#horizontal-tabs {
-    margin-bottom:30px;
-}
-
-#horizontal-tabs ul.tabs li {
-
-    cursor: pointer;
-    float: left;
-    font-size: 15px;
-    padding: 12px;
-}
-
-
-
-#horizontal-tabs ul.tabs li.current {
-    background: #fff;
-    cursor: default;
-}
-
-#horizontal-tabs ul.tabs {
-    overflow: hidden;
-    background: #E0E1E7;
-    list-style:none;
-    margin:0;
-    padding:0;
-}
-
-#horizontal-tabs .contents {
-    background: #fff;
-}
-
-#horizontal-tabs .tabscontent.no-padding {
-    padding-left: 0;
-    padding-right: 0;
-}
-
-#horizontal-tabs .tabscontent {
-    display: none;
-    overflow: hidden;
-    padding: 20px 20px 0;
-}
-
-.tabs ul.posts li {
-    margin-bottom: 15px;
-    padding-bottom: 10px;
-    overflow: hidden;
-    border-bottom: 1px solid #f8f8f8;
-}
-
-.tabs ul.posts li img {
-    height: 68px;
-    width: 68px;
-    -webkit-transition: all .4s ease-in 0;
-    -moz-transition: all .4s ease-in 0;
-    -o-transition: all .4s ease-in 0;
-    -ms-transition: all .4s ease-in 0;
-    transition: all .4s ease-in 0;
-    float: left;
-}
 
 
 
@@ -1658,9 +1561,7 @@ a.scrollup:hover i,a.scrollup:focus i {
 
     #slider_left, #slider_right, .bx-prev, .bx-next {
         display: none;
-
     }
-
 
 }
 
@@ -1704,8 +1605,6 @@ a.scrollup:hover i,a.scrollup:focus i {
         font-size: 24px;
     }
 
-
-
     #filters ul {
         padding-left: 0;
     }
@@ -1717,7 +1616,6 @@ a.scrollup:hover i,a.scrollup:focus i {
     div.content-box.big, .contact-box {
         margin-bottom: 20px;
     }
-
 
     .mob-logo {
         display: inline-block;
