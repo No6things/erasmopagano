@@ -1,12 +1,15 @@
+var sliders = new Array(), skroffset=0;
+
 $(window).scroll(function() {
   if ($(document).scrollTop() < $(window).height()) {
     $('nav').removeClass('shrink').css("background", "rgba(255,255,255,0.9)");
   } else {
     $('nav').addClass('shrink').css("background", "rgba(255,255,255,1)");
   }
-});
-var sliders = new Array();
+    $(".product-wrap").css("background-position","30% " + (($(this).scrollTop() + skroffset) ) + "px");
+    $(".subscription-wrap").css("background-position","30% " + (($(this).scrollTop() + skroffset) ) + "px");
 
+});
 jQuery(document).ready(function () {
   jQuery.waitForImages.hasImgProperties = ['background','backgroundImage'];
     jQuery('body').waitForImages(function() {
@@ -28,9 +31,6 @@ jQuery(document).ready(function () {
     $(".frameh").height($(window).height());
 
 
-/*-------------------------------------------------*/
-/* =  Static Heights on Portrait and Home Slider
-/*-------------------------------------------------*/
 
 
 /*-------------------------------------------------*/
@@ -116,14 +116,6 @@ Drop Down Menu Fade Effect
 
     }
 
-
-    //Horizontal parallax
-    jQuery('.about-wrap .parallax-layer')
-        .hparallax({
-          mouseport: jQuery('.about-wrap')
-    });
-
-
 /*----------------------------------------------------*/
 /*  Scroll To Top Section
 /*----------------------------------------------------*/
@@ -188,23 +180,6 @@ jQuery(document).ready(function(){
     var onMobile = false;
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) { onMobile = true; }
 
-    jQuery('.fullwidth-slider').bxSlider({
-        mode: "fade",
-        speed: 1000,
-        pager: false,
-        nextText: '<i class="fa fa-angle-right"></i>',
-        prevText: '<i class="fa fa-angle-left"></i>',
-
-        onSlideBefore: function($slideElement) {
-            ($slideElement).find('.slide-caption').fadeOut().animate({top:'100px'},{queue:false, easing: 'easeOutQuad', duration: 550});
-            ($slideElement).find('.slide-caption').hide().animate({top:'-100px'});
-        },
-        onSlideAfter: function($slideElement) {
-            ($slideElement).find('.slide-caption').fadeIn().animate({top:'0'},{queue:false, easing: 'easeOutQuad', duration: 450});
-        },
-
-    });
-
     jQuery('.bxslider').bxSlider({
       slideWidth: 300,
       slideMargin: 95,
@@ -235,7 +210,17 @@ jQuery(document).ready(function(){
           infiniteLoop: false,
           mode: 'fade',
           pager: false,
-          slideSelector: '.slide'
+          slideSelector: '.slide',
+          nextText: '<i class="fa fa-angle-right"></i>',
+          prevText: '<i class="fa fa-angle-left"></i>',
+
+          onSlideBefore: function($slideElement) {
+              ($slideElement).find('.slide-caption').fadeOut().animate({top:'100px'},{queue:false, easing: 'easeOutQuad', duration: 550});
+              ($slideElement).find('.slide-caption').hide().animate({top:'-100px'});
+          },
+          onSlideAfter: function($slideElement) {
+              ($slideElement).find('.slide-caption').fadeIn().animate({top:'0'},{queue:false, easing: 'easeOutQuad', duration: 450});
+          }
         });
     });
 
@@ -279,7 +264,7 @@ jQuery(document).ready(function(){
 
             function refreshWaypoints() {
                 setTimeout(function() {
-                }, 10);
+                }, 1);
             }
 
             function getColumnNumber() {
@@ -329,6 +314,7 @@ jQuery(document).ready(function(){
 
             $('#filters a').on('click', function() {
                     $('#portfolio-wrap').show();
+                    skroffset= $('.portfolio-wrap > .bx-wrapper').height();
 
                     var selector = $(this).attr('data-filter');
                     $container.isotope({ filter: selector }, refreshWaypoints());

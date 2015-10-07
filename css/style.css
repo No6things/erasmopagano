@@ -9,7 +9,7 @@
  6.Header
  7.Title code
  8.Section code
- 9.About section
+ 9.f section
  10.Service section
  11.Parallax Section
  12.Pricing Section
@@ -248,8 +248,8 @@ input:focus:-moz-placeholder { max-height: 10px; }
     display: inline-block;
     margin:0 auto;
     line-height: 80px;
-    padding: 20px;
-}
+    padding: 28px 20px 1px 20px;
+  }
 
 #navigation .site-logo a, #navigation .site-logo a:hover, #navigation .site-logo a:focus, #navigation .site-logo a:before, #navigation .site-logo a:after {
     background: transparent !important;
@@ -260,64 +260,6 @@ input:focus:-moz-placeholder { max-height: 10px; }
 /* 4. Slider
 /*-------------------------------------------------------*/
 
-/* Home Fullwidth Parallax Slider */
-
-ul.fullwidth-slider {
-    position: relative;
-    display: block;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    background-color: #222222;
-    z-index: 0;
-    -webkit-backface-visibility: visible;
-    background-position: center center;
-    background-repeat: no-repeat;
-}
-
-ul.fullwidth-slider li.slide {
-    position: relative;
-    display: none;
-    overflow: hidden;
-    float: left;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    background-attachment:absolute ;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    -webkit-backface-visibility: visible;
-}
-
-ul.fullwidth-slider li.slide .caption {
-    position: relative;
-    height: 100%;
-    width:100%;
-}
-
-ul.fullwidth-slider li.slide .caption .caption-inside {
-    position: absolute;
-    top: 0px;
-    width:100%;
-}
-
-ul.fullwidth-slider li.slide .caption .slide-caption {
-    height: 100%;
-    z-index: 0;
-    display: table;
-    position: relative;
-    top: 0;
-    width:80%;
-    margin-left:10%;
-    margin-right:10%;
-}
-
-ul.fullwidth-slider li.slide .caption .slide-caption .vertical-align-middle{
-    display: table-cell;
-    vertical-align: middle;
-    text-align:center;
-}
 
 .vertical-align-middle p {
     margin:20px 0;
@@ -328,20 +270,15 @@ ul.fullwidth-slider li.slide .caption .slide-caption .vertical-align-middle{
     color:#222;
 }
 
-ul.fullwidth-slider, ul.fullwidth-slider .caption-inside {
-    height: 700px;
+
+.bx-wrapper .bx-next {
+    right:1px;
 }
 
-.parallax-slider .bx-wrapper .bx-next {
-    right:50px;
+.bx-wrapper .bx-prev {
+    left:1px;
 }
 
-.parallax-slider .bx-wrapper .bx-prev {
-    left:50px;
-}
-
-
-/* Home Full Screen Slider */
 
 .slider-container {
     width: 100%;
@@ -349,56 +286,11 @@ ul.fullwidth-slider, ul.fullwidth-slider .caption-inside {
     position: relative;
 }
 
-#slider_left i, #slider_right i, .bx-prev i, .bx-next i {
+ .bx-prev i, .bx-next i {
     font-size: 80px;
-    color: #fff;
+    color: #f47721;
 }
 
-#slider_left {
-    top:50%;
-    height:60px;
-    position:absolute;
-    left:50px;
-    width:32px;
-    z-index:1000;
-    margin-top:-40px;
-    cursor:pointer;
-}
-
-#slider_right {
-    top:50%;
-    height:60px;
-    position:absolute;
-    right:50px;
-    width:32px;
-    z-index:1000;
-    margin-top:-40px;
-    cursor:pointer;
-}
-
-
-div.mc-image {
-    -webkit-transition: opacity 1s ease-in-out;
-    -moz-transition: opacity 1s ease-in-out;
-    -o-transition: opacity 1s ease-in-out;
-    transition: opacity 1s ease-in-out;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    background-position:center center;
-    background-repeat:no-repeat;
-    height:100%;
-    overflow:hidden;
-    width:100%;
-}
-
-#slider_left:hover, #slider_right:hover {
-    margin-top:-38px;
-}
-#slider_left:active, #slider_right:active {
-    margin-top:-38px;
-}
 
 .slide-content {
     height: 100%;
@@ -616,9 +508,7 @@ ul.text-slide {
     font-family: 'Questrial' sans-serif;
     font-size: 20px;
     font-weight: lighter;
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-bottom: 0;
+    padding: 0px 50px 0px 50px;
     outline: none;
     text-decoration: none;
     text-transform: uppercase;
@@ -634,6 +524,12 @@ ul.text-slide {
 
 .site-logo img{
   max-height: 120px;
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  transition: 1s;
+}
+
+.site-logo{
   -webkit-transition: 1s;
   -moz-transition: 1s;
   transition: 1s;
@@ -663,9 +559,12 @@ ul.text-slide {
   max-height: 130px;
 }
 
-.shrink li{
+.shrink .site-logo{
+  padding-top: 0px;
+}
 
-  margin: 50px 0 0 0;
+.shrink li{
+  margin: 45px 0 0 0;
   font-size: 18px;
 }
 
@@ -850,6 +749,15 @@ section.portfolio {
 /* 10. Service section
 /*-------------------------------------------------------*/
 
+.about-wrap .bx-viewport{
+  height: 240px !important;
+}
+
+
+.service-slide{
+  margin-top: 1px;
+}
+
 .service-slide > img{
   outline: solid 1px black;
 }
@@ -930,11 +838,13 @@ section.portfolio {
 .product-wrap {
   background: url('../img/parallax2.jpg') 50% no-repeat fixed;
   background-size: cover;
+  transition: background-position 0s ease-in-out;
 }
 
 .subscription-wrap {
     background: url('../img/parallax.jpg') 50% no-repeat fixed;
     background-size: cover;
+    transition: background-position 0s ease-in-out;
 }
 
 .seal-wrap {
@@ -1046,6 +956,7 @@ section.portfolio {
 
     .slide{
       z-index: 15 !important;
+      padding: 0 39px;
     }
 
 .portfolio-item .img-holder {
