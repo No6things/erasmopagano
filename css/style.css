@@ -100,6 +100,13 @@ ul li {
     margin: 15px 0;
 }
 
+.portfolio-bullet li:before {
+  font-family: 'FontAwesome';
+  content: '\f0da';
+  margin: 0 8px 0 -30px;
+  color: #f47721;
+}
+
 .half {
   width: 50%;
 }
@@ -248,7 +255,7 @@ input:focus:-moz-placeholder { max-height: 10px; }
     display: inline-block;
     margin:0 auto;
     line-height: 80px;
-    padding: 28px 20px 1px 20px;
+    padding: 8px 20px 1px 20px;
   }
 
 #navigation .site-logo a, #navigation .site-logo a:hover, #navigation .site-logo a:focus, #navigation .site-logo a:before, #navigation .site-logo a:after {
@@ -273,10 +280,14 @@ input:focus:-moz-placeholder { max-height: 10px; }
 
 .bx-wrapper .bx-next {
     right:1px;
+    z-index: 15 !important;
+
 }
 
 .bx-wrapper .bx-prev {
     left:1px;
+    z-index: 15 !important;
+
 }
 
 
@@ -289,6 +300,7 @@ input:focus:-moz-placeholder { max-height: 10px; }
  .bx-prev i, .bx-next i {
     font-size: 80px;
     color: #f47721;
+    z-index: 15!important;
 }
 
 
@@ -515,7 +527,7 @@ ul.text-slide {
 }
 
 .navbar-custom li {
-  margin-top: 117px;
+  margin-top: 102px;
   margin-bottom: 0;
   -webkit-transition: -webkit-margin 1s,  -webkit-font-size 1s;
   -moz-transition: -moz-margin 1s, -moz-font-size 1s;
@@ -560,7 +572,7 @@ ul.text-slide {
 }
 
 .shrink .site-logo{
-  padding-top: 0px;
+  padding-top: 4px;
 }
 
 .shrink li{
@@ -569,12 +581,8 @@ ul.text-slide {
 }
 
 .shrink img{
-  padding: 0 0 0 35px;
   max-height: 90px;
-
 }
-
-
 
 .caret {
     margin-left: 5px;
@@ -744,10 +752,6 @@ section.portfolio {
   margin-bottom: 50px;
 }
 
-
-/*-------------------------------------------------------*/
-/* 10. Service section
-/*-------------------------------------------------------*/
 
 .about-wrap .bx-viewport{
   height: 240px !important;
@@ -925,15 +929,6 @@ section.portfolio {
       width: 100%;
     }
 
-    #portfolio-wrap .col-lg-4{
-      padding: 0;
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      margin-bottom: 50px;
-    }
-
-
     #portfolio-wrap .one-four {
       display: inline-block;
       margin: 0!important;
@@ -941,6 +936,22 @@ section.portfolio {
       padding: 0;
       position:relative;
       width: 25%;
+    }
+
+    .future .col-lg-4{
+      padding: 0;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      margin-bottom: 50px;
+    }
+
+    .current .col-lg-4, .previous .col-lg-4{
+      padding: 0;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      margin-bottom: 100px;
     }
 
     .portfolio-item {
@@ -951,7 +962,7 @@ section.portfolio {
     }
 
     .portfolio-item .row:first-child{
-      padding:0 !important;
+      padding: 54px 0 !important;
     }
 
     .slide{
@@ -970,7 +981,7 @@ section.portfolio {
     background-color: #DCB8A6;
     height: 100%;
     margin: 1px;
-    padding: 50px;
+    padding: 35px;
     -webkit-transition: all .5s ease-in-out;
     -moz-transition: all .5s ease-in-out;
     -o-transition: all .5s ease-in-out;
@@ -1478,24 +1489,7 @@ a.scrollup:hover i,a.scrollup:focus i {
 
 @media(max-width: 767px) {
     .carousel-controls, .testimonials .carousel-controls.pull-right {
-        text-align: center;
-        float: none !important;
-        display: table;
-        margin: 0 auto;
 
-        -webkit-transform: rotate(90deg);
-        -moz-transform:    rotate(90deg);
-        -ms-transform:     rotate(90deg);
-        -o-transform:      rotate(90deg);
-        trasform: rotate(90deg);
-    }
-
-    .slide-content h1, .slide-caption h1, .text-slide li {
-        font-size: 50px;
-    }
-
-    .text-slide li {
-        line-height: 60px;
     }
 
     .video-section .welcome {

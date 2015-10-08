@@ -6,8 +6,8 @@ $(window).scroll(function() {
   } else {
     $('nav').addClass('shrink').css("background", "rgba(255,255,255,1)");
   }
-    $(".product-wrap").css("background-position","30% " + (($(this).scrollTop() + skroffset) ) + "px");
-    $(".subscription-wrap").css("background-position","30% " + (($(this).scrollTop() + skroffset) ) + "px");
+  //  $(".product-wrap").css("background-position","30% " + (($(this).scrollTop() + skroffset) ) + "px");
+  //  $(".subscription-wrap").css("background-position","30% " + (($(this).scrollTop() + skroffset) ) + "px");
 
 });
 jQuery(document).ready(function () {
@@ -173,12 +173,18 @@ Drop Down Menu Fade Effect
 
 /*----------------------------------------------------*/
 /*  BxSlider
+/* -preIndex, curIndex and futIndex are the index of the slides that identifies categories Previous Current and Future on bxSlider5
+    these must be consistent with the HTML layout of the slides*/
 /*----------------------------------------------------*/
 
 
 jQuery(document).ready(function(){
     var onMobile = false;
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) { onMobile = true; }
+    var preIndex= 2,
+        curIndex= 3,
+        futIndex= 4;
+
 
     jQuery('.bxslider').bxSlider({
       slideWidth: 300,
@@ -212,15 +218,7 @@ jQuery(document).ready(function(){
           pager: false,
           slideSelector: '.slide',
           nextText: '<i class="fa fa-angle-right"></i>',
-          prevText: '<i class="fa fa-angle-left"></i>',
-
-          onSlideBefore: function($slideElement) {
-              ($slideElement).find('.slide-caption').fadeOut().animate({top:'100px'},{queue:false, easing: 'easeOutQuad', duration: 550});
-              ($slideElement).find('.slide-caption').hide().animate({top:'-100px'});
-          },
-          onSlideAfter: function($slideElement) {
-              ($slideElement).find('.slide-caption').fadeIn().animate({top:'0'},{queue:false, easing: 'easeOutQuad', duration: 450});
-          }
+          prevText: '<i class="fa fa-angle-left"></i>'
         });
     });
 
@@ -272,24 +270,23 @@ jQuery(document).ready(function(){
                     columnNumber = 1;
 
                 if (winWidth > 1200) {
-                    columnNumber = 6;
+                    columnNumber = 4;
                 } else if (winWidth > 950) {
-                    columnNumber = 5;
+                    columnNumber = 3;
                 } else if (winWidth > 600) {
-                    columnNumber = 4;
+                    columnNumber = 3;
                 } else if (winWidth > 400) {
-                    columnNumber = 4;
+                    columnNumber = 3;
                 } else if (winWidth > 250) {
-                    columnNumber = 4;
+                    columnNumber = 2;
                 }
                     return columnNumber;
             }
 
             function setColumns() {
-                var winWidth = $(window).width()-200,
+                var winWidth = $(window).width()-$(window).width()*0.33333333-200,
                     columnNumber = getColumnNumber(),
                     itemWidth = Math.floor(winWidth / columnNumber);
-                console.log(winWidth);
 
                 $container.find('.one-four').each(function() {
                     $(this).css( {
@@ -314,7 +311,6 @@ jQuery(document).ready(function(){
 
             $('#filters a').on('click', function() {
                     $('#portfolio-wrap').show();
-                    skroffset= $('.portfolio-wrap > .bx-wrapper').height();
 
                     var selector = $(this).attr('data-filter');
                     $container.isotope({ filter: selector }, refreshWaypoints());
