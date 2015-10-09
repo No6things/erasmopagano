@@ -938,20 +938,20 @@ section.portfolio {
       width: 25%;
     }
 
-    .future .col-lg-4{
-      padding: 0;
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      margin-bottom: 50px;
-    }
-
-    .current .col-lg-4, .previous .col-lg-4{
+    .future .col-lg-4, .current .col-lg-4, .previous .col-lg-4{
       padding: 0;
       position: absolute;
       bottom: 0;
       right: 0;
       margin-bottom: 100px;
+    }
+
+    .current .col-lg-6{
+      padding: 0;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      margin-bottom: 10px;
     }
 
     .portfolio-item {

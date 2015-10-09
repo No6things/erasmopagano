@@ -199,15 +199,24 @@ jQuery(document).ready(function(){
     });
 
     jQuery('.bxslider2').bxSlider({
-      autoHover: true,
+      auto:true,
+      autoDirection: 'prev',
       controls:false,
-      pager: false
+      pager: false,
+      speed:100,
+      infiniteLoop: true,
+      easing: 'ease-in-out'
     });
 
     jQuery('.bxslider3').bxSlider({
-      autoHover: true,
+      auto:true,
+      autoDirection: 'next',
       controls:false,
-      pager: false
+      pager: false,
+      speed:100,
+      infiniteLoop: true,
+      easing: 'ease-in-out'
+
     });
 
     $('.bxslider5').each(function(i, slider) {
@@ -311,7 +320,9 @@ jQuery(document).ready(function(){
 
             $('#filters a').on('click', function() {
                     $('#portfolio-wrap').show();
-
+                    jQuery("html, body").animate({
+                        scrollTop: 1450
+                    }, 600);
                     var selector = $(this).attr('data-filter');
                     $container.isotope({ filter: selector }, refreshWaypoints());
                     if (selector == '.pr') {
