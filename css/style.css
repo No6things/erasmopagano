@@ -50,6 +50,8 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
 }
 
+
+
 h1 {
     font-size:36px;
     letter-spacing:1px;
@@ -62,7 +64,20 @@ h1 {
   padding-right: 0;
 }
 
-.frameh{
+.row .lines-img:first-child{
+  padding-left: 0;
+  padding-right:20px;
+}
+.row .lines-img:last-child{
+  padding-left: 20px;
+  padding-right: 0;
+}
+
+.lines-img{
+  padding-top: 20%;
+}
+
+.lines-img img, .frameh{
   width: 100%;
 }
 
@@ -112,10 +127,11 @@ ul li {
 }
 
 .pink-bg{
-    background: -webkit-linear-gradient(white, #FADAE2); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(white, #FADAE2); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(white, #FADAE2); /* For Firefox 3.6 to 15 */
+    background: -webkit-linear-gradient(white,  white,#FADAE2); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(white, white, #FADAE2); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(white, white,, #FADAE2); /* For Firefox 3.6 to 15 */
     background: linear-gradient(white, white, #FADAE2); /* Standard syntax (must be last) */
+    overflow-x: hidden;
 }
 
 
@@ -663,7 +679,7 @@ nav a:focus {
     border-width: 12px;
     border-color: #f47721;
     top: 35%;
-    width: 600px;
+    width: 200%;
     -webkit-transition: -webkit-transform 1.3s;
     -moz-transition: -moz-transform 1.3s;
     transition: transform 1.3s;
@@ -672,12 +688,12 @@ nav a:focus {
     transform: scale(0.85);
 }
 
-.lines h2::before, .lines h2::before{
+.lines h2::before{
     right: 100%;
     margin-right: 15px;
 }
 
-.lines h2::after, .lines h2::after{
+.lines h2::after{
     left: 100%;
     margin-left: 15px;
 }
@@ -915,6 +931,13 @@ section.portfolio {
 }
 /* Portfolio Items */
 
+    .portfolio-close{
+      z-index: 10;
+      position: absolute;
+      top: 40px;
+      right: 10px;
+    }
+
     #portfolio-wrap {
       background-color: #fff;
       display: block;
@@ -936,6 +959,21 @@ section.portfolio {
       padding: 0;
       position:relative;
       width: 25%;
+    }
+
+    .future{
+      padding-top:0 !important;
+    }
+
+    .future h2{
+      margin-top:0;
+      padding-top:0;
+      text-align: left !important;
+      display: block !important;
+    }
+
+    .future div{
+      padding-left:0 !important;
     }
 
     .future .col-lg-4, .current .col-lg-4, .previous .col-lg-4{
@@ -1209,65 +1247,6 @@ section.portfolio {
 }
 
 
-/*-------------------------------------------------------*/
-/* 17. Progress bar section
-/*-------------------------------------------------------*/
-
-.skills-wrap .container {
-    padding-bottom: 70px;
-}
-
-.progress {
-    height: 35px;
-    line-height: 35px;
-    margin-bottom: 45px;
-    background: #fff;
-    border-radius: 0;
-    box-shadow: none;
-    list-style: none;
-}
-
-.progress-bar {
-    font-weight: 600;
-    line-height: 35px;
-    padding-left: 20px;
-    text-align: left;
-}
-
-
-
-/*-------------------------------------------------------*/
-/* 18. Fun facts section
-/*-------------------------------------------------------*/
-
-.fun-box {
-    text-align: center;
-    padding: 50px 20px;
-    margin-top: 50px;
-    background: rgba(255, 255, 255, 0.1);
-}
-
-.fun-box i {
-    display: block;
-    font-size: 60px;
-    font-weight: 700;
-    color: white;
-}
-
-.fun-box p {
-    color: white;
-    font-size: 16px;
-    text-transform: uppercase;
-    margin-bottom: 0;
-}
-
-.fun {
-    font-size: 44px;
-    font-weight: 700;
-    line-height: 70px;
-    text-shadow:1px 1px 1px #444;
-}
-
 
 
 /*-------------------------------------------------------*/
@@ -1292,6 +1271,10 @@ section.portfolio {
 /*-------------------------------------------------------*/
 /* 20. Subscription section
 /*-------------------------------------------------------*/
+
+.contact-form{
+  overflow-x: hidden;
+}
 
 .subscription-wrap .big-title h2::hover, .subscription-wrap .big-title h2::focus{
   opacity:1;
@@ -1475,22 +1458,20 @@ a.scrollup:hover i,a.scrollup:focus i {
 /* 24. Responsive Media Quaries
 /*-------------------------------------------------------*/
 
-@media(max-width: 979px) {
+@media(max-width: 991px) {
     section .container, .landing-right .container {
         padding-left: 10px;
         padding-right: 10px;
     }
 
-    #slider_left, #slider_right, .bx-prev, .bx-next {
+    .bx-prev, .bx-next {
         display: none;
     }
 
 }
 
-@media(max-width: 767px) {
-    .carousel-controls, .testimonials .carousel-controls.pull-right {
-
-    }
+@media (max-width: 767px) {
+/*---------GENERAL------------------*/
 
     .video-section .welcome {
         font-size: 28px;
@@ -1507,27 +1488,26 @@ a.scrollup:hover i,a.scrollup:focus i {
     }
 
     .big-title h2 {
-        font-size: 24px;
+        font-size: 40px;
     }
 
-    #filters ul {
-        padding-left: 0;
+    body{
+      font-size: 29px;
     }
 
+/*---------NAVIGATION------------------*/
+    .navbar-custom{
+      min-height: 155px
+    }
     .navbar-custom .navbar-header .navbar-toggle {
         padding: 5px 10px;
     }
 
-    div.content-box.big, .contact-box {
-        margin-bottom: 20px;
-    }
-
     .mob-logo {
-        display: inline-block;
         display: inline-block;
         position: absolute;
         top: 10%;
-        margin-left: 40%;
+        margin-left: 35%;
     }
 
     .mob-menu {
@@ -1539,23 +1519,33 @@ a.scrollup:hover i,a.scrollup:focus i {
         float: none !important;
     }
 
-    #signup .subEmail {
-        width: 90%;
+/*---------PORTFOLIO------------------*/
+    #portfolio-wrap img{
+      margin-top: 20px;
+      width: 100%;
     }
-
-    #signup input {
-        margin-right: 0;
-        margin-bottom: 10px;
+    #filters ul {
+        padding-left: 0;
     }
-
-
+/*---------SERVICE------------------*/
+    .service-slide{
+      margin-right: 20px !important;
+      width: 96px !important;
+    }
+    .caption1{
+      width: 96px !important;
+      max-height: 36px !important;
+    }
 
 }
 
-
-@media (min-width: 768px) and (max-width: 979px)  {
+@media (min-width: 768px) and (max-width: 991px)  {
     .slide-content h1, .slide-caption h1, .video-section h1, .text-slide li {
         font-size: 50px;
+    }
+
+    .navbar-custom .navbar-nav > li > a {
+      padding: 0px 15px 0px 15px;
     }
 
     .text-slide li {
@@ -1639,27 +1629,13 @@ a.scrollup:hover i,a.scrollup:focus i {
     }
 }
 
-
-@media (max-width: 767px) {
-
-    .service-slide{
-      margin-right: 20px !important;
-      width: 96px !important;
-    }
-    .caption1{
-      width: 96px !important;
-      max-height: 36px !important;
+@media (min-width: 992px) and (max-width: 1199px){
+    .site-logo {
+      padding: 8px 0px 1px 20px;
     }
 
-    #portfolio-wrap img{
-      margin-top: 20px;
-      width: 100%;
+    .navbar-custom .navbar-nav > li > a {
+      padding: 0px 35px 0px 35px;
     }
 
-}
-
-@media (min-width: 980px) {
-    .posts-block {
-        padding-right: 30px !important;
-    }
 }

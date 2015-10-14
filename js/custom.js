@@ -1,4 +1,4 @@
-var sliders = new Array(), skroffset=0;
+var sliders = new Array();
 
 $(window).scroll(function() {
   if ($(document).scrollTop() < $(window).height()) {
@@ -6,8 +6,7 @@ $(window).scroll(function() {
   } else {
     $('nav').addClass('shrink').css("background", "rgba(255,255,255,1)");
   }
-  //  $(".product-wrap").css("background-position","30% " + (($(this).scrollTop() + skroffset) ) + "px");
-  //  $(".subscription-wrap").css("background-position","30% " + (($(this).scrollTop() + skroffset) ) + "px");
+
 
 });
 jQuery(document).ready(function () {
@@ -227,7 +226,7 @@ jQuery(document).ready(function(){
           pager: false,
           slideSelector: '.slide',
           nextText: '<i class="fa fa-angle-right"></i>',
-          prevText: '<i class="fa fa-angle-left"></i>'
+          prevText: '<i class="fa fa-angle-left"></i>'/*until here, */
         });
     });
 
@@ -259,6 +258,18 @@ jQuery(document).ready(function(){
 
 });
 
+/*----------------------------------------------------*/
+/*  Portfolio Close Button
+/*----------------------------------------------------*/
+
+$('.portfolio-close').on('click', function() {
+        $('#filters a').removeClass('active');
+        $('#portfolio-wrap').hide(500);
+        jQuery("html, body").animate({
+            scrollTop: 1520
+        }, 600);
+        return false;
+});
 /*----------------------------------------------------*/
 /*  Portfolio Isotope
 /*----------------------------------------------------*/
@@ -329,9 +340,7 @@ jQuery(document).ready(function(){
                       sliders[0].reloadSlider();
                     } else if ( selector == '.cu'){
                       sliders[1].reloadSlider();
-                    } else {
-                      sliders[2].reloadSlider();
-                    }
+                    } 
                     $('#filters a').removeClass('active');
                     $(this).addClass('active');
 
