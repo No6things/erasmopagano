@@ -1458,17 +1458,6 @@ a.scrollup:hover i,a.scrollup:focus i {
 /* 24. Responsive Media Quaries
 /*-------------------------------------------------------*/
 
-@media(max-width: 991px) {
-    section .container, .landing-right .container {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-
-    .bx-prev, .bx-next {
-        display: none;
-    }
-
-}
 
 @media (max-width: 767px) {
 
@@ -1529,15 +1518,35 @@ a.scrollup:hover i,a.scrollup:focus i {
     }
 /*---------SERVICE------------------*/
     .service-slide{
-      margin-right: 20px !important;
-      width: 96px !important;
+      width: 147px !important;
+      margin-left: 6px;
     }
     .caption1{
-      width: 96px !important;
+      width: 147px !important;
       max-height: 36px !important;
+      font-size: 10px;
+    }
+    .caption1 li{
+      margin: 5px;
     }
 
 }
+
+@media(max-width: 991px) {
+    section .container, .landing-right .container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .bx-prev, .bx-next {
+        display: none;
+    }
+
+    .about-wrap .bx-wrapper{
+      max-height: 180px !important;
+    }
+}
+
 
 @media (min-width: 768px) and (max-width: 991px)  {
     .slide-content h1, .slide-caption h1, .video-section h1, .text-slide li {
@@ -1560,9 +1569,6 @@ a.scrollup:hover i,a.scrollup:focus i {
         padding-left: 0;
     }
 
-    .navbar-custom .navbar-header .navbar-toggle {
-        padding: 5px 10px;
-    }
 
     .navbar-custom .navbar-nav > li > a {
         margin: 5px 0;
@@ -1586,16 +1592,12 @@ a.scrollup:hover i,a.scrollup:focus i {
         display: inline-block;
     }
 
-    .mob-menu .navbar-header {
-        margin-top: -67px;
-
-    }
 
     .navbar-toggle {
-        position: relative;
+        position: absolute;
         float: none;
-        padding: 9px 10px;
-        margin-top: 8px;
+        padding: 5px 10px;
+        margin-top: 30px;
         margin-bottom: 8px;
         background-color: transparent;
         border: 1px solid #dddddd;
@@ -1605,7 +1607,7 @@ a.scrollup:hover i,a.scrollup:focus i {
 
 
     .navbar-nav, .navbar-nav > li {
-        float: none !important;
+        margin-top: 18px;
     }
 
     .navbar-header {
