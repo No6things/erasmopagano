@@ -6,9 +6,8 @@ $(window).scroll(function() {
   } else {
     $('nav').addClass('shrink').css("background", "rgba(255,255,255,1)");
   }
-
-
 });
+
 jQuery(document).ready(function () {
   jQuery.waitForImages.hasImgProperties = ['background','backgroundImage'];
     jQuery('body').waitForImages(function() {
@@ -30,8 +29,6 @@ jQuery(document).ready(function () {
     $(".frameh").height($(window).height());
 
 
-
-
 /*-------------------------------------------------*/
 /* =  Animated content
 /*-------------------------------------------------*/
@@ -48,14 +45,18 @@ jQuery(document).ready(function () {
 /*==========================*/
 /* Sticky Navigation
 /*==========================*/
-
+$(".nav a").on("click", function(){
+   $(".nav").children(".active").removeClass("active");
+   $(".nav").children(".current").removeClass("current");
+});
     jQuery("#navigation").sticky({topSpacing:0});
+    $("body").scrollspy({ target: "#navigation" });
 
 
 
 /* ==============================================
-Drop Down Menu Fade Effect
-=============================================== */
+/* Drop Down Menu Fade Effect
+/*=============================================== */
 
     $('.nav-toggle').hover(function() {
         'use strict';
@@ -172,7 +173,7 @@ Drop Down Menu Fade Effect
 
 /*----------------------------------------------------*/
 /*  BxSlider
-/* -preIndex, curIndex and futIndex are the index of the slides that identifies categories Previous Current and Future on bxSlider5
+/* -preIndex, curIndex and futIndex are the index of the slides that identifies categories Previous  and Future on bxSlider5
     these must be consistent with the HTML layout of the slides*/
 /*----------------------------------------------------*/
 
@@ -235,7 +236,7 @@ jQuery(document).ready(function(){
     jQuery('.bx-wrapper .bx-controls-direction a').attr('data-500','top:83%; opacity: 0;').attr('data-start','top:50%; opacity: 1;');
 
 
-    if( ( onMobile === false ) && ( jQuery('.parallax-slider').length ) ) {
+    if( onMobile === false )  {
 
         skrollr.init({
             edgeStrategy: 'set',
@@ -340,7 +341,7 @@ $('.portfolio-close').on('click', function() {
                       sliders[0].reloadSlider();
                     } else if ( selector == '.cu'){
                       sliders[1].reloadSlider();
-                    } 
+                    }
                     $('#filters a').removeClass('active');
                     $(this).addClass('active');
 

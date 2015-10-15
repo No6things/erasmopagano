@@ -275,7 +275,7 @@ input:focus:-moz-placeholder { max-height: 10px; }
     display: inline-block;
     margin:0 auto;
     line-height: 80px;
-    padding: 8px 20px 1px 20px;
+    padding: 4px 20px 1px 20px;
   }
 
 #navigation .site-logo a, #navigation .site-logo a:hover, #navigation .site-logo a:focus, #navigation .site-logo a:before, #navigation .site-logo a:after {
@@ -803,6 +803,7 @@ section.portfolio {
     opacity: 0;
     max-height: 0;
     transition: 1s ease;
+    width: 100%;
 }
 
 .bxslider > li:hover .caption1{
@@ -1549,12 +1550,9 @@ a.scrollup:hover i,a.scrollup:focus i {
 
 
 @media (min-width: 768px) and (max-width: 991px)  {
+/*--------------General------------------------*/
     .slide-content h1, .slide-caption h1, .video-section h1, .text-slide li {
         font-size: 50px;
-    }
-
-    .navbar-custom .navbar-nav > li > a {
-      padding: 0px 15px 0px 15px;
     }
 
     .text-slide li {
@@ -1569,9 +1567,14 @@ a.scrollup:hover i,a.scrollup:focus i {
         padding-left: 0;
     }
 
+/*----------Navigation---------------------------*/
+    .navbar-nav, .navbar-nav > li {
+      margin-top: 18px;
+    }
 
     .navbar-custom .navbar-nav > li > a {
         margin: 5px 0;
+        padding: 0px 15px 0px 15px;
     }
 
     .navbar-nav > li > a {
@@ -1582,16 +1585,13 @@ a.scrollup:hover i,a.scrollup:focus i {
     .navbar-collapse {
         max-height: 700px;
     }
-
-    div.content-box.big, .contact-box {
-        margin-bottom: 20px;
-    }
-
-
     .mob-logo {
         display: inline-block;
     }
 
+    .navbar-header {
+        float: right;
+    }
 
     .navbar-toggle {
         position: absolute;
@@ -1603,15 +1603,6 @@ a.scrollup:hover i,a.scrollup:focus i {
         border: 1px solid #dddddd;
         border-radius: 4px;
         display: block;
-    }
-
-
-    .navbar-nav, .navbar-nav > li {
-        margin-top: 18px;
-    }
-
-    .navbar-header {
-        float: right;
     }
 
     .navbar-collapse {
