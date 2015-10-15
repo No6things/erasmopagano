@@ -45,6 +45,21 @@ jQuery(document).ready(function () {
 /*==========================*/
 /* Sticky Navigation
 /*==========================*/
+$(".nav a[href^='#']").on('click', function(e) {
+   // prevent default anchor click behavior
+   e.preventDefault();
+   // store hash
+   var hash = this.hash;
+   // animate
+   $('html, body').animate({
+       scrollTop: $(hash).offset().top
+     }, 700, function(){
+       // when done, add hash to url
+       // (default click behaviour)
+       window.location.hash = hash;
+     });
+
+});
 $(".nav a").on("click", function(){
    $(".nav").children(".active").removeClass("active");
    $(".nav").children(".current").removeClass("current");
@@ -70,15 +85,7 @@ $(".nav a").on("click", function(){
 /*==========================*/
 /* Navigation Scrolling
 /*==========================*/
-    jQuery('.nav').onePageNav({
-            filter: ':not(.external)',
-            begin: function() {
-            console.log("start")
-            },
-            end: function() {
-            console.log("stop")
-            }
-        });
+
 
 
     var navigationHeight = jQuery("#navigation").outerHeight();
