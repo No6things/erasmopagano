@@ -228,6 +228,7 @@ jQuery(document).ready(function(){
 
     $('.bxslider5').each(function(i, slider) {
         sliders[i] = $(slider).bxSlider({
+          auto: true,
           autoHover: true,
           infiniteLoop: false,
           mode: 'fade',

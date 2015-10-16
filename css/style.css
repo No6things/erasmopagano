@@ -977,7 +977,7 @@ section.portfolio {
       padding-left:0 !important;
     }
 
-    .future .col-lg-4, .current .col-lg-4, .previous .col-lg-4{
+    .current .col-lg-4, .previous .col-lg-4{
       padding: 0;
       position: absolute;
       bottom: 0;
@@ -991,6 +991,14 @@ section.portfolio {
       bottom: 0;
       right: 0;
       margin-bottom: 10px;
+    }
+
+    .future .col-lg-4{
+      padding: 0;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      margin-bottom: 63px;
     }
 
     .portfolio-item {
@@ -1007,6 +1015,10 @@ section.portfolio {
     .slide{
       z-index: 15 !important;
       padding: 0 39px;
+    }
+
+    .embed-responsive{
+      margin-top: 20px;
     }
 
 .portfolio-item .img-holder {
@@ -1463,20 +1475,10 @@ a.scrollup:hover i,a.scrollup:focus i {
 @media (max-width: 767px) {
 
 /*---------GENERAL------------------*/
-    .video-section .welcome {
-        font-size: 28px;
-        padding-top: 0;
-        margin-bottom: 0;
-    }
 
     .img-btn {
         margin-top: 0;
     }
-
-    .video-section h1 {
-        display: none;
-    }
-
     .big-title h2 {
         font-size: 40px;
     }
@@ -1489,8 +1491,21 @@ a.scrollup:hover i,a.scrollup:focus i {
     .navbar-custom{
       min-height: 155px
     }
-    .navbar-custom .navbar-header .navbar-toggle {
+
+    .navbar-toggle {
+        background-color: transparent;
+        border: 1px solid #dddddd;
+        border-radius: 4px;
+        display: block;
+        float: none;
+        margin-top: 30px;
         padding: 5px 10px;
+        position: absolute;
+        right: -25px;
+    }
+
+    .shrink{
+      min-height: 115px;
     }
 
     .mob-logo {
@@ -1511,7 +1526,6 @@ a.scrollup:hover i,a.scrollup:focus i {
 
 /*---------PORTFOLIO------------------*/
     #portfolio-wrap img{
-      margin-top: 20px;
       width: 100%;
     }
     #filters ul {
@@ -1539,19 +1553,39 @@ a.scrollup:hover i,a.scrollup:focus i {
         padding-right: 10px;
     }
 
-    .bx-prev, .bx-next {
-        display: none;
-    }
-
+    /*------------Bx Slider--------------*/
     .about-wrap .bx-wrapper{
       max-height: 180px !important;
     }
+
+    .bx-next,.bx-prev{
+      display: none;
+    }
+
+    .img-holder img{
+      padding: 6px;
+    }
+
+
+    .portfolio-bullet li:before {
+      font-family: 'FontAwesome';
+      content: '\f0da';
+      margin: 0 8px 0 0px;
+      color: #f47721;
+    }
+
+    .portfolio-bullet{
+      margin-left: 30px;
+    }
+
+
+
 }
 
 
 @media (min-width: 768px) and (max-width: 991px)  {
 /*--------------General------------------------*/
-    .slide-content h1, .slide-caption h1, .video-section h1, .text-slide li {
+    .slide-content h1, .slide-caption h1s, .text-slide li {
         font-size: 50px;
     }
 
@@ -1560,7 +1594,7 @@ a.scrollup:hover i,a.scrollup:focus i {
     }
 
     .big-title h2 {
-        font-size: 24px;
+        font-size: 40px;
     }
 
     #filters ul {
@@ -1574,17 +1608,9 @@ a.scrollup:hover i,a.scrollup:focus i {
 
     .navbar-custom .navbar-nav > li > a {
         margin: 5px 0;
-        padding: 0px 15px 0px 15px;
+        padding: 0px 10px 0px 10px;
     }
 
-    .navbar-nav > li > a {
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
-
-    .navbar-collapse {
-        max-height: 700px;
-    }
     .mob-logo {
         display: inline-block;
     }
@@ -1594,20 +1620,20 @@ a.scrollup:hover i,a.scrollup:focus i {
     }
 
     .navbar-toggle {
-        position: absolute;
-        float: none;
-        padding: 5px 10px;
-        margin-top: 30px;
-        margin-bottom: 8px;
         background-color: transparent;
         border: 1px solid #dddddd;
         border-radius: 4px;
         display: block;
+        float: none;
+        margin-top: 30px;
+        padding: 5px 10px;
+        position: absolute;
+        right: 0px;
     }
 
     .navbar-collapse {
-        padding-left: 0;
         max-height: 700px;
+        padding-left: 0;
     }
 
     .navbar-collapse.collapse {
@@ -1631,4 +1657,10 @@ a.scrollup:hover i,a.scrollup:focus i {
       padding: 0px 35px 0px 35px;
     }
 
+}
+
+@media (min-width:1200px){
+  .embed-responsive{
+    margin-top: 0;
+  }
 }
