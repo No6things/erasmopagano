@@ -1,4 +1,4 @@
-var sliders = new Array();
+var sliders = new Array(), portHeight, orientationChange=true;
 
 $(window).scroll(function() {
   if ($(document).scrollTop() < $(window).height()) {
@@ -336,6 +336,23 @@ $('.portfolio-close').on('click', function() {
 
             $(window).on('resize', function () {
                 setPortfolio();
+            });
+
+
+            $( window ).on( "orientationchange", function( event ) {
+                /*portHeight= $("#portfolio-wrap").height();
+                console.log(portHeight);
+                if ((orientationchange==false) && (portHeight != 0)) {$("#portfolio-wrap").css({height:portHeight});console.log(portHeight);}*/
+                setPortfolio();
+                var selector = $(this).attr('data-filter');
+                $container.isotope({ filter: selector }, refreshWaypoints());
+                if (selector == '.pr') {
+                  sliders[0].reloadSlider();
+                } else if ( selector == '.cu'){
+                  sliders[1].reloadSlider();
+                }
+                //orientationchange= !orientationchange;
+
             });
 
             $('#filters a').on('click', function() {
