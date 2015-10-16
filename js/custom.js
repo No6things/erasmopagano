@@ -53,7 +53,7 @@ $(".nav a[href^='#']").on('click', function(e) {
    // animate
    $('html, body').animate({
        scrollTop: $(hash).offset().top
-     }, 700, function(){
+     }, 1200, function(){
        // when done, add hash to url
        // (default click behaviour)
        window.location.hash = hash;
