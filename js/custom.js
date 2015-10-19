@@ -1,4 +1,4 @@
-var sliders = new Array(), portHeight, orientationChange=true;
+var sliders = new Array(), portHeight, orientationChange=true, slidersIndex = new Array(), sliderIndex=-1,lastIndex=-1;
 
 $(window).scroll(function() {
   if ($(document).scrollTop() < $(window).height()) {
@@ -188,9 +188,10 @@ $(".nav a").on("click", function(){
 jQuery(document).ready(function(){
     var onMobile = false;
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) { onMobile = true; }
-    var preIndex= 2,
-        curIndex= 3,
-        futIndex= 4;
+     slidersIndex[0]='.pr';
+     slidersIndex[1]='.cu';
+     slidersIndex[2]='.fu';
+
 
 
     jQuery('.bxslider').bxSlider({
@@ -235,14 +236,12 @@ jQuery(document).ready(function(){
           pager: false,
           slideSelector: '.slide',
           nextText: '<i class="fa fa-angle-right"></i>',
-          prevText: '<i class="fa fa-angle-left"></i>'/*until here, */
+          prevText: '<i class="fa fa-angle-left"></i>'
+          /*until here, */
         });
     });
 
-
-
     jQuery('.bx-wrapper .bx-controls-direction a').attr('data-500','top:83%; opacity: 0;').attr('data-start','top:50%; opacity: 1;');
-
 
     if( onMobile === false )  {
 
@@ -254,17 +253,6 @@ jQuery(document).ready(function(){
 
     }
 
-
-    jQuery('.text-slide').bxSlider({
-        controls: false,
-        adaptiveHeight: true,
-        pager: false,
-        auto:true,
-        mode:'fade',
-        pause: 3000,
-    });
-
-
 });
 
 /*----------------------------------------------------*/
@@ -273,6 +261,7 @@ jQuery(document).ready(function(){
 
 $('.portfolio-close').on('click', function() {
         $('#filters a').removeClass('active');
+        sliderIndex=-1;
         $('#portfolio-wrap').hide(500);
         jQuery("html, body").animate({
             scrollTop: 1520
@@ -293,7 +282,46 @@ $('.portfolio-close').on('click', function() {
                 setTimeout(function() {
                 }, 1);
             }
-
+            var bnext= function(){
+                $('.bx-next').on('click', function (){
+                  var i = $(this).index();
+                  var slideQty = sliders[sliderIndex].getSlideCount();
+                  console.log("slides:"+slideQty+"-"+i);
+                  if (lastIndex!=i){
+                    lastIndex=i;
+                    console.log("ese indice no esta repetido");
+                  }else if ( i == slideQty-1){
+                      lastIndex=-1;
+                      console.log("ese indice esta repetido, debe ser el ultimo slide, despertare el siguiente slider sliderIndex-"+sliderIndex+1);
+                      $('#portfolio-wrap').isotope({ filter: slidersIndex[sliderIndex+1] }, refreshWaypoints());
+                      sliders[sliderIndex+1].reloadSlider();
+                      $("#filters a[data-filter='"+slidersIndex[sliderIndex]+"']").removeClass('active');
+                      $("#filters a[data-filter='"+slidersIndex[sliderIndex+1]+"']").addClass('active');
+                      setPortfolio();
+                      sliderIndex++;
+                  }
+                });
+            };
+            var bprev= function(){
+                $('.bx-prev').on('click', function (){
+                  var i = $(this).index();
+                  var slideQty = sliders[sliderIndex].getSlideCount();
+                  console.log("slides:"+slideQty+"-"+i);
+                  if (lastIndex!=i){
+                    lastIndex=i;
+                    console.log("ese indice no esta repetido");
+                  }else if ( i == 0){
+                      lastIndex=-1;
+                      console.log("ese indice esta repetido, debe ser el ultimo slide, despertare el siguiente slider sliderIndex-"+sliderIndex+1);
+                      $('#portfolio-wrap').isotope({ filter: slidersIndex[sliderIndex-1] }, refreshWaypoints());
+                      sliders[sliderIndex+1].reloadSlider();
+                      $("#filters a[data-filter='"+slidersIndex[sliderIndex]+"']").removeClass('active');
+                      $("#filters a[data-filter='"+slidersIndex[sliderIndex-1]+"']").addClass('active');
+                      setPortfolio();
+                      sliderIndex--;
+                  }
+                });
+            };
             function getColumnNumber() {
                 var winWidth = $(window).width(),
                     columnNumber = 1;
@@ -343,14 +371,8 @@ $('.portfolio-close').on('click', function() {
                 /*portHeight= $("#portfolio-wrap").height();
                 console.log(portHeight);
                 if ((orientationchange==false) && (portHeight != 0)) {$("#portfolio-wrap").css({height:portHeight});console.log(portHeight);}*/
+                sliders[sliderIndex].reloadSlider();
                 setPortfolio();
-                var selector = $(this).attr('data-filter');
-                $container.isotope({ filter: selector }, refreshWaypoints());
-                if (selector == '.pr') {
-                  sliders[0].reloadSlider();
-                } else if ( selector == '.cu'){
-                  sliders[1].reloadSlider();
-                }
                 //orientationchange= !orientationchange;
 
             });
@@ -363,13 +385,20 @@ $('.portfolio-close').on('click', function() {
                     var selector = $(this).attr('data-filter');
                     $container.isotope({ filter: selector }, refreshWaypoints());
                     if (selector == '.pr') {
+                      lastIndex=-1;
                       sliders[0].reloadSlider();
+                      bnext();
+                      bprev();
+                      sliderIndex=0;
                     } else if ( selector == '.cu'){
+                      lastIndex=-1;
                       sliders[1].reloadSlider();
+                      bnext();
+                      bprev();
+                      sliderIndex=1;
                     }
                     $('#filters a').removeClass('active');
                     $(this).addClass('active');
-
                     setPortfolio();
                     return false;
             });
