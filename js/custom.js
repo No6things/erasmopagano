@@ -160,21 +160,6 @@ $(".nav a").on("click", function(){
 
         jQuery('a[data-rel^="prettyPhoto"]').prettyPhoto();
     });
-
-    jQuery("#horizontal-tabs").tytabs({
-        tabinit: "1",
-        fadespeed: "fast"
-    });
-
-
-/*----------------------------------------------------*/
-/*  Carousel Section
-/*----------------------------------------------------*/
-
-
-    jQuery('.testimonials-carousel').carousel({interval: false, wrap: false});
-    jQuery('.testimonials-carousel-widget').carousel({interval: 5000, pause: "hover"});
-
 });
 
 
@@ -250,11 +235,13 @@ jQuery(document).ready(function(){
             smoothScrolling: false,
             forceHeight: false
         });
-
     }
 
 });
-
+/*----------------------------------------------------*/
+/*  Portfolio Lens
+/*----------------------------------------------------*/
+$('#zoom1').elevateZoom({  easing: true });
 /*----------------------------------------------------*/
 /*  Portfolio Close Button
 /*----------------------------------------------------*/
@@ -380,7 +367,7 @@ $('.portfolio-close').on('click', function() {
             $('#filters a').on('click', function() {
                     $('#portfolio-wrap').show();
                     jQuery("html, body").animate({
-                        scrollTop: 1450
+                        scrollTop: 1470
                     }, 600);
                     var selector = $(this).attr('data-filter');
                     $container.isotope({ filter: selector }, refreshWaypoints());

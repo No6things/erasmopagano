@@ -1,10 +1,7 @@
 /*Blue #2eaef0 & #026ea6 */
 
-.btn:focus, .btn-2,
+.btn:focus,
 ul.why li:before,
-.progress .progress-bar,
-.flat .plan li.plan-name,
-.flat .plan.featured:hover li.plan-name,
 #filters ul li a:hover h5,
 #filters ul li a.active h5,
 .cl-effect-21 a::before,
@@ -13,6 +10,10 @@ ul.why li:before,
 .cl-effect-21 .active a::after,
 .post-date a.date i, .service-icon i  {
     background: #f6978f;
+}
+
+.btn-2{
+  background: #FF9145;
 }
 
 .blue{
@@ -70,7 +71,7 @@ div.content-box.big div.content-box-info p, .content-box-info h4 {
 }
 
 .btn-2:hover, .btn-2:active, .btn-2 {
-	box-shadow: 0 4px #f8dde1;
+	box-shadow: 0 4px #FFB481;
 }
 
 

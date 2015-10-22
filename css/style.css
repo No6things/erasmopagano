@@ -59,7 +59,8 @@ h1 {
 
 iframe{
     width: 100%;
-    height: 100%;
+    height: 350px;
+    padding: 5px;
 }
 
 .container-fluid{
@@ -77,7 +78,7 @@ iframe{
 }
 
 .lines-img{
-  padding-top: 20%;
+  padding-top: 13%;
 }
 
 .lines-img img, .frameh{
@@ -159,6 +160,7 @@ input.form-control, textarea.form-control {
 }
 
  textarea.form-control{
+   padding-top:7px;
    border-bottom-style: solid;
  }
 
@@ -172,9 +174,7 @@ input:focus, textarea:focus {
     border-color: #C9C9C9;
 }
 
-input #inner-editor{
-  height: 65px;
-}
+
 
 ::-webkit-input-placeholder {
   font-size: inherit;
@@ -783,7 +783,7 @@ section.portfolio {
 }
 
 .service-slide > img{
-  outline: solid 1px black;
+  outline: solid 1px #D6D6D6;
 }
 
 .mid{
@@ -807,6 +807,7 @@ section.portfolio {
 }
 
 .bxslider > li:hover .caption1{
+  bottom: 0;
   max-height: 100px;
   opacity:1;
 }
@@ -879,6 +880,10 @@ section.portfolio {
     z-index: 1000;
   }
 
+.seal-wrap h2{
+  padding-left: 0;
+}
+
 
 .parallax-overlay {
     /* background: rgba(22, 26, 72, 0.6); */
@@ -935,7 +940,7 @@ section.portfolio {
     .portfolio-close{
       z-index: 10;
       position: absolute;
-      top: 40px;
+      top: 54px;
       right: 10px;
     }
 
@@ -962,19 +967,35 @@ section.portfolio {
       width: 25%;
     }
 
+    .embed-responsive{
+      border: #F18C52;
+      border-width: 1px;
+      border-style: solid;
+    }
+
     .future{
       padding-top:0 !important;
     }
 
     .future h2{
       margin-top:0;
+      margin-bottom: 0;
       padding-top:0;
+      padding-left:20px;
       text-align: left !important;
       display: block !important;
     }
 
-    .future div{
+    .future h4{
+      padding-left: 20px;
+    }
+
+    .future div, .fu .row{
       padding-left:0 !important;
+    }
+
+    .fu .row:first-child{
+      padding-bottom: 40px !important;
     }
 
     .current .col-lg-4, .previous .col-lg-4{
@@ -998,7 +1019,7 @@ section.portfolio {
       position: absolute;
       bottom: 0;
       right: 0;
-      margin-bottom: 63px;
+      margin-bottom: 70px;
     }
 
     .portfolio-item {
@@ -1008,9 +1029,7 @@ section.portfolio {
         width: 100%;
     }
 
-    .portfolio-item .row:first-child{
-      padding: 54px 0 !important;
-    }
+
 
     .slide{
       z-index: 15 !important;
@@ -1019,6 +1038,7 @@ section.portfolio {
 
     .embed-responsive{
       margin-top: 20px;
+      padding-bottom: 350px;
     }
 
 .portfolio-item .img-holder {
@@ -1051,7 +1071,7 @@ section.portfolio {
 
 
 .img-holder .img-overlay {
-    background:none repeat scroll 0 0 rgba(0,0,0,0.5);
+    background:none repeat scroll 0 0 rgba(51, 67, 120, 0.5);
     bottom:0;
     display:block;
     height:100%;
@@ -1175,92 +1195,15 @@ section.portfolio {
     }
 
 
-
-
-/*-------------------------------------------------------*/
-/* 15. Testimonial section
-/*-------------------------------------------------------*/
-
-/* Carousel controls */
-
-.carousel-controls a {
-    font-size: 60px;
-    font-weight: 600;
-    color: #fff;
-    outline: 0;
-    line-height: 100px
+.product-wrap .big-title{
+  text-align: left;
+  padding-left: 0
 }
 
-
-/* Testimonials */
-.testimonial p {
-    background: #fff;
-    font-family: "Tangerine", "Open Sans", Arial;
-    font-size: 30px;
-    letter-spacing:1px;
-    line-height: 40px;
-    margin: 0;
-    padding: 27px 25px;
-    text-align: center;
+.product-wrap h2{
+  padding-left: 0;
+  left: -16px;
 }
-
-.our-clients .testimonial p, .our-clients .testimonials-arrow {
-    border: none;
-}
-
-
-.testimonials-arrow {
-    display: block;
-    content: "";
-    margin: -14px auto 40px;
-    width: 24px;
-    height: 24px;
-    background-color: #fff;
-    -webkit-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
-    -o-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-    border-top: 0;
-}
-
-.testimonial .author {
-    margin: 0 auto;
-    display: table;
-}
-
-.testimonial-image {
-    float: left;
-    height: 70px;
-    position: relative;
-    width: 70px;
-}
-
-.testimonial-image img {
-    border-radius: 50px;
-    height: 70px !important;
-    width: 70px !important;
-    padding:4px;
-}
-
-
-.testimonial-author-info {
-    padding: 10px 0 0 90px;
-    color: #fff;
-}
-
-.widget .testimonial-author-info {
-    color: #566473;
-}
-
-.testimonial-author-info a {
-    display:block;
-    font-size: 18px;
-    font-weight: 600;
-}
-
-
-
 
 /*-------------------------------------------------------*/
 /* 19. Quote section
@@ -1327,12 +1270,6 @@ section.portfolio {
 #signup .btn{
     padding: 10px 40px;
 }
-
-#no-spam {
-    margin-top: 7px;
-    color:#ccc;
-}
-
 
 
 /*-------------------------------------------------------*/
@@ -1565,6 +1502,7 @@ a.scrollup:hover i,a.scrollup:focus i {
     .img-holder img{
       padding: 6px;
     }
+    /*------------Portfolio Items--------------*/
 
 
     .portfolio-bullet li:before {
@@ -1664,7 +1602,5 @@ a.scrollup:hover i,a.scrollup:focus i {
 }
 
 @media (min-width:1200px){
-  .embed-responsive{
-    margin-top: 0;
-  }
+
 }

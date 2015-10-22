@@ -191,10 +191,10 @@
                                       <!-- Portfolio Item With PrettyPhoto  -->
                                       <div class=" one-four previous">
                                             <div class="img-holder">
-                                                  <img class="img-responsive port-img" src="img/portfolio/1.jpg" data-big="img/portfolio/1.jpg" alt="">
+                                                  <img id="zoom1" class="img-responsive port-img" src="img/portfolio/1.jpg" data-zoom-image="img/portfolio/1.jpg" alt="">
                                                   <div class="img-overlay"></div>
                                                   <div class="overlay-effect">
-                                                      <span class="RoundBg"><a data-gal="prettyPhoto[galname]" href="img/portfolio/1.jpg"><i class="fa fa-search"></i></a>
+                                                      <span class="RoundBg"><a data-gal="prettyPhoto[galname]" href="img/portfolio/1.jpg" data-zoom-image="img/portfolio/1.jpg"><i class="fa fa-search"></i></a>
                                                       </span>
                                                   </div>
                                               </div>
@@ -204,10 +204,10 @@
                                       <!-- Portfolio Item With PrettyPhoto  -->
                                       <div class="  one-four previous ">
                                             <div class="img-holder">
-                                                  <img class="img-responsive" src="img/portfolio/3.jpg" alt="">
+                                                  <img class="img-responsive" src="img/portfolio/3.jpg" data-zoom-image="img/portfolio/3.jpg" alt="">
                                                   <div class="img-overlay"></div>
                                                   <div class="overlay-effect">
-                                                      <span class="RoundBg"><a data-gal="prettyPhoto[galname]" href="img/portfolio/3.jpg"><i class="fa fa-search"></i></a>
+                                                      <span class="RoundBg"><a data-gal="prettyPhoto[galname]" href="img/portfolio/3.jpg" data-zoom-image="img/portfolio/3.jpg"><i class="fa fa-search"></i></a>
                                                       </span>
                                                   </div>
                                               </div>
@@ -492,18 +492,21 @@
                               </div>
 
                               <div class="fu portfolio-item">
-                                <a class="portfolio-close" href="#"><i class="fa fa-times-circle"></i></a>
                                 <div class=" row">
                                   <div class="lines-img col-lg-3 hidden-sm hidden-xs hidden-md">
                                       <img src="img/lines.png" alt="" />
                                   </div>
                                   <div class=" col-lg-6 embed-responsive embed-responsive-16by9">
-                                    <iframe  class="embed-responsive-item" src="https://www.youtube.com/embed/Wz_f9B4pPtg?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                                    <div class="video-container">
+                                      <iframe  class="" src="https://www.youtube.com/embed/Wz_f9B4pPtg?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                                    </div>
                                   </div>
                                   <div class="lines-img col-lg-3 hidden-sm hidden-xs hidden-md">
                                       <img src="img/lines.png" alt="" />
                                   </div>
                                 </div>
+                                <a class="portfolio-close" href="#"><i class="fa fa-times-circle"></i></a>
+
                                 <div class="row future">
                                   <div class="col-lg-8 ">
                                     <div class=" col-lg-12 text-left big-title ">
@@ -523,35 +526,29 @@
                   </section>
                   <!-- /Section 3 -->
           </div>
-          <section >
+          <section>
                   <div class="product-wrap">
                     <div class="container">
                         <div class="row">
-                          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 big-title wow fadeIn">
+                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 big-title wow fadeIn">
                               <h2>Our products</h2>
                           </div>
                         </div>
                         <div class="row">
-                          <div class="col-lg-3 col-md-2 col-sm-4 col-xs-4 col-lg-offset-0 col-md-offset-5 col-sm-offset-4  col-xs-offset-4">
-                            <img src="img/lshoe.jpg" alt="" class="img-responsive">
-                          </div>
 
                           <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12 col-md-offset-2 col-lg-offset-0 col-sm-offset-0 col-xs-offset-0">
-                            <ul>
-                              <li>- Leather made Ballerinas or "Flats" in neolite, EVA, leather or rubber soles. With or without accesories</li>
-                              <li>- Wedge sole casual shoes in Leather or mixed materials</li>
-                              <li>- Loafers in leather or mixed materials with neolite, leather or rubber soles.</li>
+                            <ul class="portfolio-bullet">
+                              <li>Leather made Ballerinas or "Flats" in neolite, EVA, leather or rubber soles. With or without accesories</li>
+                              <li>Wedge sole casual shoes in Leather or mixed materials</li>
+                              <li>Loafers in leather or mixed materials with neolite, leather or rubber soles.</li>
                             </ul>
                           </div>
 
-                          <div class="col-lg-3 col-md-2 col-sm-4  col-xs-4 col-md-offset-5 col-sm-offset-4 col-lg-offset-0 col-xs-offset-4">
-                            <img src="img/rshoe.jpg" alt="" class="img-responsive">
-                          </div>
                         </div>
                     </div>
                   </div>
           </section>
-          <section id="section4" class="pink-bg">
+          <section  class="pink-bg">
                   <!-- Service wrap -->
                   <div class="about-wrap">
                         <div class="container">
@@ -601,7 +598,7 @@
                               <!-- End Footer row -->
 
                               <!-- Title row -->
-                              <div class="row">
+                              <div class="row" id="section4">
                                     <div class="col-md-12 blue big-title-mt big-title wow fadeIn lines">
                                           <h2 >About Us</h2>
                                     </div>
@@ -645,8 +642,8 @@
                             <div class="row text-left">
                                 <div class="col-lg-7 col-md-9 col-sm-8">
                                     <ul>
-                                      <li>We design and manufacture high standard fashion ladies shoes for the modern women.</li>
-                                      <li>Our products are mostly made in original leather but sometimes we combine our styles with new fabrics, canvas, synthetics or other accesories that make up our styles unique.</li>
+                                      <li>We design and manufacture high standard fashion ladies shoes </br>for the modern women.</li>
+                                      <li>Our products are mostly made in original leather but sometimes </br>we combine our styles with new fabrics, canvas, synthetics or other accesories that make up our styles unique.</li>
                                       <li>We have been for over 40 years in Business of shoe modeling and manufacturing staying abreast current fashion trends.</li>
                                       <li>The quality of our products is based on a manual process that is permanently under scrutiny of our own Stylist.</li>
                                       <li>Our designs take into account the demands and feedback of our Clients.</li>
@@ -728,16 +725,16 @@
                     <div class="dark-layer">
                       <div class="container">
 
-                            <ul class="row social wow fadeInDown">
+                            <ul class="row social  ">
                               <div class="row footer-info col-lg-12">
-                                <li class="col-lg-4">
+                                <li class="col-lg-4 wow fadeInLeft animate">
                                   <h4><i class="fa fa-phone "></i> call</h4>
                                   <ul class="footer-body">
                                     <li>+44-7437-204837</li>
                                     <li>+44-7958-704727</li>
                                   </ul>
                                 </li>
-                                <li class="col-lg-4">
+                                <li class="col-lg-4 wow fadeInDown animate">
                                   <h4><i class="fa fa-map-marker"></i> Visit</h4>
                                   <ul  class="footer-body">
                                     <li>Erasmo Pagano Ltd</li>
@@ -745,7 +742,7 @@
                                     <li>United Kingdom</li>
                                   </ul>
                                 </li>
-                                <li class="col-lg-4">
+                                <li class="col-lg-4 wow fadeInRight animate">
                                   <h4><i class="fa fa-envelope"></i> Mail</h4>
                                   <ul class="footer-body">
                                     <li>info@erasmopagano.com</li>
@@ -754,10 +751,10 @@
                                 </li>
                               </div>
                                   <div class="row col-lg-12 social-icons-footer-bottom">
-                                    <li class="phone"><a href="#"><i class="icon-footer"><img class="half" src="img/pinterest.png" alt="" /></i></a></li>
-                                    <li class="mail"><a href="#"><i class="icon-footer"><img class="half" src="img/youtube.png" alt="" /></i></a></li>
-                                    <li class="facebook last-social-icons" ><a href="#"><i class="icon-footer"><img class="half" src="img/instagram.png" alt="" /></i></a></li>
-                                    <li class="twitter last-social-icons"><a href="#"><i class="icon-footer"><img class="half" src="img/twitter.png" alt="" /></i></a></li>
+                                    <li class="phone wow fadeInLeft"><a href="#"><i class="icon-footer"><img class="half" src="img/pinterest.png" alt="" /></i></a></li>
+                                    <li class="mail wow fadeInLeft"><a href="#"><i class="icon-footer"><img class="half" src="img/youtube.png" alt="" /></i></a></li>
+                                    <li class="facebook last-social-icons wow fadeInRight" ><a href="#"><i class="icon-footer"><img class="half" src="img/instagram.png" alt="" /></i></a></li>
+                                    <li class="twitter last-social-icons wow fadeInRight"><a href="#"><i class="icon-footer"><img class="half" src="img/twitter.png" alt="" /></i></a></li>
                                     <p class="site-info wow fadeInUp"> © 2015 InWork Solutions</p>
 
                                   </div>
@@ -789,6 +786,7 @@
       <script src="js/fappear.js"></script>
       <script src="js/modernizr-2.6.2.min.js"></script>
       <script src="js/jquery.bxslider.min2.js"></script>
+      <script src="js/jquery.elevateZoom-3.0.8.min.js"></script>
       <script src="js/jquery.maximage.js"></script>
       <script src="js/jquery.cycle.all.js"></script>
       <script src="js/jquery.prettyPhoto.js"></script>
