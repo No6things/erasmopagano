@@ -805,6 +805,8 @@ section.portfolio {
     transition: 1s ease;
     width: 100%;
 }
+.zoomContainer{ z-index: 10001;}
+.zoomWindow{ z-index: 10001;}
 
 .bxslider > li:hover .caption1{
   bottom: 0;

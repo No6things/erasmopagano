@@ -155,10 +155,10 @@ $(".nav a").on("click", function(){
         jQuery("a[data-gal^='prettyPhoto']").prettyPhoto({
               opacity: 0.5,
               social_tools: "",
+              allow_resize: false,
               deeplinking: false
         });
 
-        jQuery('a[data-rel^="prettyPhoto"]').prettyPhoto();
     });
 });
 
@@ -196,7 +196,7 @@ jQuery(document).ready(function(){
       autoDirection: 'prev',
       controls:false,
       pager: false,
-      speed:100,
+      speed:700,
       infiniteLoop: true,
       easing: 'ease-in-out'
     });
@@ -206,8 +206,9 @@ jQuery(document).ready(function(){
       autoDirection: 'next',
       controls:false,
       pager: false,
-      speed:100,
+      speed:700,
       infiniteLoop: true,
+
       easing: 'ease-in-out'
 
     });
@@ -241,10 +242,23 @@ jQuery(document).ready(function(){
 /*----------------------------------------------------*/
 /*  Portfolio Lens
 /*----------------------------------------------------*/
-$('#zoom1').elevateZoom({  easing: true });
+$('#fullResImage').elevateZoom({
+           easing: true,
+           zoomType: "inner",
+           cursor: "crosshair" });
 /*----------------------------------------------------*/
 /*  Portfolio Close Button
 /*----------------------------------------------------*/
+
+$('#fullResImage').on('hover', function  (){console.log('dixks');});
+$('.RoundBg a').on('click', function  (){
+        $("#fullResImage").data('zoom-image', 'img/portfolio/1.jpg').elevateZoom({
+           easing: true,
+           zoomType: "inner",
+           cursor: "crosshair"
+        });
+        console.log("destiny");
+});
 
 $('.portfolio-close').on('click', function() {
         $('#filters a').removeClass('active');
