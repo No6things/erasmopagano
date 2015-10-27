@@ -787,7 +787,7 @@ section.portfolio {
 }
 
 .mid{
-  margin-right: 94px !important;
+  margin-right: 93px !important;
 }
 
 .caption1{
@@ -805,15 +805,17 @@ section.portfolio {
     transition: 1s ease;
     width: 100%;
 }
-.zoomContainer{ z-index: 10001;}
-.zoomWindow{ z-index: 10001;}
+
+
+.zoomContainer{ z-index: 10001 !important;}
+.zoomWindow{ z-index: 10001 !important;}
+.zoomWindowContainer div{z-index:2 !important;}
 
 .bxslider > li:hover .caption1{
   bottom: 0;
   max-height: 100px;
   opacity:1;
 }
-
 
  .bxslider2   li, .bxslider3   li, .bxslider4 li, .caption1 > ul > li{
   margin: 0;
