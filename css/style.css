@@ -479,16 +479,11 @@ ul.text-slide {
     -webkit-transition: none;
     -moz-transition: none;
     transition: none;
-}
-
-/* Button 2c */
-.btn-2 {
     border-radius: 0;
 }
 
 .btn-2:hover {
     color: #fff;
-    top: 2px;
 }
 
 .btn-2:active {
@@ -780,19 +775,21 @@ section.portfolio {
 
 .service-slide{
   margin-top: 1px;
+  padding:0;
 }
 
+
 .service-slide > img{
-  outline: solid 1px #D6D6D6;
+  border: solid 0.1em #D6D6D6;
 }
 
 .mid{
-  margin-right: 93px !important;
+  margin-right: 91px !important;
 }
 
 .caption1{
     background-color: rgb(246, 151, 143);
-    left: 1px;
+    left: 2px;
     bottom:0;
     color:white;
     font-size: 15px;
@@ -803,7 +800,7 @@ section.portfolio {
     opacity: 0;
     max-height: 0;
     transition: 1s ease;
-    width: 100%;
+    width: 99%;
 }
 
 
@@ -812,7 +809,7 @@ section.portfolio {
 .zoomWindowContainer div{z-index:2 !important;}
 
 .bxslider > li:hover .caption1{
-  bottom: 0;
+  bottom: 1px;
   max-height: 100px;
   opacity:1;
 }

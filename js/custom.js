@@ -166,15 +166,24 @@ $(".nav a").on("click", function(){
 /*----------------------------------------------------*/
 /*  Portfolio Lens
 /*----------------------------------------------------*/
-
+var hue = true;
       $('.RoundBg a').on('click', function  (){
+            var zoomContainer=$(".lb-container img");
+            var newImg=$(this).closest('.overlay-effect').siblings('img').attr("src");
+            if(hue) {
+              console.log("1-"+newImg);
+              zoomContainer.data('zoom-image', newImg).elevateZoom({
+                 easing: true,
+                 zoomType: "inner",
+                 cursor: "crosshair"
 
-             var zoomImg=$(".lb-container img");
-             zoomImg.data('zoom-image', $(this).closest('overlay-effect').siblings('img').attr("src")).elevateZoom({
-                easing: true,
-                zoomType: "inner",
-                cursor: "crosshair"
-             });
+              });
+              hue=false;
+              return;
+            }
+            console.log("2-"+newImg);
+            zoomContainer.data('elevateZoom').changeState('enable');
+            zoomContainer.data('elevateZoom').swapAction(newImg,newImg);
       });
 
     });
@@ -199,7 +208,7 @@ jQuery(document).ready(function(){
 
     jQuery('.bxslider').bxSlider({
       slideWidth: 300,
-      slideMargin: 95,
+      slideMargin: 97,
       minSlides: 3,
       maxSlides: 3,
       moveSlides: 2,

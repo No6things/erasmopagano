@@ -14,6 +14,13 @@ ul.why li:before,
 
 .btn-2{
   background: #FF9145;
+  border: 2px solid #FF9145;
+}
+
+.btn-2:hover{
+  background: #FFFFFF;
+  color:#FF9145;
+  box-shadow: none !important;
 }
 
 .blue{
