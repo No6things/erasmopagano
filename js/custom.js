@@ -102,11 +102,16 @@ $(".nav a").on("click", function(){
         return false;
     });
 
-    $(".form-control").on("focus", function(){
-        nextIndex= $(this).index()+1;
+    $(".form-control").focusin( function(){
+        var nextIndex= $(".form-control").index(this)+1;
         nextElement=$(".form-control")[nextIndex];
-        console.log();
         $(nextElement).css("border-color","#2eaef0");
+        return;
+    });
+    $(".form-control").focusout(function(){
+        var nextIndex= $(".form-control").index(this)+1;
+        nextElement=$(".form-control")[nextIndex];
+        $(nextElement).css("border-color","#828282");
         return;
     });
 
@@ -125,7 +130,7 @@ $(".nav a").on("click", function(){
 
     function parallaxInit() {
 
-        jQuery('.product-wrap').parallax("10%", 0.1);
+        jQuery('.product-wrap').parallax("30%", 0.1, false ,450);
         jQuery('.subscription-wrap').parallax("30%", 0.1);
 
     }
@@ -164,12 +169,6 @@ $(".nav a").on("click", function(){
         'resizeDuration': 200,
         'wrapAround': true
       })
-  /*    jQuery("a[data-gal^='prettyPhoto']").prettyPhoto({
-            opacity: 0.5,
-            social_tools: "",
-            allow_resize: false,
-            deeplinking: false
-      });*/
 
 /*----------------------------------------------------*/
 /*  Portfolio Lens
