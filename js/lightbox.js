@@ -413,6 +413,8 @@
     var keycode = event.keyCode;
     var key     = String.fromCharCode(keycode).toLowerCase();
     if (keycode === KEYCODE_ESC || key.match(/x|o|c/)) {
+      $(".lb-container img").data('elevateZoom').changeState('disable');
+      $(".lb-container img").data('elevateZoom').closeAll();
       this.end();
     } else if (key === 'p' || keycode === KEYCODE_LEFTARROW) {
       if (this.currentImageIndex !== 0) {

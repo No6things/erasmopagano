@@ -12,7 +12,6 @@ jQuery(document).ready(function () {
   jQuery.waitForImages.hasImgProperties = ['background','backgroundImage'];
     jQuery('body').waitForImages(function() {
         jQuery(".page-mask").delay(1200).fadeOut('slow');
-        jQuery('body').css('overflowY','auto');
     });
 
 /*-------------------------------------------------*/
@@ -103,6 +102,14 @@ $(".nav a").on("click", function(){
         return false;
     });
 
+    $(".form-control").on("focus", function(){
+        nextIndex= $(this).index()+1;
+        nextElement=$(".form-control")[nextIndex];
+        console.log();
+        $(nextElement).css("border-color","#2eaef0");
+        return;
+    });
+
 /*----------------------------------------------------*/
 /*  Parallax section
 /*----------------------------------------------------*/
@@ -118,13 +125,14 @@ $(".nav a").on("click", function(){
 
     function parallaxInit() {
 
-        jQuery('.product-wrap').parallax("30%", 0.1);
+        jQuery('.product-wrap').parallax("10%", 0.1);
         jQuery('.subscription-wrap').parallax("30%", 0.1);
 
     }
 
+
 /*----------------------------------------------------*/
-/*  Scroll To Top Section
+/*  Scroll To Top Section #2eaef0
 /*----------------------------------------------------*/
     jQuery(document).ready(function () {
 
@@ -183,7 +191,8 @@ var hue = true;
             }
             console.log("2-"+newImg);
             zoomContainer.data('elevateZoom').changeState('enable');
-            zoomContainer.data('elevateZoom').swapAction(newImg,newImg);
+            zoomContainer.data('elevateZoom').swaptheimage(newImg,newImg);
+
       });
 
     });

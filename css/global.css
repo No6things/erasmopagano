@@ -1,18 +1,18 @@
-.page-mask { 
-	width: 100%; 
-	height: 100%; 
-	position: fixed; 
-	background: #fff;  
+.page-mask {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	background: #fff;
 	z-index: 99999;
 }
 
 
 .spinner {
-	background: url(../img/flat-loader.gif);
-  	width: 128px;
-  	height: 128px;
+	background: url(../img/loader.gif);
+  	width: 250px;
+  	height: 223px;
   	position: absolute;
-  	left: 50%;
+  	left: 45%;
   	margin: -64px 0 0 -64px;
-  	top: 50%;
+  	top: 45%;
 }
