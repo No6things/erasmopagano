@@ -12,6 +12,8 @@ jQuery(document).ready(function () {
   jQuery.waitForImages.hasImgProperties = ['background','backgroundImage'];
     jQuery('body').waitForImages(function() {
         jQuery(".page-mask").delay(1200).fadeOut('slow');
+        jQuery('body').css('overflowY','auto');
+
     });
 
 /*-------------------------------------------------*/
@@ -137,7 +139,7 @@ $(".nav a").on("click", function(){
 
 
 /*----------------------------------------------------*/
-/*  Scroll To Top Section #2eaef0
+/*  Scroll To Top Sectio
 /*----------------------------------------------------*/
     jQuery(document).ready(function () {
 
@@ -283,11 +285,7 @@ $('.lb-close').on('click', function() {
     $(".lb-container img").data('elevateZoom').changeState('disable');
     $(".lb-container img").data('elevateZoom').closeAll();
 });
-/*
-var vague=$('#lightbox').Vague({
-  intensity:5
-});
-vague.blur();*/
+
 $('.portfolio-close').on('click', function() {
         $('#filters a').removeClass('active');
         sliderIndex=-1;
@@ -314,13 +312,14 @@ $('.portfolio-close').on('click', function() {
 
             function refreshWaypoints() {
                 setTimeout(function() {
-                }, 1);
+                }, 1000);
             }
-            var bnext= function(){
+            var bnext= function(){ //salta entre sliders un vez se presiona en el ultimo slide
                 $('.bx-next').on('click', function (){
                   var i = $(this).index();
                   var slideQty = sliders[sliderIndex].getSlideCount();
-                  console.log("slides:"+slideQty+"-"+i);
+                  console.log($(this));
+                  console.log("slides:"+slideQty+"/index:"+i);
                   if (lastIndex!=i){
                     lastIndex=i;
                     console.log("ese indice no esta repetido");
@@ -336,17 +335,18 @@ $('.portfolio-close').on('click', function() {
                   }
                 });
             };
-            var bprev= function(){
+            var bprev= function(){ //salta entre sliders un vez se presiona en el primer slide
                 $('.bx-prev').on('click', function (){
                   var i = $(this).index();
                   var slideQty = sliders[sliderIndex].getSlideCount();
-                  console.log("slides:"+slideQty+"-"+i);
+                  console.log($(this));
+                  console.log("slides:"+slideQty+"/index:"+i);
                   if (lastIndex!=i){
                     lastIndex=i;
                     console.log("ese indice no esta repetido");
-                  }else if ( i == 0){
+                  }else if ( i == 0 && sliderIndex!=0){
                       lastIndex=-1;
-                      console.log("ese indice esta repetido, debe ser el ultimo slide, despertare el siguiente slider sliderIndex-"+sliderIndex+1);
+                      console.log("ese indice esta repetido, debe ser el primer slide, despertare el siguiente slider sliderIndex-"+sliderIndex+1);
                       $('#portfolio-wrap').isotope({ filter: slidersIndex[sliderIndex-1] }, refreshWaypoints());
                       sliders[sliderIndex+1].reloadSlider();
                       $("#filters a[data-filter='"+slidersIndex[sliderIndex]+"']").removeClass('active');
@@ -394,6 +394,7 @@ $('.portfolio-close').on('click', function() {
 
             $container.imagesLoaded(function () {
                 setPortfolio();
+
             });
 
             $(window).on('resize', function () {

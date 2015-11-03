@@ -740,7 +740,6 @@ nav a:focus {
 section {
     margin: 0 auto;
     position: relative;
-    overflow-x: inherit;
 }
 
 section.page-title {

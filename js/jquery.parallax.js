@@ -41,7 +41,6 @@ http://www.gnu.org/licenses/gpl.html
 
 		//get the starting position of each element to have parallax applied to it
 		$this.each(function(){
-			console.log(extraTop);
 				firstTop = $this.offset().top+extraTop;
 		});
 		// function to be called whenever the window is scrolled or resized
