@@ -1,9 +1,15 @@
 var sliders = new Array(),
+    hue = true,
     portHeight,
     orientationChange=true,
     slidersIndex = new Array(), //array of the sliders
-    sliderIndex=-1, //current index of the slider array
-    lastIndex=0; //current index of the slide, locale to the slider, it should be updated on bxprev, bxnext and every time slides changes
+    sliderIndex=0, //current index of the slider array
+    lastIndex=0, //current index of the slide, locale to the slider, it should be updated on bxprev, bxnext and every time slides changes
+    zoomConfig={
+       easing: true,
+       zoomType: "inner",
+       cursor: "crosshair"
+    };
 
 $(window).scroll(function() {
   if ($(document).scrollTop() < $(window).height()) {
@@ -22,7 +28,7 @@ jQuery(document).ready(function () {
     });
 
 /*-------------------------------------------------*/
-/* =  Static Heights on Portrait and Home Slider
+/* Keep same Heights on Portraits and Home Slider
 /*-------------------------------------------------*/
 
     var heights = $(".frame").map(function() {
@@ -45,7 +51,6 @@ jQuery(document).ready(function () {
             offset:       100
         }
     );
-
     wow.init();
 
 /*==========================*/
@@ -144,7 +149,7 @@ $(".nav a").on("click", function(){
 
 
 /*----------------------------------------------------*/
-/*  Scroll To Top Sectio
+/*  Scroll To Top Section
 /*----------------------------------------------------*/
     jQuery(document).ready(function () {
 
@@ -171,34 +176,34 @@ $(".nav a").on("click", function(){
 /*  Lightbox
 /*----------------------------------------------------*/
 
-    jQuery(function(){
-      lightbox.option({
-        'resizeDuration': 200,
-        'wrapAround': true
-      })
+  jQuery(function(){
+    lightbox.option({
+      'resizeDuration': 200,
+      'wrapAround': true
+    })
 
 /*----------------------------------------------------*/
-/*  Portfolio Lens
+/*  Portfolio Lens - Zoom
 /*----------------------------------------------------*/
-var hue = true;
       $('.RoundBg a').on('click', function  (){
-            var zoomContainer=$(".lb-container img");
+            sliders[sliderIndex].stopAuto();
+            var zoomImage=$(".lb-container img");
             var newImg=$(this).closest('.overlay-effect').siblings('img').attr("src");
-            if(hue) {
+            if(hue) { //if first time load original image
               console.log("1-"+newImg);
-              zoomContainer.data('zoom-image', newImg).elevateZoom({
-                 easing: true,
-                 zoomType: "inner",
-                 cursor: "crosshair"
-
-              });
+              zoomImage.data('zoom-image', newImg).elevateZoom(zoomConfig);
               hue=false;
               return;
-            }
+            } // else, swap
             console.log("2-"+newImg);
-            zoomContainer.data('elevateZoom').changeState('enable');
-            zoomContainer.data('elevateZoom').swaptheimage(newImg,newImg);
-
+            zoomImage.data('elevateZoom').changeState('enable');
+            $('.zoomContainer').remove();
+            zoomImage.removeData('elevateZoom');
+            // Update source for images
+            zoomImage.attr('src', newImg);
+            zoomImage.data('zoom-image', newImg);
+            // Reinitialize EZ
+            zoomImage.elevateZoom(zoomConfig);
       });
 
     });
@@ -207,8 +212,7 @@ var hue = true;
 
 /*----------------------------------------------------*/
 /*  BxSlider
-/* -preIndex, curIndex and futIndex are the index of the slides that identifies categories Previous  and Future on bxSlider5
-    these must be consistent with the HTML layout of the slides*/
+/* -/
 /*----------------------------------------------------*/
 
 
@@ -266,12 +270,12 @@ jQuery(document).ready(function(){
           nextText: '<i class="fa fa-angle-right"></i>',
           prevText: '<i class="fa fa-angle-left"></i>',
           onSlideAfter: function($slideElement, oldIndex, newIndex){
+            console.log(sliderIndex);
             var amount=sliders[sliderIndex].getSlideCount();
             if ((newIndex > oldIndex) && (newIndex== amount-1)) {
-              lastIndex=+1;
-              console.log("work!"+lastIndex+'/');
+              lastIndex+=1;
             }else if (  (newIndex < oldIndex) && (newIndex==0) ){
-              lastIndex=-1;
+              lastIndex-=1;
             }
           }
 
@@ -292,29 +296,6 @@ jQuery(document).ready(function(){
 
 });
 
-
-/*----------------------------------------------------*/
-/*  Portfolio Close Button
-/*----------------------------------------------------*/
-$('.lb-close').on('click', function() {
-    $(".lb-container img").data('elevateZoom').changeState('disable');
-    $(".lb-container img").data('elevateZoom').closeAll();
-});
-
-$('.portfolio-close').on('click', function() {
-        $('#filters a').removeClass('active');
-        sliderIndex=-1;
-        //this might be deleted
-        $('.zoomWindow').css('z-index',1);
-        $('.zoomWindowContainer').css('z-index',1);
-        $('.zoomContainer').css('z-index',1);
-
-        $('#portfolio-wrap').hide(500);
-        jQuery("html, body").animate({
-            scrollTop: 1520
-        }, 600);
-        return false;
-});
 /*----------------------------------------------------*/
 /*  Portfolio Isotope
 /*----------------------------------------------------*/
@@ -435,13 +416,13 @@ $('.portfolio-close').on('click', function() {
                     var selector = $(this).attr('data-filter');
                     $container.isotope({ filter: selector }, refreshWaypoints());
                     if (selector == '.pr') {
-                      lastIndex=-1;
+                      lastIndex=0;
                       sliders[0].reloadSlider();
                       bnext();
                       bprev();
                       sliderIndex=0;
                     } else if ( selector == '.cu'){
-                      lastIndex=-1;
+                      lastIndex=0;
                       sliders[1].reloadSlider();
                       bnext();
                       bprev();
@@ -468,7 +449,28 @@ $('.portfolio-close').on('click', function() {
 
     });
 
+    /*----------------------------------------------------*/
+    /*  Portfolio Close Button
+    /*----------------------------------------------------*/
+    $('.lb-close').on('click', function() {
+        $(".lb-container img").data('elevateZoom').changeState('disable');
+        $(".lb-container img").data('elevateZoom').closeAll();
+    });
 
+    $('.portfolio-close').on('click', function() {
+            $('#filters a').removeClass('active');
+            sliderIndex=-1;
+            //this might be deleted
+            $('.zoomWindow').css('z-index',1);
+            $('.zoomWindowContainer').css('z-index',1);
+            $('.zoomContainer').css('z-index',1);
+
+            $('#portfolio-wrap').hide(500);
+            jQuery("html, body").animate({
+                scrollTop: 1520
+            }, 600);
+            return false;
+    });
 /*----------------------------------------------------*/
 /*  Contact Form Section
 /*----------------------------------------------------*/
@@ -498,7 +500,6 @@ $('.portfolio-close').on('click', function() {
             });
         } else {
             $('.error').fadeIn(1000).delay(5000).fadeOut(1000);
-
         }
 
         return false;
@@ -517,9 +518,7 @@ Firefox anchor fix
             $('html, body').stop().animate({
                 scrollTop : $(h).offset().top - headerH + "px"
             }, 1200, 'easeInOutExpo');
-
-                event.preventDefault();
+            event.preventDefault();
         }
-
     }
     });
