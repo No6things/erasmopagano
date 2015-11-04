@@ -1,4 +1,9 @@
-var sliders = new Array(), portHeight, orientationChange=true, slidersIndex = new Array(), sliderIndex=-1,lastIndex=-1;
+var sliders = new Array(),
+    portHeight,
+    orientationChange=true,
+    slidersIndex = new Array(), //array of the sliders
+    sliderIndex=-1, //current index of the slider array
+    lastIndex=0; //current index of the slide, locale to the slider, it should be updated on bxprev, bxnext and every time slides changes
 
 $(window).scroll(function() {
   if ($(document).scrollTop() < $(window).height()) {
@@ -132,8 +137,8 @@ $(".nav a").on("click", function(){
 
     function parallaxInit() {
 
-        jQuery('.product-wrap').parallax("30%", 0.1, false ,450);
-        jQuery('.subscription-wrap').parallax("30%", 0.1);
+        jQuery('.product-wrap').parallax("30%", 0.01, false ,450);
+        jQuery('.subscription-wrap').parallax("30%", 0.01);
 
     }
 
@@ -259,7 +264,17 @@ jQuery(document).ready(function(){
           pager: false,
           slideSelector: '.slide',
           nextText: '<i class="fa fa-angle-right"></i>',
-          prevText: '<i class="fa fa-angle-left"></i>'
+          prevText: '<i class="fa fa-angle-left"></i>',
+          onSlideAfter: function($slideElement, oldIndex, newIndex){
+            var amount=sliders[sliderIndex].getSlideCount();
+            if ((newIndex > oldIndex) && (newIndex== amount-1)) {
+              lastIndex=+1;
+              console.log("work!"+lastIndex+'/');
+            }else if (  (newIndex < oldIndex) && (newIndex==0) ){
+              lastIndex=-1;
+            }
+          }
+
           /*until here, */
         });
     });
@@ -318,13 +333,13 @@ $('.portfolio-close').on('click', function() {
                 $('.bx-next').on('click', function (){
                   var i = $(this).index();
                   var slideQty = sliders[sliderIndex].getSlideCount();
-                  console.log($(this));
+                  console.log(i+'/'+lastIndex);
                   console.log("slides:"+slideQty+"/index:"+i);
                   if (lastIndex!=i){
-                    lastIndex=i;
-                    console.log("ese indice no esta repetido");
+                      lastIndex=i;
+                      console.log("ese indice no esta repetido");
                   }else if ( i == slideQty-1){
-                      lastIndex=-1;
+                      lastIndex=0;
                       console.log("ese indice esta repetido, debe ser el ultimo slide, despertare el siguiente slider sliderIndex-"+sliderIndex+1);
                       $('#portfolio-wrap').isotope({ filter: slidersIndex[sliderIndex+1] }, refreshWaypoints());
                       sliders[sliderIndex+1].reloadSlider();
@@ -342,10 +357,10 @@ $('.portfolio-close').on('click', function() {
                   console.log($(this));
                   console.log("slides:"+slideQty+"/index:"+i);
                   if (lastIndex!=i){
-                    lastIndex=i;
-                    console.log("ese indice no esta repetido");
+                      lastIndex=i;
+                      console.log("ese indice no esta repetido");
                   }else if ( i == 0 && sliderIndex!=0){
-                      lastIndex=-1;
+                      lastIndex=0;
                       console.log("ese indice esta repetido, debe ser el primer slide, despertare el siguiente slider sliderIndex-"+sliderIndex+1);
                       $('#portfolio-wrap').isotope({ filter: slidersIndex[sliderIndex-1] }, refreshWaypoints());
                       sliders[sliderIndex+1].reloadSlider();
@@ -415,7 +430,7 @@ $('.portfolio-close').on('click', function() {
             $('#filters a').on('click', function() {
                     $('#portfolio-wrap').show();
                     jQuery("html, body").animate({
-                        scrollTop: 1470
+                        scrollTop: 1430
                     }, 600);
                     var selector = $(this).attr('data-filter');
                     $container.isotope({ filter: selector }, refreshWaypoints());
