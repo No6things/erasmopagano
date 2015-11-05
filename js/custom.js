@@ -455,6 +455,7 @@ jQuery(document).ready(function(){
     $('.lb-close').on('click', function() {
         $(".lb-container img").data('elevateZoom').changeState('disable');
         $(".lb-container img").data('elevateZoom').closeAll();
+        $('.zoomContainer').remove();
     });
 
     $('.portfolio-close').on('click', function() {
@@ -464,7 +465,6 @@ jQuery(document).ready(function(){
             $('.zoomWindow').css('z-index',1);
             $('.zoomWindowContainer').css('z-index',1);
             $('.zoomContainer').css('z-index',1);
-
             $('#portfolio-wrap').hide(500);
             jQuery("html, body").animate({
                 scrollTop: 1520
