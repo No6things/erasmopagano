@@ -115,15 +115,17 @@ $(".nav a").on("click", function(){
     });
 
     $(".form-control").focusin( function(){
+        $(this).css("border-color","#2eaef0");
         var nextIndex= $(".form-control").index(this)+1;
         nextElement=$(".form-control")[nextIndex];
-        $(nextElement).css("border-color","#2eaef0");
+        $(nextElement).css("border-top-color","#2eaef0");
         return;
     });
     $(".form-control").focusout(function(){
+        $(this).css("border-color","#828282");
         var nextIndex= $(".form-control").index(this)+1;
         nextElement=$(".form-control")[nextIndex];
-        $(nextElement).css("border-color","#828282");
+        $(nextElement).css("border-top-color","#828282");
         return;
     });
 
@@ -142,7 +144,7 @@ $(".nav a").on("click", function(){
 
     function parallaxInit() {
 
-        jQuery('.product-wrap').parallax("30%", 0.01, false ,450);
+        jQuery('.product-wrap').parallax("30%", 0.01, false);
         jQuery('.subscription-wrap').parallax("30%", 0.01);
 
     }
@@ -167,7 +169,6 @@ $(".nav a").on("click", function(){
             }, 600);
             return false;
         });
-
     });
 
 
@@ -176,18 +177,19 @@ $(".nav a").on("click", function(){
 /*  Lightbox
 /*----------------------------------------------------*/
 
-  jQuery(function(){
-    lightbox.option({
-      'resizeDuration': 200,
-      'wrapAround': true
+    jQuery(function(){
+      lightbox.option({
+        'postitionFromTop':10,
+        'resizeDuration': 200,
+        'wrapAround': true
     })
 
 /*----------------------------------------------------*/
-/*  Portfolio Lens - Zoom
+/*  Portfolio Lens - elevateZoom
 /*----------------------------------------------------*/
       $('.RoundBg a').on('click', function  (){
             sliders[sliderIndex].stopAuto();
-            var zoomImage=$(".lb-container img");
+            var zoomImage=$(".lb-image");
             var newImg=$(this).closest('.overlay-effect').siblings('img').attr("src");
             if(hue) { //if first time load original image
               console.log("1-"+newImg);
@@ -202,6 +204,17 @@ $(".nav a").on("click", function(){
             // Update source for images
             zoomImage.attr('src', newImg);
             zoomImage.data('zoom-image', newImg);
+            // Reinitialize EZ
+            zoomImage.elevateZoom(zoomConfig);
+      });
+      $('#gallery_01 a').on('click', function(){
+            var zoomImage=$(".lb-image");
+            // Remove old instance od EZ
+            $('.zoomContainer').remove();
+            zoomImage.removeData('elevateZoom');
+            // Update source for images
+            zoomImage.attr('src', $(this).data('image'));
+            zoomImage.data('zoom-image', $(this).data('zoom-image'));
             // Reinitialize EZ
             zoomImage.elevateZoom(zoomConfig);
       });
@@ -254,9 +267,7 @@ jQuery(document).ready(function(){
       pager: false,
       speed:700,
       infiniteLoop: true,
-
       easing: 'ease-in-out'
-
     });
 
     $('.bxslider5').each(function(i, slider) {
@@ -278,8 +289,6 @@ jQuery(document).ready(function(){
               lastIndex-=1;
             }
           }
-
-          /*until here, */
         });
     });
 
@@ -316,10 +325,7 @@ jQuery(document).ready(function(){
                   var slideQty = sliders[sliderIndex].getSlideCount();
                   console.log(i+'/'+lastIndex);
                   console.log("slides:"+slideQty+"/index:"+i);
-                  if (lastIndex!=i){
-                      lastIndex=i;
-                      console.log("ese indice no esta repetido");
-                  }else if ( i == slideQty-1){
+                  if (lastIndex == slideQty-1){
                       lastIndex=0;
                       console.log("ese indice esta repetido, debe ser el ultimo slide, despertare el siguiente slider sliderIndex-"+sliderIndex+1);
                       $('#portfolio-wrap').isotope({ filter: slidersIndex[sliderIndex+1] }, refreshWaypoints());
@@ -453,8 +459,8 @@ jQuery(document).ready(function(){
     /*  Portfolio Close Button
     /*----------------------------------------------------*/
     $('.lb-close').on('click', function() {
-        $(".lb-container img").data('elevateZoom').changeState('disable');
-        $(".lb-container img").data('elevateZoom').closeAll();
+        $(".lb-image").data('elevateZoom').changeState('disable');
+        $(".lb-image").data('elevateZoom').closeAll();
         $('.zoomContainer').remove();
     });
 

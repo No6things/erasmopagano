@@ -39,13 +39,13 @@
   // Descriptions of all options available on the demo site:
   // http://lokeshdhakar.com/projects/lightbox2/index.html#options
   Lightbox.defaults = {
-    albumLabel: 'Image %1 of %2',
+    albumLabel: 'Picture %1 of %2',
     alwaysShowNavOnTouchDevices: false,
     fadeDuration: 500,
     fitImagesInViewport: true,
     // maxWidth: 800,
     // maxHeight: 600,
-    positionFromTop: 50,
+    positionFromTop: 10,
     resizeDuration: 700,
     showImageNumberLabel: true,
     wrapAround: false
@@ -262,7 +262,7 @@
           }
         }
       }
-      self.sizeContainer($image.width(), $image.height());
+      self.sizeContainer($image.width(), $image.height()+100);
     };
 
     preloader.src          = this.album[imageNumber].link;

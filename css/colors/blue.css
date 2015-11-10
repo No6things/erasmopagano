@@ -41,8 +41,8 @@ ul.why li:before,
   text-shadow: 0px 0px 12px rgba(255, 255, 255, 1);
 }
 
-.subscription-wrap ul {
-  color: #000000;
+.subscription-wrap ul, .product-wrap ul {
+  color: #333333;
 }
 
 .subscribe-btn {
