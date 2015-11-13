@@ -115,10 +115,10 @@ $(".nav a").on("click", function(){
     });
 
     $(".form-control").focusin( function(){
-        $(this).css("border-color","#2eaef0");
+        $(this).css("border-color","#334378");
         var nextIndex= $(".form-control").index(this)+1;
         nextElement=$(".form-control")[nextIndex];
-        $(nextElement).css("border-top-color","#2eaef0");
+        $(nextElement).css("border-top-color","#334378");
         return;
     });
     $(".form-control").focusout(function(){
@@ -225,7 +225,6 @@ $(".nav a").on("click", function(){
 
 /*----------------------------------------------------*/
 /*  BxSlider
-/* -/
 /*----------------------------------------------------*/
 
 
@@ -235,8 +234,6 @@ jQuery(document).ready(function(){
      slidersIndex[0]='.pr';
      slidersIndex[1]='.cu';
      slidersIndex[2]='.fu';
-
-
 
     jQuery('.bxslider').bxSlider({
       slideWidth: 300,
@@ -264,6 +261,16 @@ jQuery(document).ready(function(){
       auto:true,
       autoDirection: 'next',
       controls:false,
+      pager: false,
+      speed:700,
+      infiniteLoop: true,
+      easing: 'ease-in-out'
+    });
+
+    jQuery('.bxslidert').bxSlider({
+      auto:true,
+      controls:false,
+      autoHover: true,
       pager: false,
       speed:700,
       infiniteLoop: true,
@@ -480,6 +487,11 @@ jQuery(document).ready(function(){
 /*----------------------------------------------------*/
 /*  Contact Form Section
 /*----------------------------------------------------*/
+   $('input').on('input',function(){
+     $(this).css('color','rgb(82, 82, 82)');
+   });
+
+
     $("#contact").submit(function (e) {
         e.preventDefault();
         var name = $("#name").val();

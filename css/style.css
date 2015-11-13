@@ -135,10 +135,10 @@ ul li {
 }
 
 .pink-bg{
-    background: -webkit-linear-gradient(white,  white,#FADAE2); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(white, white, #FADAE2); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(white, white,, #FADAE2); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(white, white, #FADAE2); /* Standard syntax (must be last) */
+    background: -webkit-linear-gradient(white,  white,#FEF7F9); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(white, white, #FEF7F9); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(white, white, #FEF7F9); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(white, white, #FEF7F9); /* Standard syntax (must be last) */
     overflow-x: hidden;
     overflow-y: hidden;
 }
@@ -193,7 +193,7 @@ input:focus, textarea:focus {
 input:-moz-placeholder { max-height: auto; }
 
 input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholder {
-  color:#f6978f;
+  color:#FF9145;
   font-size: 12px;
   font-weight: bolder;
   line-height: 8px;
@@ -510,7 +510,10 @@ ul.text-slide {
 /*-------------------------------------------------------*/
 /* 6. Header
 /*-------------------------------------------------------*/
-/* Navbar */
+.navbar-left > li:first-child > a{
+  padding-left: 25px !important;
+}
+
 
 .navbar-custom .navbar-toggle {
     border-color: #DDDDDD;
@@ -677,11 +680,11 @@ nav a:focus {
 .lines h2::after{
     content: "";
     position: absolute;
-    height: 20px;
+    height: 10px;
     border-style: double none none none;
-    border-width: 12px;
+    border-width: 7px;
     border-color: #f47721;
-    top: 35%;
+    top: 40%;
     width: 600px;
     -webkit-transition: -webkit-transform 1.3s;
     -moz-transition: -moz-transform 1.3s;
@@ -807,7 +810,7 @@ section.portfolio {
     width: 99%;
 }
 
-
+/*rules for elevateZoom*/
 .zoomContainer{ z-index: 10001 !important;}
 .zoomWindow{ z-index: 10001 !important;}
 .zoomWindowContainer div{z-index:2 !important;}
@@ -1334,7 +1337,7 @@ section.portfolio {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    color: rgba(249, 221, 225, 0.7) !important;
+    color: rgba(254, 246, 248, 0.7) !important;
 }
 
 .footer-wrap h4{
@@ -1435,6 +1438,7 @@ a.scrollup:hover i,a.scrollup:focus i {
     .navbar-custom{
       min-height: 155px
     }
+
 
     .navbar-toggle {
         background-color: transparent;
