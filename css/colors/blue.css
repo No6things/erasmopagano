@@ -7,7 +7,7 @@
 .cl-effect-21 a::after,
 .cl-effect-21 .active a::before,
 .cl-effect-21 .active a::after, .service-icon i  {
-    background: #FEF7F9;
+    background: #fbf7f2;
 }
 
 .btn-2{
@@ -29,14 +29,16 @@
   color: #f47721 !important;
 }
 
+.light, .light h2, .light h3, .light ul {
+    color:#fff!important;
+}
 
 .product-wrap > .container > .row > .big-title, .about-wrap > .container > .row > .big-title, #portfolio-wrap  .big-title {
   color: #f47721;
-  text-shadow: 0px 0px 12px rgba(255, 255, 255, 1);
 }
 
 .subscription-wrap ul, .product-wrap ul {
-  color: #333333;
+  color: inherit;
 }
 
 

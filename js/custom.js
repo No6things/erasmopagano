@@ -22,7 +22,7 @@ $(window).scroll(function() {
 jQuery(document).ready(function () {
   jQuery.waitForImages.hasImgProperties = ['background','backgroundImage'];
     jQuery('body').waitForImages(function() {
-        jQuery(".page-mask").delay(1200).fadeOut('slow');
+        jQuery(".page-mask").delay(1000).fadeOut('slow');
         jQuery('body').css('overflowY','auto');
 
     });
