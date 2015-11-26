@@ -20,7 +20,6 @@ body:after {
   left: 0;
   width: 100%;
   z-index: 10000;
-  text-align: center;
   line-height: 0;
   font-weight: normal;
 }
@@ -29,11 +28,18 @@ body:after {
   display: block;
   height: auto;
   max-width: inherit;
+  margin: 0 auto;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
   -o-border-radius: 3px;
   border-radius: 3px;
+}
+
+.lb-container a{
+  display: block;
+  margin: 10px;
+  text-align: center;
 }
 
 .lightbox a img {
@@ -61,7 +67,7 @@ body:after {
 }
 
 .lb-container {
-  padding: 4px;
+  padding: 50px;
 }
 
 .lb-loader {
@@ -141,6 +147,36 @@ body:after {
 .lb-nav a.lb-next:hover {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
+}
+
+.lb-title h2{
+  font-weight: 400 !important;
+  color: #f47721
+}
+
+.lb-group h3{
+  margin: 0;
+}
+
+.lb-info *{
+  font-weight: 300;
+}
+
+.lb-info > div {
+  margin: 20px 0;
+}
+
+.lb-info h3, .lb-info h2, .lb-info ul{
+  text-align: left;
+}
+.lb-info p{
+  line-height: normal;
+  font-style: italic;
+}
+.lb-size select{
+  border-color: white;
+  display: inline-block;
+  margin: 0 50px;
 }
 
 .lb-dataContainer {

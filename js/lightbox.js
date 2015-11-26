@@ -294,8 +294,8 @@
 
     if (oldWidth !== newWidth || oldHeight !== newHeight) {
       this.$outerContainer.animate({
-        width: newWidth,
-        height: newHeight
+        width: $(window).width(),
+        height: $(window).height()
       }, this.options.resizeDuration, 'swing', function() {
         postResize();
       });
