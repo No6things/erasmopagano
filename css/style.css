@@ -697,7 +697,7 @@ nav a:focus {
 }
 
 .lines h2::before,
-.lines h2::after{
+.lines h2::after, .lines-r h2::after{
     content: "";
     position: absolute;
     height: 15px;
@@ -730,6 +730,8 @@ nav a:focus {
     -moz-transform: scale(0.85);
     transform: scale(0.85);
 }
+
+
 .subscription-wrap .lines-w h2::before, .subscription-wrap .lines-w h2::after{
   box-shadow: 0px -2px 0px 0px #f47721 inset,
               0px -19px 0px 0px #f47721 !important;
@@ -748,6 +750,13 @@ nav a:focus {
 .lines h2::after{
     left: 100%;
     margin-left: 15px;
+}
+
+.lines-r h2::after{
+    left: 20%;
+    margin-top: 12px;
+    margin-left: 0px;
+    width: 90% !important;
 }
 
 .lines-w h2::after{

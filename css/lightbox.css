@@ -149,9 +149,14 @@ body:after {
   opacity: 1;
 }
 
+.lb-title, .lb-title > h2 {
+  margin-top:0 !important;
+}
+
 .lb-title h2{
   font-weight: 400 !important;
-  color: #f47721
+  color: #f47721;
+  width: 30%;
 }
 
 .lb-group h3{
@@ -182,9 +187,9 @@ body:after {
 .lb-dataContainer {
   display: inline-block;
   position: absolute;
-  top: 0;
-  right: 200px;
-  padding-top: 5px;
+  top: 10px;
+  right: 10px;
+  padding-top: 0;
   *zoom: 1;
   width: 250px !important;
   -moz-border-radius-bottomleft: 4px;
