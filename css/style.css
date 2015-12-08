@@ -330,7 +330,6 @@ input:focus:-moz-placeholder { max-height: 10px; }
 .bx-wrapper .bx-prev {
     left:1px;
     z-index: 15 !important;
-
 }
 
 
@@ -548,6 +547,9 @@ ul.text-slide {
     min-height: 80px;
     position: relative;
     border-radius: 0;
+    border-style: solid;
+    border-color: #f2dede;
+    border-bottom-width: 1px;
     margin-bottom: 0;
     z-index: 9999;
     max-height: 166px;
@@ -719,8 +721,8 @@ nav a:focus {
     content: "";
     position: absolute;
     height: 2px;
-    box-shadow: 0px -2px 0px 0px white inset,
-                0px -19px 0px 0px white;
+    box-shadow: 0px -2px 0px 0px #f47721 inset,
+                0px -19px 0px 0px #f47721;
     margin-top: 38px;
     width: 8%;
     -webkit-transition: -webkit-transform 1.3s;
@@ -732,10 +734,10 @@ nav a:focus {
 }
 
 
-.subscription-wrap .lines-w h2::before, .subscription-wrap .lines-w h2::after{
+/*.subscription-wrap .lines-w h2::before, .subscription-wrap .lines-w h2::after{
   box-shadow: 0px -2px 0px 0px #f47721 inset,
               0px -19px 0px 0px #f47721 !important;
-}
+}*/
 
 .lines h2::before{
     right: 100%;
@@ -929,6 +931,15 @@ section.portfolio {
     margin-left: 5%;
 }
 
+.about-subwrap{
+  background: url('../img/bg-about.jpg') center no-repeat;
+  background-size: cover;
+}
+
+.about-subwrap .container{
+  padding-top: 0 !important;
+}
+
 .about-wrap {
    position: relative;
    overflow: hidden;
@@ -1011,9 +1022,13 @@ section.portfolio {
 /* Portfolio Items */
 
     .portfolio-close{
+      background: url(../img/close.jpg) center no-repeat;
+      background-size: cover;
+      width: 20px;
+      height: 20px;
       z-index: 10;
       position: absolute;
-      top: 54px;
+      top: 45px;
       right: 10px;
     }
 
@@ -1234,7 +1249,7 @@ section.portfolio {
 .portfolio-thumb{
   bottom: 0;
   border-style: none none double none;
-  border-width: 12px;
+  border-width: 7px;
   border-color: #f47721;
   padding-left: 20px;
   text-align: left;
@@ -1466,9 +1481,9 @@ section.portfolio {
 .scrollup {
     width: 40px;
     height: 40px;
-    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
-    filter: alpha(opacity=80);
-    opacity: 0.8;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+    filter: alpha(opacity=70);
+    opacity: 0.3;
     position: fixed;
     bottom: 100px;
     right: 15px;
@@ -1476,10 +1491,13 @@ section.portfolio {
     text-align: center;
     color: #fafafa;
     font-size: 28px;
-    background: #576370;
+    background: #f47721;
     z-index: 9999;
     outline: none;
-}
+    -webkit-transition:all .5s ease-in-out;
+    -moz-transition:all .5s ease-in-out;
+    -o-transition:all .5s ease-in-out;
+    transition:all .5s ease-in-out;}
 
 .scrollup i {
     line-height: 38px;
@@ -1488,6 +1506,7 @@ section.portfolio {
 a.scrollup:hover i,a.scrollup:focus i {
     text-decoration: none;
     color: #fafafa;
+    opacity: 1;
     outline: none;
 }
 

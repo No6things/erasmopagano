@@ -181,7 +181,7 @@ body:after {
 .lb-size select{
   border-color: white;
   display: inline-block;
-  margin: 0 50px;
+  margin-right: 50px;
 }
 
 .lb-dataContainer {
@@ -232,12 +232,24 @@ body:after {
   color: #999999;
 }
 
+.lb-color  li {
+  display: inline;
+}
+
+.square{
+  width: 20px;
+  height: 20px;
+  background: #00ff00;
+  display: inline-flex;
+  margin: 2px;
+}
+
 .lb-data .lb-close {
   display: block;
   float: right;
-  width: 30px;
   height: 30px;
-  background: url(../img/lightbox/close.png) top right no-repeat;
+  width: 30px;
+  margin-right: 10px;
   text-align: right;
   outline: none;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);

@@ -144,8 +144,8 @@ $(".nav a").on("click", function(){
 
     function parallaxInit() {
 
-        jQuery('.product-wrap').parallax("30%", 0.01, false);
         jQuery('.subscription-wrap').parallax("30%", 0.01);
+        jQuery('.product-wrap').parallax("30%", 0.01);
 
     }
 
@@ -285,8 +285,8 @@ jQuery(document).ready(function(){
           mode: 'fade',
           pager: false,
           slideSelector: '.slide',
-          nextText: '<i class="fa fa-angle-right"></i>',
-          prevText: '<i class="fa fa-angle-left"></i>',
+          nextText: '<img src="img/right-arrow.png" />',
+          prevText: '<img src="img/left-arrow.png" />',
           onSlideAfter: function($slideElement, oldIndex, newIndex){
             console.log(sliderIndex);
             var amount=sliders[sliderIndex].getSlideCount();
