@@ -424,7 +424,7 @@ jQuery(document).ready(function(){
             $('#filters a').on('click', function() {
                     $('#portfolio-wrap').show();
                     jQuery("html, body").animate({
-                        scrollTop: 1430
+                        scrollTop: 1450
                     }, 600);
                     var selector = $(this).attr('data-filter');
                     $container.isotope({ filter: selector }, refreshWaypoints());
@@ -440,6 +440,12 @@ jQuery(document).ready(function(){
                       bnext();
                       bprev();
                       sliderIndex=1;
+                    } else{
+                      lastIndex=0;
+                      sliders[2].reloadSlider();
+                      bnext();
+                      bprev();
+                      sliderIndex=2;
                     }
                     $('#filters a').removeClass('active');
                     $(this).addClass('active');
