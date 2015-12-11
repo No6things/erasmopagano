@@ -272,7 +272,7 @@ jQuery(document).ready(function(){
       controls:false,
       autoHover: true,
       pager: false,
-      speed:700,
+      speed:900,
       infiniteLoop: true,
       easing: 'ease-in-out'
     });
@@ -391,7 +391,7 @@ jQuery(document).ready(function(){
                 $container.find('.one-four').each(function() {
                     $(this).css( {
                       width : itemWidth + 'px',
-                      height: itemWidth + 'px'
+                      height: itemWidth+20+ 'px'
                     });
                 });
             }

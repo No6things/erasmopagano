@@ -532,6 +532,16 @@ ul.text-slide {
   padding-left: 25px !important;
 }
 
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+}
+
+.navbar .navbar-collapse {
+  text-align: center;
+  margin-bottom: 10px;
+}
 
 .navbar-custom .navbar-toggle {
     border-color: #DDDDDD;
@@ -617,12 +627,12 @@ ul.text-slide {
 }
 
 .shrink li{
-  margin: 45px 0 0 0;
+  margin: 10px 0 0 0;
   font-size: 18px;
 }
 
 .shrink img{
-  max-height: 90px;
+  max-height: 75px;
 }
 
 .caret {
@@ -1027,7 +1037,7 @@ section.portfolio {
       height: 20px;
       z-index: 10;
       position: absolute;
-      top: 45px;
+      top: 10px;
       right: 10px;
     }
 
@@ -1054,12 +1064,8 @@ section.portfolio {
       width: 25%;
     }
 
-    .embed-responsive{
-      border: #F18C52;
-      border-width: 1px;
-      border-style: solid;
-      margin-top: 20px;
-      padding-bottom: 350px;
+    .pr ul{
+      padding: 0;
     }
 
     .current .col-lg-7, .previous .col-lg-4{
@@ -1130,16 +1136,6 @@ section.portfolio {
     transition: all .5s ease-in-out;
     width: 100%;
 }
-
-
-.img-holder:hover img {
-  /*  -webkit-transform:rotate(7deg) scale(1.2);
-    -moz-transform:rotate(7deg) scale(1.2);
-    -ms-transform:rotate(7deg) scale(1.2);
-    -o-transform:rotate(7deg) scale(1.2);
-    transform:rotate(7deg) scale(1.2);*/
-}
-
 
 .img-holder .img-overlay {
     background: none repeat scroll 0 0 rgba(255, 255, 255, 0);
