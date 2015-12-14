@@ -764,10 +764,10 @@ nav a:focus {
 }
 
 .lines-r h2::after{
-    left: 20%;
+    left: 44%;
     margin-top: 12px;
     margin-left: 0px;
-    width: 90% !important;
+    width: 65% !important;
 }
 
 .lines-w h2::after{

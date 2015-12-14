@@ -287,9 +287,10 @@ jQuery(document).ready(function(){
           slideSelector: '.slide',
           nextText: '<img src="img/right-arrow.png" />',
           prevText: '<img src="img/left-arrow.png" />',
+          //Esto asegura que se actualice el lastIndex cada vez que nos movamos entre slides
           onSlideAfter: function($slideElement, oldIndex, newIndex){
-            console.log(sliderIndex);
-            var amount=sliders[sliderIndex].getSlideCount();
+            console.log(sliderIndex); //slider actual
+            var amount=sliders[sliderIndex].getSlideCount(); //slides en el slider actual
             if ((newIndex > oldIndex) && (newIndex== amount-1)) {
               lastIndex+=1;
             }else if (  (newIndex < oldIndex) && (newIndex==0) ){
@@ -330,11 +331,11 @@ jQuery(document).ready(function(){
                 $('.bx-next').on('click', function (){
                   var i = $(this).index();
                   var slideQty = sliders[sliderIndex].getSlideCount();
-                  console.log(i+'/'+lastIndex);
+                  console.log(i+'/'+lastIndex+' sliders');
                   console.log("slides:"+slideQty+"/index:"+i);
-                  if (lastIndex == slideQty-1){
+                  if (lastIndex==slideQty-1 && sliderIndex!=2 ){
                       lastIndex=0;
-                      console.log("ese indice esta repetido, debe ser el ultimo slide, despertare el siguiente slider sliderIndex-"+sliderIndex+1);
+                      console.log("ese indice esta repetido, debe ser el ultimo slide, despertare el siguiente slider sliderIndex="+sliderIndex+1);
                       $('#portfolio-wrap').isotope({ filter: slidersIndex[sliderIndex+1] }, refreshWaypoints());
                       sliders[sliderIndex+1].reloadSlider();
                       $("#filters a[data-filter='"+slidersIndex[sliderIndex]+"']").removeClass('active');
@@ -355,7 +356,7 @@ jQuery(document).ready(function(){
                       console.log("ese indice no esta repetido");
                   }else if ( i == 0 && sliderIndex!=0){
                       lastIndex=0;
-                      console.log("ese indice esta repetido, debe ser el primer slide, despertare el siguiente slider sliderIndex-"+sliderIndex+1);
+                      console.log("ese indice esta repetido, debe ser el primer slide, despertare el siguiente slider sliderIndex="+sliderIndex+1);
                       $('#portfolio-wrap').isotope({ filter: slidersIndex[sliderIndex-1] }, refreshWaypoints());
                       sliders[sliderIndex+1].reloadSlider();
                       $("#filters a[data-filter='"+slidersIndex[sliderIndex]+"']").removeClass('active');
@@ -468,10 +469,16 @@ jQuery(document).ready(function(){
 
     });
 
+    $('.lb-button').on('click', function() {
+        $("table").toggle(true);
+    });
+
+
     /*----------------------------------------------------*/
     /*  Portfolio Close Button
     /*----------------------------------------------------*/
     $('.lb-close').on('click', function() {
+        $("table").hide();
         $(".lb-image").data('elevateZoom').changeState('disable');
         $(".lb-image").data('elevateZoom').closeAll();
         $('.zoomContainer').remove();

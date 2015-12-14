@@ -159,11 +159,23 @@ body:after {
   width: 30%;
 }
 
+.lb-button {
+  display: inline!important;
+}
+
+.lb-button:hover {
+  text-decoration: none;
+}
+
 .lb-group h3{
   margin: 0;
 }
 
+.lb-info h3, .lb-info h2{
+  font-size: 20px!important;
+}
 .lb-info *{
+  font-size: 19px!important;
   font-weight: 300;
 }
 
@@ -181,7 +193,6 @@ body:after {
 .lb-size select{
   border-color: white;
   display: inline-block;
-  margin-right: 50px;
 }
 
 .lb-dataContainer {
@@ -225,11 +236,18 @@ body:after {
 }
 
 .lb-data .lb-number {
-  display: block;
+  display: none !important;
   clear: left;
   padding-bottom: 1em;
   font-size: 12px;
   color: #999999;
+}
+
+.table{
+  display: none;
+  bottom: 0!important;
+  margin-bottom: 0;
+  position: absolute;
 }
 
 .lb-color  li {
