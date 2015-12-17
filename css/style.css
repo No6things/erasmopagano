@@ -105,12 +105,9 @@ iframe{
     padding: 50px 0;
 }
 
-
-
 .sub-section h2{
   font-weight: normal !important;
 }
-
 
 .dark-layer{
     background-color: rgba(0, 0, 0, 0.6);
@@ -157,8 +154,6 @@ ul li {
     overflow-x: hidden;
     overflow-y: hidden;
 }
-
-
 
 /*-------------------------------------------------------*/
 /* 2. Form code
@@ -365,6 +360,7 @@ input:focus:-moz-placeholder { max-height: 10px; }
 }
 
 ul.text-slide {
+
     padding-left: 0;
     margin: 10px 0 30px;
 }
@@ -861,7 +857,7 @@ section.portfolio {
 }
 
 
-.service-slide > img{
+.service-slide img{
   border: solid 0.1em #D6D6D6;
 }
 
@@ -870,11 +866,11 @@ section.portfolio {
 }
 
 .caption1{
-    background-color: rgb(246, 151, 143);
+    background-color: #f2dede;
     left: 2px;
     bottom:0;
-    color:white;
-    font-size: 15px;
+    color:#334378;
+    font-size: 18px;
     font-weight: 100;
     text-align: center;
     z-index:10;
@@ -884,6 +880,10 @@ section.portfolio {
     height: 100%;
     transition: 1s ease;
     width: 99%;
+}
+
+.caption1 ul{
+  margin-top: 20px;
 }
 
 /*rules for elevateZoom*/
@@ -1030,7 +1030,7 @@ section.portfolio {
 }
 /* Portfolio Items */
 
-    .portfolio-close{
+    .portfolio-close, .lb-close{
       background: url(../img/close.jpg) center no-repeat;
       background-size: cover;
       width: 20px;
@@ -1039,6 +1039,10 @@ section.portfolio {
       position: absolute;
       top: 10px;
       right: 10px;
+    }
+
+    .deez{ /*noty bar*/
+      margin: 0;
     }
 
     #portfolio-wrap {
@@ -1068,11 +1072,11 @@ section.portfolio {
       padding: 0;
     }
 
-    .current .col-lg-7, .previous .col-lg-4{
+     .previous .col-lg-4{
       padding: 0;
-      position: absolute;
       bottom: 0;
       right: 0;
+      margin-right: 0;
       margin-bottom: 100px;
     }
 
@@ -1097,8 +1101,12 @@ section.portfolio {
       padding-left:0 !important;
     }
 
+    .future p{
+      line-height: 1;
+    }
+
     .current .col-lg-7{
-      margin-bottom: 75px;
+      margin-bottom: 50px;
     }
 
     .future .col-lg-5{
@@ -1128,7 +1136,7 @@ section.portfolio {
 .img-holder img {
     height: 100%;
     margin: 1px;
-    padding: 25px;
+    padding: 0;
     -webkit-transition: all .5s ease-in-out;
     -moz-transition: all .5s ease-in-out;
     -o-transition: all .5s ease-in-out;
@@ -1582,6 +1590,14 @@ a.scrollup:hover i,a.scrollup:focus i {
         padding-right: 10px;
     }
 
+    .current .col-lg-7, .previous .col-lg-4{
+      margin-bottom: 0;
+    }
+
+    .future div, .future h2{
+      padding-left: 0;
+      padding-right: 0;
+    }
     /*------------Bx Slider--------------*/
     .about-wrap .bx-wrapper{
       max-height: 180px !important;
@@ -1655,10 +1671,10 @@ a.scrollup:hover i,a.scrollup:focus i {
         border-radius: 4px;
         display: block;
         float: none;
-        margin-top: 30px;
         padding: 5px 10px;
         position: absolute;
         right: 0px;
+        top: 20px;
     }
 
     .navbar-collapse {
@@ -1675,6 +1691,7 @@ a.scrollup:hover i,a.scrollup:focus i {
 
     .navbar-collapse.collapse.in {
         display: block !important;
+        max-height: 300px!important;
     }
 }
 

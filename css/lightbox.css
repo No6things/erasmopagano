@@ -27,7 +27,7 @@ body:after {
 .lightbox .lb-image {
   display: block;
   height: auto;
-  max-width: inherit;
+  max-width: 670px !important;
   margin: 0 auto;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -252,6 +252,18 @@ body:after {
 
 .lb-color  li {
   display: inline;
+  margin: 5px;
+}
+
+.lb-color img{
+  border: 1px solid;
+  width: 30px;
+  height: 30px;
+}
+
+.lb-color img:hover{
+  cursor: pointer;
+  cursor: hand;
 }
 
 .square{

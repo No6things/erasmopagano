@@ -26,7 +26,9 @@
     }
 }(this, function ($) {
   var shoeApp = angular.module('shoeApp', []);
-
+  function replaceAt(s, n, t) {
+      return s.substring(0, n) + t + s.substring(n + 1);
+  }
   function Lightbox(options) {
     this.album = [];
     this.currentImageIndex = void 0;
@@ -84,33 +86,122 @@
     var self = this;
     shoeApp.controller('shoeDescriptionCtrl',['$scope', function (sc) {
       sc.shoes = [
+        {'category':'Ballerina',
+         'model': 'Darring Medanos',
+         'style': 'EP1104',
+         'description': 'Low cut ballerina. Round toe shape. Draped fabric with a bow holding a silver metal lock and key accessory. Tonal piping. Goat Leather lining. Leather sole. Comfortable insole.',
+         'colors': ['img/portfolio/fu/EP1104/c0.jpg','img/portfolio/fu/EP1104/c1.jpg','img/portfolio/fu/EP1104/c2.jpg']},
+        {'category':'Ballerina',
+         'model': 'Acarigua Lights',
+         'style': 'EP0201',
+         'description': 'High cut ballerina. Almond-shaped toe. Printed leather in a colored mosaic-like with leather piping. Goat leather lining. Man made sole. Comfortable insole.',
+         'colors': ['img/portfolio/fu/EP0201/c0.jpg','img/portfolio/fu/EP0201/c1.jpg']},
+        {'category':'Loafer',
+         'model': 'Parada di Cera',
+         'style': 'EP0102',
+         'description': 'Loafer with a sparkle Cameo accessory. Velvet fabric with a solid  tonal or colored piping. Goat leather lining. Man made sole. Comfortable insole.',
+         'colors': ['img/portfolio/fu/EP0102/c0.jpg','img/portfolio/fu/EP0102/c1.jpg','img/portfolio/fu/EP0102/c2.jpg']},
+        {'category':'Loafer',
+         'model': 'Orinoco del Venti',
+         'style': 'EP0101',
+         'description': 'Loafer with a cravate accessory. Zebra/Leopard hair leather with a solid tonal or colored piping. Goat leather lining. Man made sole. Comfortable insole',
+         'colors': ['img/portfolio/fu/EP0101/c0.jpg','img/portfolio/fu/EP0101/c1.jpg','img/portfolio/fu/EP0101/c2.jpg']},
+        {'category':'Wedge Ballerina',
+         'model': 'Glaring Tepuy',
+         'style': 'EP0302',
+         'description': 'High cut wedge ballerina. Lightweight. Suede with Crocodile/Snake printed fabric toe cap and piping. Goat leather lining. EVA Tepuy style sole. Comfortable insole.',
+         'colors': ['img/portfolio/fu/EP0302/c0.jpg','img/portfolio/fu/EP0302/c1.jpg','img/portfolio/fu/EP0302/c2.jpg']},
+        {'category':'Wedge Ballerina',
+         'model': 'Glaring Tepuy',
+         'style': 'EP0301',
+         'description': 'High cut wedge ballerina. Lightweight. Holographic metallic upper with a grosgrain lace and tonal piping. Goat leather lining. EVA Tepuy style sole. Comfortable insole.',
+         'colors': ['img/portfolio/fu/EP0301/c0.jpg','img/portfolio/fu/EP0301/c1.jpg','img/portfolio/fu/EP0301/c2.jpg']},
+        {'category':'Loafer',
+         'model': 'Tempting Warao',
+         'style': 'EP0104',
+         'description': 'Plain loafer. Round toe shape. Indian pattern fabric with a colored solid piping. Goat leather lining. Leather sole. Comfortable insole.',
+         'colors': ['img/portfolio/fu/EP0104/c0.jpg']},
+        {'category':'Loafer',
+         'model': 'Tempting Warao',
+         'style': 'EP0103',
+         'description': 'Plain loafer. Almond - shaped. Indian pattern fabric with a colored/beige solid piping or Black perforated laser leather with Goat leather lining. Man made sole. Comfortable insole.',
+         'colors': ['img/portfolio/fu/EP0103/c0.jpg','img/portfolio/fu/EP0103/c1.jpg','img/portfolio/fu/EP0103/c2.jpg']},
+        {'category':'Loafer',
+         'model': 'Caballo Vecchio',
+         'style': 'EP0602',
+         'description': 'Loafer with 2 cm heel. Almond - shaped toe. Soft suede with patent/leather piping or Blue Jean suede with leather piping, and tassels accessory. Leather lining. Rubber sole. Comfortable insole.',
+         'colors': ['img/portfolio/fu/EP0602/c0.jpg','img/portfolio/fu/EP0602/c1.jpg','img/portfolio/fu/EP0602/c2.jpg']},
+        {'category':'Ballerina',
+         'model': 'Aqua di Andes',
+         'style': 'EP1102',
+         'description': 'Low cut ballerina. Round toe shape. Soft suede with a  foggy effect  printed fabric toe cap. Tonal piping. Goat leather lining. Leather sole. Comfortable insole.',
+         'colors': ['img/portfolio/fu/EP1102/c0.jpg','img/portfolio/fu/EP1102/c1.jpg']},
+        {'category':'Ballerina',
+         'model': 'Aqua di Andes',
+         'style': 'EP1103',
+         'description': 'Low cut ballerina. Round toe shape. Shiny suede with a sparkly black suede toe cap. Tonal piping. Goat leather lining. Man made sole. Comfortable insole.',
+         'colors': ['img/portfolio/fu/EP1103/c0.jpg']},
+        {'category':'Ballerina',
+         'model': 'Llano di Miele',
+         'style': 'EP0202',
+         'description': 'High cut ballerina. Almond - shaped toe. Three leather colours upper and piping or suede upper with snake embossed leather, toe cap. Goat leather lining. Man made sole. Comfortable insole.',
+         'colors': ['img/portfolio/fu/EP0202/c0.jpg','img/portfolio/fu/EP0202/c1.jpg','img/portfolio/fu/EP0202/c2.jpg']},
         {'category':'Oxford',
-         'model': 'Acqua di Andes',
-         'style': 'EP1107',
-         'description': 'Drapped fabrick ballet flat with a touch of funny lock and key accesories, leather lining and foam cushioning that will mayour walk comfortable.',
-         'color': ['blue','red'],
-         'bview': ''},
+         'model': 'Mochima Specchio',
+         'style': 'EP1701',
+         'description': 'Mirror effect material with lace-up. Natural leather lining. Sole. Comfortable insole.',
+         'colors': ['img/portfolio/fu/EP1701/c0.jpg']},
         {'category':'Oxford',
-         'model': 'Nexus S',
-         'style': 'Fast just got faster with Nexus S.',
-         'description': 'huehue',
-         'color': ['','']},
-        {'category':'Oxford',
-         'model': 'Nexus S',
-         'style': 'Fast just got faster with Nexus S.',
-         'description': 'huehue',
-         'color': ['','']}
+         'model': 'Mochima Specchio',
+         'style': 'EP1702',
+         'description': 'Leather material with lace-up. Natural leather lining. Sole. Comfortable insole.',
+         'colors': ['img/portfolio/fu/EP1702/c0.jpg']},
+        {'category':'Ballerina',
+         'model': 'Dolce Avila',
+         'style': 'EP0402',
+         'description': 'Low cut ballerina. Round toe shape. Soft suede with a patent toe cap and spotted bow. Goat Leather lining. Man made sole. Comfortable insole.',
+         'colors': ['img/portfolio/fu/EP0402/c0.jpg']},
+        {'category':'Ballerina',
+         'model': 'Dolce Avila',
+         'style': 'EP0401',
+         'description': 'Low cut ballerina. Round toe shape. Patterned suede with a gold metal leopard accessory held by a tonal velvet ribbon. Goat Leather lining. Man made sole. Comfortable insole.',
+         'colors': ['img/portfolio/fu/EP0401/c0.jpg']},
+        {'category':'Ballerina',
+         'model': 'Dolce Avila',
+         'style': 'EP0204',
+         'description': 'High cut ballerina. Almond-shaped  toe. Patterned suede with a solver metal leopard accessory held by a tonal velvet ribbon. Goat Leather lining. Man made sole. Comfortable insole.',
+         'colors': ['img/portfolio/fu/EP0204/c0.jpg']}
       ];
-      sc.shoe=sc.shoes[0];
       sc.$watch('shoe', function(newValue, oldValue) {
         if (newValue !== oldValue) {
           console.log('Shoe updated:', newValue);
         }
       }, true);
+
+      sc.updateTemp= function( color){ //pick new id and replace current id on views - ez way to swap
+        console.log(sc.shoe);
+        var id= color[color.length-5];
+        sc.shoe.lview= replaceAt(sc.shoe.lview,sc.shoe.lview.length-5,id);
+        sc.shoe.bview= replaceAt(sc.shoe.bview,sc.shoe.bview.length-5,id);
+        sc.shoe.sview= replaceAt(sc.shoe.sview,sc.shoe.sview.length-5,id);
+        sc.shoe.hview= replaceAt(sc.shoe.hview,sc.shoe.hview.length-5,id);
+        sc.shoe.pview= replaceAt(sc.shoe.pview,sc.shoe.pview.length-5,id);
+        var zoomImage=$(".lb-image");
+        var newImg=sc.shoe.pview;
+        console.log(newImg);
+
+        $('.zoomContainer').remove();
+        zoomImage.removeData('elevateZoom');
+        // Update source for images
+        zoomImage.attr('src', newImg);
+        zoomImage.data('zoom-image', newImg);
+        // Reinitialize EZ
+        zoomImage.elevateZoom(zoomConfig);
+      }
+
     }]);
 
-    $('<div id="lightboxOverlay" class="lightboxOverlay"></div><div id="lightbox" class="lightbox angular" ng-controller="shoeDescriptionCtrl"><div class="lb-outerContainer "><div class="table-responsive"><table class="table table-bordered"><tbody><tr><td>European [EU]</td><td>35</td><td>35.5</td><td>36</td><td>37</td><td>37.5</td><td>38</td><td>38.5</td><td>39</td><td>39.5</td><td>40</td></tr><tr><td>United Kingdom [UK]</td><td>2.5</td><td>3</td><td>3.5</td><td>4</td><td>4.5</td><td>5</td><td>5.5</td><td>6</td><td>6.5</td><td>7</td></tr><tr><td>United States of America [US]</td><td>5</td><td>5.5</td><td>6</td><td>6.5</td><td>7</td><td>7.5</td><td>8</td><td>8.5</td><td>9</td><td>9.5</td></tr></tbody></table></div><div class="lb-container row"><div id="gallery_01" class="col-lg-2 col-md-2"><a  href="#" class="elevatezoom-gallery active" data-image="img/portfolio/fu/1/l.jpg" data-zoom-image="img/portfolio/fu/1/l.jpg"><img src="img/portfolio/fu/1/l.jpg" height="70"  /></a><a  href="#" class="elevatezoom-gallery" data-update="" data-image="img/portfolio/fu/1/h.jpg" data-zoom-image="img/portfolio/fu/1/h.jpg"><img src="img/portfolio/fu/1/h.jpg" width="100"  /></a><a  href="#" class="elevatezoom-gallery" data-image="img/portfolio/fu/1/s.jpg" data-zoom-image="img/portfolio/fu/1/s.jpg"><img src="img/portfolio/fu/1/s.jpg" width="100"  /></a><a  href="#" class="elevatezoom-gallery" data-update="" data-image={{shoe.bview}} data-zoom-image={{shoe.bview}}><img src={{shoe.bview}} width="100"  /></a></div><div class="col-lg-7 col-md-7"><img class="lb-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" /><div class="lb-nav"><a class="lb-prev" href="" ></a><a class="lb-next" href="" ></a><div class="lb-loader"><a class="lb-cancel"></a></div></div></div><div class="col-lg-3 col-md-3 lb-info"><div class="lb-title lines-r"><h2>Ballet Flat</h2></div><div class="lb-group"><h3>Acqua di Andes</h3><h3>Style Number EP0102</h3></div><div class="lb-description"><p>Drapped fabrick ballet flat with a touch of funny lock and key accesories, leather lining and foam cushioning that will mayour walk comfortable.</p><h3>Collection F/W 2016</h3></div><div class="lb-color"><h3>Colour: Magenta</h3><ul class=""><li><div class="square"></div></li><li><div class="square"></div></li></ul></div><div class="lb-size"><div class="lb-size"><select name="EU SIZE"><option value="" disabled selected>EU SIZE</option><option value="35">35/UK Size 2.5</option><option value="35.5">35.5/UK Size 3</option><option value="36">36/UK Size 3.5</option><option value="37">37/UK Size 4</option><option value="37.5">37.5/UK Size 4.5</option><option value="38">38/UK Size 5</option><option value="38.5">38.5/UK Size 5.5</option><option value="39">39/UK Size 6</option><option value="39.5">39.5/UK Size 6.5</option><option value="40">40/UK Size 7</option></select><a href="#" class="lb-button">SIZE CHART</a><div class="share"></div></div></div></div></div></div><div class="lb-dataContainer"><div class="lb-data"><div class="lb-details"><span class="lb-caption"></span><span class="lb-number"></span></div><div class="lb-closeContainer"><a class="lb-close portfolio-close"></a></div></div></div></div>').appendTo($('body'));
-
+    $('<div id="lightboxOverlay" class="lightboxOverlay"></div><div id="lightbox" class="lightbox angular" ng-controller="shoeDescriptionCtrl"><div class="lb-outerContainer "><div class="table-responsive"><table class="table table-bordered"><tbody><tr><td>European [EU]</td><td>35</td><td>35.5</td><td>36</td><td>37</td><td>37.5</td><td>38</td><td>38.5</td><td>39</td><td>39.5</td><td>40</td></tr><tr><td>United Kingdom [UK]</td><td>2.5</td><td>3</td><td>3.5</td><td>4</td><td>4.5</td><td>5</td><td>5.5</td><td>6</td><td>6.5</td><td>7</td></tr><tr><td>United States of America [US]</td><td>5</td><td>5.5</td><td>6</td><td>6.5</td><td>7</td><td>7.5</td><td>8</td><td>8.5</td><td>9</td><td>9.5</td></tr></tbody></table></div><div class="lb-container row"><div id="gallery_01" class="col-lg-2 col-md-2"><a  href="#" class="elevatezoom-gallery active" data-image={{shoe.lview}} data-zoom-image={{shoe.lview}}><img src={{shoe.lview}} height="70"  /></a><a  href="#" class="elevatezoom-gallery" data-update="" data-image={{shoe.hview}} data-zoom-image={{shoe.hview}}><img src={{shoe.hview}} width="100"  /></a><a  href="#" class="elevatezoom-gallery" data-image={{shoe.sview}} data-zoom-image={{shoe.sview}}><img src={{shoe.sview}} width="100"  /></a></div><div class="col-lg-7 col-md-7"><img class="lb-image" data-image="" data-zoom-image="" src={{shoe.pview}} /><div class="lb-nav"><a class="lb-prev" href="" ></a><a class="lb-next" href="" ></a><div class="lb-loader"><a class="lb-cancel"></a></div></div></div><div class="col-lg-3 col-md-3 lb-info"><div class="lb-title lines-r"><h2>{{shoe.category}}</h2></div><div class="lb-group"><h3>{{shoe.model}}</h3><h3>Style Number {{shoe.style}}</h3></div><div class="lb-description"><p>{{shoe.description}}</p><h3>Collection F/W 2016</h3></div><div class="lb-color"><h3>Colour: Magenta</h3><ul class=""><li ng-repeat="color in shoe.colors"><img src={{color}} height="50" width="50" ng-click="updateTemp(color)"/></li></ul></div><div class="lb-size"><div class="lb-size"><select name="EU SIZE"><option value="" disabled selected>EU SIZE</option><option value="35">35/UK Size 2.5</option><option value="35.5">35.5/UK Size 3</option><option value="36">36/UK Size 3.5</option><option value="37">37/UK Size 4</option><option value="37.5">37.5/UK Size 4.5</option><option value="38">38/UK Size 5</option><option value="38.5">38.5/UK Size 5.5</option><option value="39">39/UK Size 6</option><option value="39.5">39.5/UK Size 6.5</option><option value="40">40/UK Size 7</option></select><a href="#" class="lb-button">SIZE CHART</a><div class="share"></div></div></div></div></div></div><div class="lb-dataContainer"><div class="lb-data"><div class="lb-details"><span class="lb-caption"></span><span class="lb-number"></span></div><div class="lb-closeContainer"><a class="lb-close "></a></div></div></div></div>').appendTo($('body'));
 
   // Cache jQuery objects
     this.$lightbox       = $('#lightbox');
@@ -168,21 +259,37 @@
     });
   };
 
-  // Show overlay and lightbox. If the image is part of a set, add siblings to album array.
+// Show overlay and lightbox. If the image is part of a set, add siblings to album array.
   Lightbox.prototype.start = function($link) {
-    var ctrlSc=jQuery('#lightbox').scope(); //Scope of angular
     var self    = this;
-    srcParts= $link.attr('href').substring(0 , $link.attr('href').lastIndexOf("/"));  //imgSrc viewImage
-    
-    self.shoesview.push(srcParts+'/l.JPG');
-    self.shoesview.push(srcParts+'/h.JPG');
-    self.shoesview.push(srcParts+'/s.JPG');
-    self.shoesview.push(srcParts+'/b.JPG');
+//Angular Management for information loading on Template --------START
+    var ctrlSc=jQuery('#lightbox').scope(); //Scope of angular
+    srcParts= $link.attr('href').split('/');  //imgSrc viewImage
 
-    ctrlSc.$apply(function() {
-      ctrlSc.shoe.bview = self.shoesview[3];
-    });
+    var result = $.grep(ctrlSc.shoes, function(e){ return e.style == srcParts[3]; }); //look for shoe style number on database
+    if (result.length == 0) {
+      console.log('there isnt any match with '+srcParts[3]);
+    } else if (result.length == 1) {
 
+      ctrlSc.$apply(function() {  //update src of views and load information on template
+
+        ctrlSc.shoe= result[0];
+        var uriShoe=srcParts[0]+'/'+srcParts[1]+'/'+srcParts[2]+'/'+srcParts[3];
+        ctrlSc.shoe.lview = uriShoe+'/l0.JPG';
+        ctrlSc.shoe.hview = uriShoe+'/h0.JPG';
+        ctrlSc.shoe.sview = uriShoe+'/s0.JPG';
+        ctrlSc.shoe.bview = uriShoe+'/b0.JPG';
+        ctrlSc.shoe.pview = uriShoe+'/p0.JPG';
+
+      });
+
+
+    } else {
+      // multiple items found
+      console.log('hue');
+    }
+
+// --- END
 
     var $window = $(window);
 

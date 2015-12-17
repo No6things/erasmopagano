@@ -2,6 +2,8 @@ var sliders = new Array(),
     hue = true,
     portHeight,
     orientationChange=true,
+    minusWidth=0,
+    plusHeight=0,
     slidersIndex = new Array(), //array of the sliders
     sliderIndex=0, //current index of the slider array
     lastIndex=0, //current index of the slide, locale to the slider, it should be updated on bxprev, bxnext and every time slides changes
@@ -187,7 +189,7 @@ $(".nav a").on("click", function(){
 /*----------------------------------------------------*/
 /*  Portfolio Lens - elevateZoom
 /*----------------------------------------------------*/
-      $('.RoundBg a').on('click', function  (){
+      $('.RoundBg a').on('click', function  (){ //opening shoe description
             sliders[sliderIndex].stopAuto();
             var zoomImage=$(".lb-image");
             var newImg=$(this).closest('.overlay-effect').siblings('img').attr("src");
@@ -197,26 +199,36 @@ $(".nav a").on("click", function(){
               hue=false;
               return;
             } // else, swap
+
             console.log("2-"+newImg);
-            zoomImage.data('elevateZoom').changeState('enable');
             $('.zoomContainer').remove();
             zoomImage.removeData('elevateZoom');
             // Update source for images
             zoomImage.attr('src', newImg);
-            zoomImage.data('zoom-image', newImg);
+            zoomImage.attr('data-zoom-image', newImg);
             // Reinitialize EZ
             zoomImage.elevateZoom(zoomConfig);
+            zoomImage.data('elevateZoom').changeState('enable');
+
       });
-      $('#gallery_01 a').on('click', function(){
+
+      $('#gallery_01 a').on('click', function(){ //choosing shoe views on description
             var zoomImage=$(".lb-image");
             // Remove old instance od EZ
+            console.log($(this));
+            console.log($(this).attr('data-image'));
+
             $('.zoomContainer').remove();
             zoomImage.removeData('elevateZoom');
             // Update source for images
-            zoomImage.attr('src', $(this).data('image'));
-            zoomImage.data('zoom-image', $(this).data('zoom-image'));
+            console.log($(this).attr('data-image'));
+            zoomImage.attr('src', $(this).attr('data-image'));
+            zoomImage.data('zoom-image', $(this).attr('data-zoom-image'));
             // Reinitialize EZ
             zoomImage.elevateZoom(zoomConfig);
+            zoomImage.data('elevateZoom').changeState('enable');
+
+
       });
 
     });
@@ -356,9 +368,9 @@ jQuery(document).ready(function(){
                       console.log("ese indice no esta repetido");
                   }else if ( i == 0 && sliderIndex!=0){
                       lastIndex=0;
-                      console.log("ese indice esta repetido, debe ser el primer slide, despertare el siguiente slider sliderIndex="+sliderIndex+1);
+                      console.log("ese indice esta repetido, debe ser el primer slide, despertare el siguiente slider sliderIndex="+sliderIndex-1);
                       $('#portfolio-wrap').isotope({ filter: slidersIndex[sliderIndex-1] }, refreshWaypoints());
-                      sliders[sliderIndex+1].reloadSlider();
+                      sliders[sliderIndex-1].reloadSlider();
                       $("#filters a[data-filter='"+slidersIndex[sliderIndex]+"']").removeClass('active');
                       $("#filters a[data-filter='"+slidersIndex[sliderIndex-1]+"']").addClass('active');
                       setPortfolio();
@@ -381,7 +393,8 @@ jQuery(document).ready(function(){
                 } else if (winWidth > 250) {
                     columnNumber = 2;
                 }
-                    return columnNumber;
+                //console.log(columnNumber);
+                return columnNumber;
             }
 
             function setColumns() {
@@ -390,9 +403,12 @@ jQuery(document).ready(function(){
                     itemWidth = Math.floor(winWidth / columnNumber);
 
                 $container.find('.one-four').each(function() {
+                //  console.log('height'+ itemWidth+plusHeight+ 'dar');
+                //  console.log('width'+ itemWidth+' '+minusWidth+' dar');
+
                     $(this).css( {
-                      width : itemWidth + 'px',
-                      height: itemWidth+20+ 'px'
+                      width : itemWidth + plusHeight + 'px',
+                      height: itemWidth - minusWidth + 'px'
                     });
                 });
             }
@@ -425,25 +441,37 @@ jQuery(document).ready(function(){
             $('#filters a').on('click', function() {
                     $('#portfolio-wrap').show();
                     jQuery("html, body").animate({
-                        scrollTop: 1450
+                        scrollTop: 1200
                     }, 600);
                     var selector = $(this).attr('data-filter');
                     $container.isotope({ filter: selector }, refreshWaypoints());
                     if (selector == '.pr') {
                       lastIndex=0;
+                      minusWidth=0;
+                      plusHeight=0;
+
                       sliders[0].reloadSlider();
+                      setPortfolio();
                       bnext();
                       bprev();
                       sliderIndex=0;
+
                     } else if ( selector == '.cu'){
                       lastIndex=0;
+                      minusWidth=0;
+                      plusHeight=0;
                       sliders[1].reloadSlider();
+                      setPortfolio();
                       bnext();
                       bprev();
                       sliderIndex=1;
+
                     } else{
                       lastIndex=0;
+                      minusWidth=60;
+                      plusHeight=0;
                       sliders[2].reloadSlider();
+                      setPortfolio();
                       bnext();
                       bprev();
                       sliderIndex=2;
@@ -478,19 +506,21 @@ jQuery(document).ready(function(){
     /*  Portfolio Close Button
     /*----------------------------------------------------*/
     $('.lb-close').on('click', function() {
+
         $("table").hide();
-        $(".lb-image").data('elevateZoom').changeState('disable');
-        $(".lb-image").data('elevateZoom').closeAll();
         $('.zoomContainer').remove();
+        $(".lb-image").removeData('elevateZoom');
+
+        $('.zoomWindow').css('z-index',1);
+        $('.zoomWindowContainer').css('z-index',1);
+        $('.zoomContainer').css('z-index',1);
     });
 
     $('.portfolio-close').on('click', function() {
             $('#filters a').removeClass('active');
             sliderIndex=-1;
             //this might be deleted
-            $('.zoomWindow').css('z-index',1);
-            $('.zoomWindowContainer').css('z-index',1);
-            $('.zoomContainer').css('z-index',1);
+
             $('#portfolio-wrap').hide(500);
             jQuery("html, body").animate({
                 scrollTop: 1520
@@ -511,26 +541,75 @@ jQuery(document).ready(function(){
         var email = $("#email").val();
         var subject = $("#subject").val();
         var text = $("#text").val();
-        var dataString = 'name=' + name + '&email=' + email + '&subject=' + subject + '&text=' + text;
+        var subscriberData = {
+          email: email,
+          name: name
+        };
+        var dataString ='api_user=erasmopaganoshoes'+'&api_key=erasm0pagan0sh0es'+ '&to=info@erasmopagano.com' + '&toname=ErasmoPagano' + '&subject=' + subject + '&from='+email + '&text=' + text ;
 
+        var dataString2 ='api_user=erasmopaganoshoes'+'&api_key=erasm0pagan0sh0es'+'&list=ErasmoPagano' + '&data=' + JSON.stringify(subscriberData);
 
         function isValidEmail(emailAddress) {
             var pattern = new RegExp(/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i);
             return pattern.test(emailAddress);
         };
 
-        if (isValidEmail(email) && (text.length > 100) && (name.length > 1)) {
-            $.ajax({
+        if (isValidEmail(email) && (name.length > 1)) {
+          $.ajax({
+            type: "POST",
+            url: "https://api.sendgrid.com/api/newsletter/lists/email/add.json",
+            data: dataString2,
+            beforeSend: function () {
+              $(".chat")
+                .LoadingOverlay("show", {
+                  image: '/img/loader.gif'
+                });
+            },
+            complete: function () {
+              var notymsg;
+              $.ajax({
                 type: "POST",
-                url: "ajax/process.php",
+                url: "https://api.sendgrid.com/api/mail.send.json",
                 data: dataString,
-                success: function () {
-                    $('.success').fadeIn(1000).delay(3000).fadeOut(1000);
-                    $('#contact')[0].reset();
+                complete: function () {
+                  $(".chat")
+                    .LoadingOverlay("hide");
+                  $("#name")
+                    .val('');
+                  $("#subject")
+                    .val('');
+                  $("#email")
+                    .val('');
+                  $("#text")
+                    .val('');
+                  notymsg="Your message has been sent to Erasmo's email";
+
+                  var n = noty({
+                    text: notymsg,
+                    type: 'success',
+                    animation: {
+                      open: 'animated bounceInLeft deez', // Animate.css class names
+                      close: 'animated bounceOutLeft deez', // Animate.css class names
+                      easing: 'swing', // unavailable - no need
+                      speed: 500 // unavailable - no need
+                    }
+                  });
                 }
-            });
+              });
+            }
+          });
         } else {
-            $('.error').fadeIn(1000).delay(5000).fadeOut(1000);
+          notymsg="Excuse us, try again with a different email, or do you forgot to write your Name?";
+          var n = noty({
+            text: notymsg,
+            type: 'error',
+            animation: {
+              open: 'animated bounceInLeft deez', // Animate.css class names
+              close: 'animated bounceOutLeft deez', // Animate.css class names
+              easing: 'swing', // unavailable - no need
+              speed: 500 // unavailable - no need
+            }
+          });
         }
 
         return false;
