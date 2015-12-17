@@ -25,11 +25,15 @@
         root.lightbox = factory(root.jQuery);
     }
 }(this, function ($) {
+  var shoeApp = angular.module('shoeApp', []);
 
   function Lightbox(options) {
     this.album = [];
     this.currentImageIndex = void 0;
     this.init();
+
+    //ERASMO PAGANO VARIABLES
+    this.shoesview = [];
 
     // options
     this.options = $.extend({}, this.constructor.defaults);
@@ -78,9 +82,37 @@
   // Attach event handlers to the new DOM elements. click click click
   Lightbox.prototype.build = function() {
     var self = this;
-    $('<div id="lightboxOverlay" class="lightboxOverlay"></div><div id="lightbox" class="lightbox"><div class="lb-outerContainer"><div class="lb-container"><img class="lb-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" /><div class="lb-nav"><a class="lb-prev" href="" ></a><a class="lb-next" href="" ></a></div><div class="lb-loader"><a class="lb-cancel"></a></div></div></div><div class="lb-dataContainer"><div class="lb-data"><div class="lb-details"><span class="lb-caption"></span><span class="lb-number"></span></div><div class="lb-closeContainer"><a class="lb-close"></a></div></div></div></div>').appendTo($('body'));
+    shoeApp.controller('shoeDescriptionCtrl',['$scope', function (sc) {
+      sc.shoes = [
+        {'category':'Oxford',
+         'model': 'Acqua di Andes',
+         'style': 'EP1107',
+         'description': 'Drapped fabrick ballet flat with a touch of funny lock and key accesories, leather lining and foam cushioning that will mayour walk comfortable.',
+         'color': ['blue','red'],
+         'bview': ''},
+        {'category':'Oxford',
+         'model': 'Nexus S',
+         'style': 'Fast just got faster with Nexus S.',
+         'description': 'huehue',
+         'color': ['','']},
+        {'category':'Oxford',
+         'model': 'Nexus S',
+         'style': 'Fast just got faster with Nexus S.',
+         'description': 'huehue',
+         'color': ['','']}
+      ];
+      sc.shoe=sc.shoes[0];
+      sc.$watch('shoe', function(newValue, oldValue) {
+        if (newValue !== oldValue) {
+          console.log('Shoe updated:', newValue);
+        }
+      }, true);
+    }]);
 
-    // Cache jQuery objects
+    $('<div id="lightboxOverlay" class="lightboxOverlay"></div><div id="lightbox" class="lightbox angular" ng-controller="shoeDescriptionCtrl"><div class="lb-outerContainer "><div class="table-responsive"><table class="table table-bordered"><tbody><tr><td>European [EU]</td><td>35</td><td>35.5</td><td>36</td><td>37</td><td>37.5</td><td>38</td><td>38.5</td><td>39</td><td>39.5</td><td>40</td></tr><tr><td>United Kingdom [UK]</td><td>2.5</td><td>3</td><td>3.5</td><td>4</td><td>4.5</td><td>5</td><td>5.5</td><td>6</td><td>6.5</td><td>7</td></tr><tr><td>United States of America [US]</td><td>5</td><td>5.5</td><td>6</td><td>6.5</td><td>7</td><td>7.5</td><td>8</td><td>8.5</td><td>9</td><td>9.5</td></tr></tbody></table></div><div class="lb-container row"><div id="gallery_01" class="col-lg-2 col-md-2"><a  href="#" class="elevatezoom-gallery active" data-image="img/portfolio/fu/1/l.jpg" data-zoom-image="img/portfolio/fu/1/l.jpg"><img src="img/portfolio/fu/1/l.jpg" height="70"  /></a><a  href="#" class="elevatezoom-gallery" data-update="" data-image="img/portfolio/fu/1/h.jpg" data-zoom-image="img/portfolio/fu/1/h.jpg"><img src="img/portfolio/fu/1/h.jpg" width="100"  /></a><a  href="#" class="elevatezoom-gallery" data-image="img/portfolio/fu/1/s.jpg" data-zoom-image="img/portfolio/fu/1/s.jpg"><img src="img/portfolio/fu/1/s.jpg" width="100"  /></a><a  href="#" class="elevatezoom-gallery" data-update="" data-image={{shoe.bview}} data-zoom-image={{shoe.bview}}><img src={{shoe.bview}} width="100"  /></a></div><div class="col-lg-7 col-md-7"><img class="lb-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" /><div class="lb-nav"><a class="lb-prev" href="" ></a><a class="lb-next" href="" ></a><div class="lb-loader"><a class="lb-cancel"></a></div></div></div><div class="col-lg-3 col-md-3 lb-info"><div class="lb-title lines-r"><h2>Ballet Flat</h2></div><div class="lb-group"><h3>Acqua di Andes</h3><h3>Style Number EP0102</h3></div><div class="lb-description"><p>Drapped fabrick ballet flat with a touch of funny lock and key accesories, leather lining and foam cushioning that will mayour walk comfortable.</p><h3>Collection F/W 2016</h3></div><div class="lb-color"><h3>Colour: Magenta</h3><ul class=""><li><div class="square"></div></li><li><div class="square"></div></li></ul></div><div class="lb-size"><div class="lb-size"><select name="EU SIZE"><option value="" disabled selected>EU SIZE</option><option value="35">35/UK Size 2.5</option><option value="35.5">35.5/UK Size 3</option><option value="36">36/UK Size 3.5</option><option value="37">37/UK Size 4</option><option value="37.5">37.5/UK Size 4.5</option><option value="38">38/UK Size 5</option><option value="38.5">38.5/UK Size 5.5</option><option value="39">39/UK Size 6</option><option value="39.5">39.5/UK Size 6.5</option><option value="40">40/UK Size 7</option></select><a href="#" class="lb-button">SIZE CHART</a><div class="share"></div></div></div></div></div></div><div class="lb-dataContainer"><div class="lb-data"><div class="lb-details"><span class="lb-caption"></span><span class="lb-number"></span></div><div class="lb-closeContainer"><a class="lb-close portfolio-close"></a></div></div></div></div>').appendTo($('body'));
+
+
+  // Cache jQuery objects
     this.$lightbox       = $('#lightbox');
     this.$overlay        = $('#lightboxOverlay');
     this.$outerContainer = this.$lightbox.find('.lb-outerContainer');
@@ -138,14 +170,24 @@
 
   // Show overlay and lightbox. If the image is part of a set, add siblings to album array.
   Lightbox.prototype.start = function($link) {
+    var ctrlSc=jQuery('#lightbox').scope(); //Scope of angular
     var self    = this;
+    srcParts= $link.attr('href').substring(0 , $link.attr('href').lastIndexOf("/"));  //imgSrc viewImage
+    
+    self.shoesview.push(srcParts+'/l.JPG');
+    self.shoesview.push(srcParts+'/h.JPG');
+    self.shoesview.push(srcParts+'/s.JPG');
+    self.shoesview.push(srcParts+'/b.JPG');
+
+    ctrlSc.$apply(function() {
+      ctrlSc.shoe.bview = self.shoesview[3];
+    });
+
+
     var $window = $(window);
 
     $window.on('resize', $.proxy(this.sizeOverlay, this));
 
-    $('select, object, embed').css({
-      visibility: 'hidden'
-    });
 
     this.sizeOverlay();
 
@@ -222,9 +264,10 @@
       var maxImageWidth;
       var windowHeight;
       var windowWidth;
+      var imgfolder;
+      var srcParts;
 
       $image.attr('src', self.album[imageNumber].link);
-
       $preloader = $(preloader);
 
       $image.width(preloader.width);
@@ -294,8 +337,8 @@
 
     if (oldWidth !== newWidth || oldHeight !== newHeight) {
       this.$outerContainer.animate({
-        width: $(window).width(),
-        height: $(window).height()
+        width: $(window).width()-20,
+        height: $(window).height()-20
       }, this.options.resizeDuration, 'swing', function() {
         postResize();
       });
