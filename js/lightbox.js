@@ -275,11 +275,11 @@
 
         ctrlSc.shoe= result[0];
         var uriShoe=srcParts[0]+'/'+srcParts[1]+'/'+srcParts[2]+'/'+srcParts[3];
-        ctrlSc.shoe.lview = uriShoe+'/l0.JPG';
-        ctrlSc.shoe.hview = uriShoe+'/h0.JPG';
-        ctrlSc.shoe.sview = uriShoe+'/s0.JPG';
-        ctrlSc.shoe.bview = uriShoe+'/b0.JPG';
-        ctrlSc.shoe.pview = uriShoe+'/p0.JPG';
+        ctrlSc.shoe.lview = uriShoe+'/l0.jpg';
+        ctrlSc.shoe.hview = uriShoe+'/h0.jpg';
+        ctrlSc.shoe.sview = uriShoe+'/s0.jpg';
+        ctrlSc.shoe.bview = uriShoe+'/b0.jpg';
+        ctrlSc.shoe.pview = uriShoe+'/p0.jpg';
 
       });
 

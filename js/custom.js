@@ -10,7 +10,8 @@ var sliders = new Array(),
     zoomConfig={
        easing: true,
        zoomType: "inner",
-       cursor: "crosshair"
+       cursor: "crosshair",
+       responsive: "true"
     };
 
 $(window).scroll(function() {
@@ -26,20 +27,21 @@ jQuery(document).ready(function () {
     jQuery('body').waitForImages(function() {
         jQuery(".page-mask").delay(1000).fadeOut('slow');
         jQuery('body').css('overflowY','auto');
+        var heights = $(".frame").map(function() {
+            return $(this).height();
+        }).get(),
 
+        maxHeight = Math.max.apply(null, heights);
+        $(".frame").height(maxHeight);
     });
 
 /*-------------------------------------------------*/
 /* Keep same Heights on Portraits and Home Slider
 /*-------------------------------------------------*/
 
-    var heights = $(".frame").map(function() {
-        return $(this).height();
-    }).get(),
 
-    maxHeight = Math.max.apply(null, heights);
 
-    $(".frame").height(maxHeight);
+
     $(".frameh").height($(window).height());
 
 
