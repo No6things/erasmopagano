@@ -1066,16 +1066,16 @@ section.portfolio {
       width: 25%;
     }
 
-    .pr ul{
+    .pr ul, .previous > div{
       padding: 0;
     }
 
-     .previous .col-lg-4{
-      padding: 0;
-      bottom: 0;
-      right: 0;
-      margin-right: 0;
-      margin-bottom: 100px;
+    .previous h4, .current h4{
+      text-align: right;
+      padding-right: 60px;
+      text-transform: uppercase;
+      font-weight: 500;
+      letter-spacing: 6px;
     }
 
     .future{
@@ -1323,6 +1323,10 @@ section.portfolio {
   overflow-x: hidden;
 }
 
+.contact-form .container{
+  padding-top:0;
+}
+
 .subscription-wrap .big-title h2::hover, .subscription-wrap .big-title h2::focus{
   opacity:1;
   filter:alpha(opacity=100);
@@ -1342,7 +1346,6 @@ section.portfolio {
 .subscription-wrap .big-title h2::after,.subscription-wrap .big-title h2::before {
   border: none;
 }
-
 
 .seal{
   position: fixed;
@@ -1550,7 +1553,6 @@ a.scrollup:hover i,a.scrollup:focus i {
 
     .mob-menu {
         margin-top: -67px;
-
     }
 
     .navbar-header, .navbar-nav {

@@ -28,6 +28,7 @@ body:after {
   display: block;
   height: auto;
   max-width: 670px !important;
+  width: initial !important;
   margin: 0 auto;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
