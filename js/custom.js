@@ -2,8 +2,8 @@ var sliders = new Array(),
     hue = true,
     portHeight,
     orientationChange=true,
-    minusWidth=0,
-    plusHeight=0,
+    minusHeight=0,
+    plusWidth=0,
     slidersIndex = new Array(), //array of the sliders
     sliderIndex=0, //current index of the slider array
     lastIndex=0, //current index of the slide, locale to the slider, it should be updated on bxprev, bxnext and every time slides changes
@@ -38,8 +38,6 @@ jQuery(document).ready(function () {
 /*-------------------------------------------------*/
 /* Keep same Heights on Portraits and Home Slider
 /*-------------------------------------------------*/
-
-
 
 
     $(".frameh").height($(window).height());
@@ -343,41 +341,12 @@ jQuery(document).ready(function(){
             }
             var bnext= function(){ //salta entre sliders un vez se presiona en el ultimo slide
                 $('.bx-next').on('click', function (){
-                  var i = $(this).index();
-                  var slideQty = sliders[sliderIndex].getSlideCount();
-                  console.log(i+'/'+lastIndex+' sliders');
-                  console.log("slides:"+slideQty+"/index:"+i);
-                  if (lastIndex==slideQty-1 && sliderIndex!=2 ){
-                      lastIndex=0;
-                      console.log("ese indice esta repetido, debe ser el ultimo slide, despertare el siguiente slider sliderIndex="+sliderIndex+1);
-                      $('#portfolio-wrap').isotope({ filter: slidersIndex[sliderIndex+1] }, refreshWaypoints());
-                      sliders[sliderIndex+1].reloadSlider();
-                      $("#filters a[data-filter='"+slidersIndex[sliderIndex]+"']").removeClass('active');
-                      $("#filters a[data-filter='"+slidersIndex[sliderIndex+1]+"']").addClass('active');
-                      setPortfolio();
-                      sliderIndex++;
-                  }
+
                 });
             };
             var bprev= function(){ //salta entre sliders un vez se presiona en el primer slide
                 $('.bx-prev').on('click', function (){
-                  var i = $(this).index();
-                  var slideQty = sliders[sliderIndex].getSlideCount();
-                  console.log($(this));
-                  console.log("slides:"+slideQty+"/index:"+i);
-                  if (lastIndex!=i){
-                      lastIndex=i;
-                      console.log("ese indice no esta repetido");
-                  }else if ( i == 0 && sliderIndex!=0){
-                      lastIndex=0;
-                      console.log("ese indice esta repetido, debe ser el primer slide, despertare el siguiente slider sliderIndex="+sliderIndex-1);
-                      $('#portfolio-wrap').isotope({ filter: slidersIndex[sliderIndex-1] }, refreshWaypoints());
-                      sliders[sliderIndex-1].reloadSlider();
-                      $("#filters a[data-filter='"+slidersIndex[sliderIndex]+"']").removeClass('active');
-                      $("#filters a[data-filter='"+slidersIndex[sliderIndex-1]+"']").addClass('active');
-                      setPortfolio();
-                      sliderIndex--;
-                  }
+
                 });
             };
             function getColumnNumber() {
@@ -405,12 +374,12 @@ jQuery(document).ready(function(){
                     itemWidth = Math.floor(winWidth / columnNumber);
 
                 $container.find('.one-four').each(function() {
-                //  console.log('height'+ itemWidth+plusHeight+ 'dar');
-                //  console.log('width'+ itemWidth+' '+minusWidth+' dar');
+                //  console.log('height'+ itemWidth+plusWidth+ 'dar');
+                //  console.log('width'+ itemWidth+' '+minusHeight+' dar');
 
                     $(this).css( {
-                      width : itemWidth + plusHeight + 'px',
-                      height: itemWidth - minusWidth + 'px'
+                      width : itemWidth + plusWidth + 'px',
+                      height: itemWidth - minusHeight + 'px'
                     });
                 });
             }
@@ -443,40 +412,39 @@ jQuery(document).ready(function(){
             $('#filters a').on('click', function() {
                     $('#portfolio-wrap').show();
                     jQuery("html, body").animate({
-                        scrollTop: 1200
+                        scrollTop: 1390
                     }, 600);
                     var selector = $(this).attr('data-filter');
                     $container.isotope({ filter: selector }, refreshWaypoints());
                     if (selector == '.pr') {
                       lastIndex=0;
-                      minusWidth=0;
-                      plusHeight=0;
-
-                      sliders[0].reloadSlider();
-                      setPortfolio();
-                      bnext();
-                      bprev();
                       sliderIndex=0;
+                      minusHeight=0;
+                      plusWidth=0;
+
+                      setPortfolio();
+                      sliders[0].reloadSlider();
+
 
                     } else if ( selector == '.cu'){
                       lastIndex=0;
-                      minusWidth=0;
-                      plusHeight=0;
-                      sliders[1].reloadSlider();
-                      setPortfolio();
-                      bnext();
-                      bprev();
                       sliderIndex=1;
+                      minusHeight=0;
+                      plusWidth=0;
+
+                      setPortfolio();
+                      sliders[1].reloadSlider();
+
 
                     } else{
                       lastIndex=0;
-                      minusWidth=60;
-                      plusHeight=0;
-                      sliders[2].reloadSlider();
-                      setPortfolio();
-                      bnext();
-                      bprev();
                       sliderIndex=2;
+                      minusHeight=60;
+                      plusWidth=0;
+
+                      setPortfolio();
+                      sliders[2].reloadSlider();
+
                     }
                     $('#filters a').removeClass('active');
                     $(this).addClass('active');

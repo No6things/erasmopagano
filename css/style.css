@@ -678,9 +678,6 @@ nav a:focus {
 /*-------------------------------------------------------*/
 
 /* Big title second border slides up */
-.big-title-mt {
-    margin-top: 50px;
-}
 
 .big-title {
     text-align: center;
@@ -952,6 +949,7 @@ section.portfolio {
 .about-wrap {
    position: relative;
    overflow: hidden;
+   padding-top: 120px;
 }
 
 .product-wrap {
@@ -1086,7 +1084,6 @@ section.portfolio {
 
     .future h2{
       margin-top:0;
-      margin-bottom: 0;
       padding-top:0;
       padding-left:20px;
       text-align: left !important;
