@@ -27,20 +27,18 @@ jQuery(document).ready(function () {
     jQuery('body').waitForImages(function() {
         jQuery(".page-mask").delay(1000).fadeOut('slow');
         jQuery('body').css('overflowY','auto');
-        var heights = $(".frame").map(function() {
-            return $(this).height();
-        }).get(),
 
-        maxHeight = Math.max.apply(null, heights);
-        $(".frame").height(maxHeight);
+/*-------------------------------------------------*/
+/* Keep same Heights on Home Slider and Filter img from Collection
+/*-------------------------------------------------*/
+        var heights = $("#futFilter img").height();
+        $("#preFilter img").height(heights/2);
+        $("#curFilter img").height(heights/2);
+        $(".frameh").height($(window).height());
     });
 
-/*-------------------------------------------------*/
-/* Keep same Heights on Portraits and Home Slider
-/*-------------------------------------------------*/
 
 
-    $(".frameh").height($(window).height());
 
 
 /*-------------------------------------------------*/
@@ -56,7 +54,7 @@ jQuery(document).ready(function () {
     wow.init();
 
 /*==========================*/
-/* Sticky Navigation
+/* Navigation
 /*==========================*/
 $(".nav a[href^='#']").on('click', function(e) {
    // prevent default anchor click behavior
@@ -72,11 +70,17 @@ $(".nav a[href^='#']").on('click', function(e) {
        window.location.hash = hash;
      });
 
+
+
 });
-$(".nav a").on("click", function(){
-   $(".nav").children(".active").removeClass("active");
-   $(".nav").children(".current").removeClass("current");
+
+$(".nav a").on("click", function(){ //color navigation 
+    $(".nav").children(".active").removeClass("active");
+    $(".nav").children(".current").removeClass("current");
+    $('#portfolio-wrap').hide(500);
+
 });
+
     jQuery("#navigation").sticky({topSpacing:0});
     $("body").scrollspy({ target: "#navigation" });
 
@@ -236,7 +240,7 @@ $(".nav a").on("click", function(){
 
 
 /*----------------------------------------------------*/
-/*  BxSlider
+/*  BxSlider Initialization
 /*----------------------------------------------------*/
 
 
@@ -247,7 +251,7 @@ jQuery(document).ready(function(){
      slidersIndex[1]='.cu';
      slidersIndex[2]='.fu';
 
-    jQuery('.bxslider').bxSlider({
+    jQuery('.bxslider').bxSlider({ //home slider
       slideWidth: 300,
       slideMargin: 97,
       minSlides: 3,
@@ -279,7 +283,7 @@ jQuery(document).ready(function(){
       easing: 'ease-in-out'
     });
 
-    jQuery('.bxslidert').bxSlider({
+    jQuery('.bxslidert').bxSlider({ // mini rotative subtitles on collection
       auto:true,
       controls:false,
       autoHover: true,
@@ -289,7 +293,7 @@ jQuery(document).ready(function(){
       easing: 'ease-in-out'
     });
 
-    $('.bxslider5').each(function(i, slider) {
+    $('.bxslider5').each(function(i, slider) { //collection sliders
         sliders[i] = $(slider).bxSlider({
           auto: true,
           autoHover: true,
@@ -326,7 +330,7 @@ jQuery(document).ready(function(){
 });
 
 /*----------------------------------------------------*/
-/*  Portfolio Isotope
+/*  Portfolio Isotope // Collection portfolio // tecnology for rearrangement of elements
 /*----------------------------------------------------*/
     jQuery(document).ready(function(){
 
@@ -420,7 +424,7 @@ jQuery(document).ready(function(){
                       lastIndex=0;
                       sliderIndex=0;
                       minusHeight=0;
-                      plusWidth=0;
+                      plusWidth= -20;
 
                       setPortfolio();
                       sliders[0].reloadSlider();
@@ -430,7 +434,7 @@ jQuery(document).ready(function(){
                       lastIndex=0;
                       sliderIndex=1;
                       minusHeight=0;
-                      plusWidth=0;
+                      plusWidth= -20;
 
                       setPortfolio();
                       sliders[1].reloadSlider();
@@ -471,10 +475,10 @@ jQuery(document).ready(function(){
         $("table").toggle(true);
     });
 
+/*----------------------------------------------------*/
+/*  Shoe Description Close Button
+/*----------------------------------------------------*/
 
-    /*----------------------------------------------------*/
-    /*  Portfolio Close Button
-    /*----------------------------------------------------*/
     $('.lb-close').on('click', function() {
 
         $("table").hide();
@@ -485,7 +489,9 @@ jQuery(document).ready(function(){
         $('.zoomWindowContainer').css('z-index',1);
         $('.zoomContainer').css('z-index',1);
     });
-
+/*----------------------------------------------------*/
+/*  Portfolio Close Button
+/*----------------------------------------------------*/
     $('.portfolio-close').on('click', function() {
             $('#filters a').removeClass('active');
             sliderIndex=-1;

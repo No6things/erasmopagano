@@ -1019,12 +1019,13 @@ section.portfolio {
 
 .collection-col{
   padding:0;
-  max-height: 440px;
+  height: 440px !important;
 }
 
+
 .collection-col img{
-  max-height: 440px;
-  width: 100%;
+  height: 100%;
+  width: 100%
 }
 /* Portfolio Items */
 
@@ -1041,6 +1042,10 @@ section.portfolio {
 
     .deez{ /*noty bar*/
       margin: 0;
+    }
+
+    .font-l{
+      font-weight: 300 !important;
     }
 
     #portfolio-wrap {
@@ -1066,7 +1071,7 @@ section.portfolio {
       width: 25%;
     }
 
-    .pr ul, .previous > div{
+    .pr ul, .previous > div, .current > div, .future > div{
       padding: 0;
     }
 
