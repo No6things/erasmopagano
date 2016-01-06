@@ -31,9 +31,10 @@ jQuery(document).ready(function () {
 /*-------------------------------------------------*/
 /* Keep same Heights on Home Slider and Filter img from Collection
 /*-------------------------------------------------*/
-        var heights = $("#futFilter img").height();
+        var heights = $("#futFilter img").height()+30;
         $("#preFilter img").height(heights/2);
         $("#curFilter img").height(heights/2);
+        $("#futFilter img").height(heights)
         $(".frameh").height($(window).height());
     });
 
@@ -74,7 +75,7 @@ $(".nav a[href^='#']").on('click', function(e) {
 
 });
 
-$(".nav a").on("click", function(){ //color navigation 
+$(".nav a").on("click", function(){ //color navigation
     $(".nav").children(".active").removeClass("active");
     $(".nav").children(".current").removeClass("current");
     $('#portfolio-wrap').hide(500);
@@ -416,7 +417,7 @@ jQuery(document).ready(function(){
             $('#filters a').on('click', function() {
                     $('#portfolio-wrap').show();
                     jQuery("html, body").animate({
-                        scrollTop: 1390
+                        scrollTop: 1500
                     }, 600);
                     var selector = $(this).attr('data-filter');
                     $container.isotope({ filter: selector }, refreshWaypoints());

@@ -531,6 +531,7 @@ ul.text-slide {
 .navbar .navbar-nav {
   display: inline-block;
   float: none;
+  margin-top: 44px;
   vertical-align: top;
 }
 
@@ -619,7 +620,8 @@ ul.text-slide {
 }
 
 .shrink .site-logo{
-  padding-top: 4px;
+  padding-top: 7px;
+  padding-left: 0;
 }
 
 .shrink li{
@@ -628,7 +630,7 @@ ul.text-slide {
 }
 
 .shrink img{
-  max-height: 75px;
+  max-height: 95px;
 }
 
 .caret {
@@ -1016,12 +1018,43 @@ section.portfolio {
     text-decoration: none;
 }
 
+.filterText{
+  color: white!important;
+  font-weight: 300;
+  letter-spacing: 7px;
+  text-transform: uppercase;
+  display: initial;
+  position: absolute;
+}
+
+ .left{
+   left: 40px;
+   margin-top: -60px!important;
+}
+
+.right{
+  right: 50px;
+  bottom: 0;
+}
 
 .collection-col{
-  padding:0;
+  padding: 1px 1px 0 0;
   height: 440px !important;
 }
 
+.collection-col > div{
+  padding: 1px;
+}
+.pink-overlay {
+    background:  rgba(246, 151, 143, 0.2);
+    display:block;
+    height:107%;
+    top: 0;
+    left:0;
+    position:absolute;
+    right:0;
+    width:100%;
+}
 
 .collection-col img{
   height: 100%;
@@ -1512,7 +1545,7 @@ a.scrollup:hover i,a.scrollup:focus i {
 /*-------------------------------------------------------*/
 
 
-@media (max-width: 767px) {
+@media (max-width: 767px) { /*XS*/
 
 /*---------GENERAL------------------*/
 
@@ -1528,42 +1561,32 @@ a.scrollup:hover i,a.scrollup:focus i {
     }
 
 /*---------NAVIGATION------------------*/
-    .navbar-custom{
-      min-height: 155px
-    }
+  .navbar-nav {
+      margin-top:0 !important;
+  }
 
+  .navbar-toggle {
+    top: 0;
+    right: 0;
+    position: absolute;
+    padding: 9px 10px;
+    margin-top: 8px;
+    margin-right: 15px;
+    margin-bottom: 8px;
+    background-color: transparent;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
 
-    .navbar-toggle {
-        background-color: transparent;
-        border: 1px solid #dddddd;
-        border-radius: 4px;
-        display: block;
-        float: none;
-        margin-top: 30px;
-        padding: 5px 10px;
-        position: absolute;
-        right: -25px;
-    }
+  .navbar-collapse.in{
+    overflow-y: hidden !important;
+  }
 
-    .shrink{
-      min-height: 115px;
-    }
-
-    .mob-logo {
-        display: inline-block;
-        position: absolute;
-        top: 10%;
-        margin-left: 35%;
-    }
-
-    .mob-menu {
-        margin-top: -67px;
-    }
-
-    .navbar-header, .navbar-nav {
-        float: none !important;
-    }
-
+  .navbar-custom .navbar-nav > li > a {
+       margin: 5px 0;
+       padding: 0!important;
+   }
 /*---------PORTFOLIO------------------*/
     #portfolio-wrap img{
       width: 100%;
@@ -1571,6 +1594,7 @@ a.scrollup:hover i,a.scrollup:focus i {
     #filters ul {
         padding-left: 0;
     }
+
 /*---------SERVICE------------------*/
     .service-slide{
       width: 147px !important;
@@ -1589,20 +1613,17 @@ a.scrollup:hover i,a.scrollup:focus i {
 }
 
 @media(max-width: 991px) {
+
+    .site-logo  {
+        padding:7px;
+    }
     section .container, .landing-right .container {
         padding-left: 10px;
         padding-right: 10px;
     }
 
-    .current .col-lg-7, .previous .col-lg-4{
-      margin-bottom: 0;
-    }
-
-    .future div, .future h2{
-      padding-left: 0;
-      padding-right: 0;
-    }
     /*------------Bx Slider--------------*/
+
     .about-wrap .bx-wrapper{
       max-height: 180px !important;
     }
@@ -1614,8 +1635,17 @@ a.scrollup:hover i,a.scrollup:focus i {
     .img-holder img{
       padding: 6px;
     }
-    /*------------Portfolio Items--------------*/
 
+    .current .col-lg-7, .previous .col-lg-4{
+      margin-bottom: 0;
+    }
+
+    .future div, .future h2{
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    /*------------Portfolio Items--------------*/
 
     .portfolio-bullet li:before {
       font-family: 'FontAwesome';
@@ -1632,8 +1662,16 @@ a.scrollup:hover i,a.scrollup:focus i {
 
 }
 
+@media (min-width: 768px) and (max-width:1200px){
+  .navbar-custom .navbar-nav > li > a {
+       margin: 5px 0;
+       padding: 0px 5px 0px 35px !important;
+   }
+
+}
 
 @media (min-width: 768px) and (max-width: 991px)  {
+
 /*--------------General------------------------*/
     .slide-content h1, .slide-caption h1s, .text-slide li {
         font-size: 50px;
@@ -1651,69 +1689,12 @@ a.scrollup:hover i,a.scrollup:focus i {
         padding-left: 0;
     }
 
-/*----------Navigation---------------------------*/
-    .navbar-nav, .navbar-nav > li {
-      margin-top: 18px;
-    }
-
-    .navbar-custom .navbar-nav > li > a {
-        margin: 5px 0;
-        padding: 0px 10px 0px 10px;
-    }
-
-    .mob-logo {
-        display: inline-block;
-    }
-
-    .navbar-header {
-        float: right;
-    }
-
-    .navbar-toggle {
-        background-color: transparent;
-        border: 1px solid #dddddd;
-        border-radius: 4px;
-        display: block;
-        float: none;
-        padding: 5px 10px;
-        position: absolute;
-        right: 0px;
-        top: 20px;
-    }
-
-    .navbar-collapse {
-        max-height: 700px;
-        padding-left: 0;
-    }
-
-    .navbar-collapse.collapse {
-        display: none !important;
-        height: auto !important;
-        overflow: visible !important;
-        padding-bottom: 0;
-    }
-
-    .navbar-collapse.collapse.in {
-        display: block !important;
-        max-height: 300px!important;
-    }
 }
 
 @media (min-width: 992px) and (max-width: 1199px){
-    .site-logo {
-      padding: 8px 0px 1px 20px;
-    }
-
-    .navbar-custom .navbar-nav > li > a {
-      padding: 0px 35px 0px 35px;
-    }
 
     .portfolio-thumb{
       padding-left: 5px;
     }
-
-}
-
-@media (min-width:1200px){
 
 }
