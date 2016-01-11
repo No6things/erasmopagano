@@ -287,14 +287,8 @@ input:focus:-moz-placeholder { max-height: 10px; }
     transform:rotate(-360deg)
 }
 
-/* Logo */
 
-.site-logo {
-    display: inline-block;
-    margin:0 auto;
-    line-height: 80px;
-    padding: 4px 20px 1px 20px;
-  }
+
 
 #navigation .site-logo a, #navigation .site-logo a:hover, #navigation .site-logo a:focus, #navigation .site-logo a:before, #navigation .site-logo a:after {
     background: transparent !important;
@@ -583,7 +577,8 @@ ul.text-slide {
 }
 
 .site-logo img{
-  max-height: 80px;
+  margin: 0 auto;
+  max-height: 90px;
   -webkit-transition: 1s;
   -moz-transition: 1s;
   transition: 1s;
@@ -800,7 +795,7 @@ nav a:focus {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 21px;
     line-height: 28px;
-    margin: 0 auto 70px;
+    margin: 0 auto 50px;
     max-width: 900px;
     font-weight: 300;
     text-transform: none;
@@ -820,14 +815,12 @@ section.page-title {
 }
 
 
-section .container, footer .container {
-    padding-top: 100px;
-    padding-bottom: 100px;
+section .container, footer .container, section.portfolio {
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
-section.portfolio {
-    padding: 120px 0 0;
-}
+
 
 #section3{
   padding-bottom: 100px;
@@ -864,8 +857,12 @@ section.portfolio {
   margin-right: 91px !important;
 }
 
+.sponsor h3{
+  margin: 0 auto !important;
+}
+
 .caption1{
-    background-color: #f2dede;
+    background-color: #fbf7f2;
     left: 2px;
     bottom:0;
     color:#334378;
@@ -882,7 +879,7 @@ section.portfolio {
 }
 
 .caption1 ul{
-  margin-top: 20px;
+  margin-top: 12px;
 }
 
 /*rules for elevateZoom*/
@@ -892,7 +889,7 @@ section.portfolio {
 
 .bxslider > li:hover .caption1{
   bottom: 1px;
-  max-height: 100px;
+  max-height: 55px;
   opacity:1;
 }
 
@@ -951,7 +948,7 @@ section.portfolio {
 .about-wrap {
    position: relative;
    overflow: hidden;
-   padding-top: 120px;
+   padding-top: 50px;
 }
 
 .product-wrap {
@@ -1029,7 +1026,7 @@ section.portfolio {
 
  .left{
    left: 40px;
-   margin-top: -60px!important;
+   bottom: 20px;
 }
 
 .right{
@@ -1045,7 +1042,18 @@ section.portfolio {
 .collection-col > div{
   padding: 1px;
 }
-.pink-overlay {
+.filter:hover .pink-overlay{
+    background:  rgba(246, 151, 143, 0.2);
+    display:block;
+    height:101%;
+    top: 0;
+    left:0;
+    position:absolute;
+    right:0;
+    width:101%;
+}
+
+.filter:hover #futFilter .pink-overlay{
     background:  rgba(246, 151, 143, 0.2);
     display:block;
     height:107%;
@@ -1053,7 +1061,7 @@ section.portfolio {
     left:0;
     position:absolute;
     right:0;
-    width:100%;
+    width:101%;
 }
 
 .collection-col img{
@@ -1411,7 +1419,7 @@ section.portfolio {
 
 
 #contact textarea {
-    height: 172px;
+  /*  height: 172px;*/
     resize: none;
 }
 
