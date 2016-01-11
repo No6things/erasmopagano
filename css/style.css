@@ -105,10 +105,6 @@ iframe{
     padding: 50px 0;
 }
 
-.sub-section h2{
-  font-weight: normal !important;
-}
-
 .dark-layer{
     background-color: rgba(0, 0, 0, 0.6);
 }
@@ -523,7 +519,6 @@ ul.text-slide {
 }
 
 .navbar .navbar-nav {
-  display: inline-block;
   float: none;
   margin-top: 44px;
   vertical-align: top;
@@ -569,22 +564,25 @@ ul.text-slide {
     text-transform: uppercase;
 }
 
-.navbar-custom li {
-  margin-bottom: 0;
+.navbar-custom li {  margin: 10px 0 0 0;
+
   -webkit-transition: -webkit-margin 1s,  -webkit-font-size 1s;
   -moz-transition: -moz-margin 1s, -moz-font-size 1s;
   transition: margin 1s, font-size 1s;
 }
 
 .site-logo img{
+
   margin: 0 auto;
-  max-height: 90px;
+  max-height: 100px;
   -webkit-transition: 1s;
   -moz-transition: 1s;
   transition: 1s;
 }
 
 .site-logo{
+  padding-top: 10px;
+  padding-bottom: 10px;
   -webkit-transition: 1s;
   -moz-transition: 1s;
   transition: 1s;
@@ -620,12 +618,11 @@ ul.text-slide {
 }
 
 .shrink li{
-  margin: 10px 0 0 0;
   font-size: 18px;
 }
 
 .shrink img{
-  max-height: 95px;
+  max-height: 80px;
 }
 
 .caret {
@@ -861,8 +858,12 @@ section .container, footer .container, section.portfolio {
   margin: 0 auto !important;
 }
 
+#portfolio-wrap .caption1{
+    background-color: rgba(251, 247, 242, 0.8);
+}
+
 .caption1{
-    background-color: #fbf7f2;
+    background-color: rgb(251, 247, 242);
     left: 2px;
     bottom:0;
     color:#334378;
@@ -1032,6 +1033,7 @@ section .container, footer .container, section.portfolio {
 .right{
   right: 50px;
   bottom: 0;
+  margin-bottom: 0;
 }
 
 .collection-col{
@@ -1340,6 +1342,8 @@ section .container, footer .container, section.portfolio {
 
 .product-wrap ul{
   padding-left: 15px;
+  font-weight: 300;
+
 }
 
 /*-------------------------------------------------------*/
@@ -1618,6 +1622,17 @@ a.scrollup:hover i,a.scrollup:focus i {
       margin: 5px;
     }
 
+    .mob-logo{
+      margin-left: 0 !important;
+      display: inline;
+      position: absolute;
+      top: 20px;
+    }
+
+    .navbar-custom {
+      height: 150px !important;
+    }
+
 }
 
 @media(max-width: 991px) {
@@ -1673,7 +1688,7 @@ a.scrollup:hover i,a.scrollup:focus i {
 @media (min-width: 768px) and (max-width:1200px){
   .navbar-custom .navbar-nav > li > a {
        margin: 5px 0;
-       padding: 0px 5px 0px 35px !important;
+       padding: 0px 16px 0px 16px !important;
    }
 
 }
