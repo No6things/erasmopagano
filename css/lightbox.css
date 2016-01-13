@@ -28,7 +28,6 @@ body:after {
   display: block;
   height: auto;
   max-width: 60vw !important;
-  max-width: 670px;
   max-height: 60vh !important;
   width: initial !important;
   margin: 0 auto;

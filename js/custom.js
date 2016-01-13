@@ -31,9 +31,9 @@ jQuery(document).ready(function () {
         /*$("#preFilter img").height(heights/2);
         $("#curFilter img").height(heights/2);
         $("#futFilter img").height(heights)*/
-        $("#preFilter img").height('30vh');
-        $("#curFilter img").height('30vh');
-        $("#futFilter img").height('60vh');
+        $("#preFilter img").height('35vh');
+        $("#curFilter img").height('35vh');
+        $("#futFilter img").height('70vh');
     });
 
 
@@ -42,10 +42,10 @@ jQuery(document).ready(function () {
 /*-------------------------------------------------*/
 
     wow = new WOW(
-        {
-            animateClass: 'animated',
-            offset:       100
-        }
+      {
+        animateClass: 'animated',
+        offset:       100
+      }
     );
     wow.init();
 
@@ -53,7 +53,7 @@ jQuery(document).ready(function () {
 /* Navigation
 /*==========================*/
 
-/*
+
 $(".nav a[href^='#']").on('click', function(e) { //anchor behavior
    // prevent default anchor click behavior
    e.preventDefault();
@@ -64,14 +64,14 @@ $(".nav a[href^='#']").on('click', function(e) { //anchor behavior
    var contPadding = $("section").css("padding-top");
    console.log( $(hash).offset().top-navigationHeight+contPadding);
    $('html, body').animate({
-       scrollTop: $(hash).offset().top-navigationHeight+contPadding
-     }, 1200, function(){
+       scrollTop: $(hash).offset().top - navigationHeight + 85
+     }, 900, function(){
        // when done, add hash to url
        // (default click behaviour)
        window.location.hash = hash;
      });
 });
-*/
+
 $(window).scroll(function() {  //toggle size of nav
   if ($(document).scrollTop() < $(window).height()-90) {
     $('nav').removeClass('shrink').css("background", "rgba(255,255,255,0.9)");
@@ -94,20 +94,20 @@ $("body").scrollspy({ target: "#navigation" });
 
 /*==========================*/
 /* Navigation Scrolling
-/*==========================*/
+/*==========================*//*
 var navigationHeight = jQuery("#navigation").outerHeight();
 var contPadding = $("section").css("padding-top");
  jQuery('.align-center a, .caption-inside a, .top-logo a').click(function(){
         jQuery('html, body').animate({
             scrollTop: jQuery( $.attr(this, 'href') ).offset().top - navigationHeight + contPadding
         }, 800);
-        /* Fix jumping of navigation.*/
+        /* Fix jumping of navigation
         setTimeout(function() {
             jQuery(window).trigger('scroll');
         }, 00);
 
         return false;
-    });
+    });*/
 
     $(".form-control").focusin( function(){
         $(this).css("border-color","#334378");
