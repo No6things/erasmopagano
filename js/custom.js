@@ -28,9 +28,12 @@ jQuery(document).ready(function () {
 /* Keep same Heights on Filter img from Collection
 /*-------------------------------------------------*/
         var heights = $("#futFilter img").height()+30;
-        $("#preFilter img").height(heights/2);
+        /*$("#preFilter img").height(heights/2);
         $("#curFilter img").height(heights/2);
-        $("#futFilter img").height(heights)
+        $("#futFilter img").height(heights)*/
+        $("#preFilter img").height('30vh');
+        $("#curFilter img").height('30vh');
+        $("#futFilter img").height('60vh');
     });
 
 

@@ -922,10 +922,6 @@ section .container, footer .container, section.portfolio {
     position: static;
 }
 
-.texture-layer, .bg-overlay {
-    background: url(../img/texture_layer.png) repeat;
-}
-
 .featuresss, .image-parallax  {
     background-position: center center;
     background-repeat: no-repeat;
@@ -1046,13 +1042,13 @@ section .container, footer .container, section.portfolio {
 
 .right{
   right: 50px;
-  bottom: 0;
+  bottom: 20px;
   margin-bottom: 0;
 }
 
 .collection-col{
   padding: 1px 1px 0 0;
-  height: 440px !important;
+  /*height: 440px !important;*/
 }
 
 .collection-col > div{
@@ -1072,12 +1068,10 @@ section .container, footer .container, section.portfolio {
 .filter:hover #futFilter .pink-overlay{
     background:  rgba(246, 151, 143, 0.2);
     display:block;
-    height:107%;
+  /*  height:107%;*/
+    height: 60vh;
     top: 0;
-    left:0;
     position:absolute;
-    right:0;
-    width:101%;
 }
 
 .collection-col img{
@@ -1735,6 +1729,26 @@ a.scrollup:hover i,a.scrollup:focus i {
 
     .portfolio-thumb{
       padding-left: 5px;
+    }
+
+}
+
+@media (min-width: 1600px){
+
+    body{
+      font-size: 25px!important;
+    }
+
+    .big-title h2{
+      font-size: 70px!important;
+    }
+
+    .sub-title h3{
+      font-size: 27px!important;
+    }
+
+    .navbar-custom .navbar-nav > li > a {
+      font-size: 25px!important;
     }
 
 }
