@@ -14,13 +14,9 @@ var sliders = new Array(),
        responsive: "true"
     };
 
-$(window).scroll(function() {
-  if ($(document).scrollTop() < $(window).height()) {
-    $('nav').removeClass('shrink').css("background", "rgba(255,255,255,0.9)");
-  } else {
-    $('nav').addClass('shrink').css("background", "rgba(255,255,255,1)");
-  }
-});
+/*-------------------------------------------------*/
+/* Loader Gif duration related to backgound images loaded
+/*-------------------------------------------------*/
 
 jQuery(document).ready(function () {
   jQuery.waitForImages.hasImgProperties = ['background','backgroundImage'];
@@ -29,17 +25,13 @@ jQuery(document).ready(function () {
         jQuery('body').css('overflowY','auto');
 
 /*-------------------------------------------------*/
-/* Keep same Heights on Home Slider and Filter img from Collection
+/* Keep same Heights on Filter img from Collection
 /*-------------------------------------------------*/
         var heights = $("#futFilter img").height()+30;
         $("#preFilter img").height(heights/2);
         $("#curFilter img").height(heights/2);
         $("#futFilter img").height(heights)
-        $(".frameh").height($(window).height());
     });
-
-
-
 
 
 /*-------------------------------------------------*/
@@ -57,66 +49,59 @@ jQuery(document).ready(function () {
 /*==========================*/
 /* Navigation
 /*==========================*/
-$(".nav a[href^='#']").on('click', function(e) {
+
+/*
+$(".nav a[href^='#']").on('click', function(e) { //anchor behavior
    // prevent default anchor click behavior
    e.preventDefault();
    // store hash
    var hash = this.hash;
    // animate
+   var navigationHeight = jQuery("#navigation").outerHeight();
+   var contPadding = $("section").css("padding-top");
+   console.log( $(hash).offset().top-navigationHeight+contPadding);
    $('html, body').animate({
-       scrollTop: $(hash).offset().top
+       scrollTop: $(hash).offset().top-navigationHeight+contPadding
      }, 1200, function(){
        // when done, add hash to url
        // (default click behaviour)
        window.location.hash = hash;
      });
-
-
-
+});
+*/
+$(window).scroll(function() {  //toggle size of nav
+  if ($(document).scrollTop() < $(window).height()-90) {
+    $('nav').removeClass('shrink').css("background", "rgba(255,255,255,0.9)");
+  } else {
+    $('nav').addClass('shrink').css("background", "rgba(255,255,255,1)");
+  }
 });
 
-$(".nav a").on("click", function(){ //color navigation
+$(".nav a").on("click", function(){
     $(".nav").children(".active").removeClass("active");
     $(".nav").children(".current").removeClass("current");
     $('#portfolio-wrap').hide(500);
-
 });
 
-    jQuery("#navigation").sticky({topSpacing:0});
-    $("body").scrollspy({ target: "#navigation" });
+jQuery("#navigation").sticky({topSpacing:0});
+$("body").scrollspy({ target: "#navigation" });
 
-
-
-/* ==============================================
-/* Drop Down Menu Fade Effect
-/*=============================================== */
-
-    $('.nav-toggle').hover(function() {
-        'use strict';
-        $(this).find('.dropdown-menu').first().stop(true, true).slideDown(250);
-        }, function() {
-        $(this).find('.dropdown-menu').first().stop(true, true).slideUp(250)
-     });
 
 
 
 /*==========================*/
 /* Navigation Scrolling
 /*==========================*/
-
-
-
-    var navigationHeight = jQuery("#navigation").outerHeight();
-
-    jQuery('.align-center a, .caption-inside a, .top-logo a').click(function(){
+var navigationHeight = jQuery("#navigation").outerHeight();
+var contPadding = $("section").css("padding-top");
+ jQuery('.align-center a, .caption-inside a, .top-logo a').click(function(){
         jQuery('html, body').animate({
-            scrollTop: jQuery( $.attr(this, 'href') ).offset().top - navigationHeight + 44
-        }, 800, 'easeInQuad');
-
-        /* Fix jumping of navigation. */
+            scrollTop: jQuery( $.attr(this, 'href') ).offset().top - navigationHeight + contPadding
+        }, 800);
+        /* Fix jumping of navigation.*/
         setTimeout(function() {
             jQuery(window).trigger('scroll');
-        }, 900);
+        }, 00);
 
         return false;
     });
@@ -252,8 +237,8 @@ jQuery(document).ready(function(){
      slidersIndex[1]='.cu';
      slidersIndex[2]='.fu';
 
-    jQuery('.bxslider').bxSlider({ //home slider
-      slideWidth: 300,
+    jQuery('.bxslider').bxSlider({ //sponsors slider
+      slideWidth: 250,
       slideMargin: 97,
       minSlides: 3,
       maxSlides: 3,
@@ -264,7 +249,7 @@ jQuery(document).ready(function(){
       infiniteLoop: false
     });
 
-    jQuery('.bxslider2').bxSlider({
+    jQuery('.bxslider2').bxSlider({ //home left slider
       auto:true,
       autoDirection: 'prev',
       controls:false,
@@ -274,7 +259,7 @@ jQuery(document).ready(function(){
       easing: 'ease-in-out'
     });
 
-    jQuery('.bxslider3').bxSlider({
+    jQuery('.bxslider3').bxSlider({ //home right slider
       auto:true,
       autoDirection: 'next',
       controls:false,
@@ -289,7 +274,7 @@ jQuery(document).ready(function(){
       controls:false,
       autoHover: true,
       pager: false,
-      speed:900,
+      speed:600,
       infiniteLoop: true,
       easing: 'ease-in-out'
     });

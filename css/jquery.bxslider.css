@@ -66,7 +66,6 @@
 	font-family: Arial;
 	font-weight: bold;
 	color: #666;
-	padding-top: 20px;
 }
 
 .bx-wrapper .bx-pager .bx-pager-item,
@@ -80,15 +79,15 @@
 	background: #fff;
 	text-indent: -9999px;
 	display: block;
-	width: 20px;
-	height: 20px;
+	width: 17px;
+	height: 17px;
 	margin: 0 5px;
 	outline: 0;
 	border-radius: 50%;
 	-moz-border-radius: 20px;
 	-webkit-border-radius: 20px;
 	border-style: solid;
-	border-width: 1px;
+	border-width: 0.1em;
 }
 
 .bx-wrapper .bx-pager.bx-default-pager a:hover,
