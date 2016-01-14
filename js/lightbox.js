@@ -266,11 +266,19 @@
 
       sc.updateTemp= function( color){ // function triggered picking colors. Swap views of the shoe description accord to color
         var id= color.img[color.img.length-5]; //number of the color
+
         sc.shoe.lview= replaceAt(sc.shoe.lview,sc.shoe.lview.length-5,id);
         sc.shoe.bview= replaceAt(sc.shoe.bview,sc.shoe.bview.length-5,id);
         sc.shoe.sview= replaceAt(sc.shoe.sview,sc.shoe.sview.length-5,id);
         sc.shoe.hview= replaceAt(sc.shoe.hview,sc.shoe.hview.length-5,id);
         sc.shoe.pview= replaceAt(sc.shoe.pview,sc.shoe.pview.length-5,id);
+
+        sc.shoe.lmview= sc.shoe.lview.splice(sc.shoe.lview.length-4,0,'m');
+        sc.shoe.bmview= sc.shoe.bview.splice(sc.shoe.bview.length-4,0,'m');
+        sc.shoe.smview= sc.shoe.sview.splice(sc.shoe.sview.length-4,0,'m');
+        sc.shoe.hmview= sc.shoe.hview.splice(sc.shoe.hview.length-4,0,'m');
+        sc.shoe.pmview= sc.shoe.pview.splice(sc.shoe.pview.length-4,0,'m');
+        console.log(sc.shoe.lmview);
         sc.shoe.description = color.description;
         sc.shoe.colorName = color.name;
 
@@ -289,7 +297,7 @@
 
     }]);
 
-    $('<div id="lightboxOverlay" class="lightboxOverlay"></div><div id="lightbox" class="lightbox angular" ng-controller="shoeDescriptionCtrl"><div class="lb-outerContainer "><div class="table-responsive"><table class="table table-bordered"><tbody><tr><td>European [EU]</td><td>35</td><td>35.5</td><td>36</td><td>37</td><td>37.5</td><td>38</td><td>38.5</td><td>39</td><td>39.5</td><td>40</td></tr><tr><td>United Kingdom [UK]</td><td>2.5</td><td>3</td><td>3.5</td><td>4</td><td>4.5</td><td>5</td><td>5.5</td><td>6</td><td>6.5</td><td>7</td></tr><tr><td>United States of America [US]</td><td>5</td><td>5.5</td><td>6</td><td>6.5</td><td>7</td><td>7.5</td><td>8</td><td>8.5</td><td>9</td><td>9.5</td></tr></tbody></table></div><div class="lb-container row"><div id="gallery_01" class="col-lg-2 col-md-2"><a  href="#" class="elevatezoom-gallery" data-update="" data-image={{shoe.pview}} data-zoom-image={{shoe.pview}}><img src={{shoe.pview}} width="100"  /></a><a  href="#" class="elevatezoom-gallery active" data-image={{shoe.lview}} data-zoom-image={{shoe.lview}}><img src={{shoe.lview}} height="70"  /></a><a  href="#" class="elevatezoom-gallery" data-image={{shoe.sview}} data-zoom-image={{shoe.sview}}><img src={{shoe.sview}} width="100"  /></a><a  href="#" class="elevatezoom-gallery" data-image={{shoe.hview}} data-zoom-image={{shoe.hview}}><img src={{shoe.hview}} width="100"  /></a><a  href="#" class="elevatezoom-gallery" data-image={{shoe.bview}} data-zoom-image={{shoe.bview}}><img src={{shoe.bview}} width="100"  /></a></div><div class="col-lg-7 col-md-7"><img class="lb-image" data-image="" data-zoom-image="" src={{shoe.pview}} /><div class="lb-nav"><a class="lb-prev" href="" ></a><a class="lb-next" href="" ></a><div class="lb-loader"><a class="lb-cancel"></a></div></div></div><div class="col-lg-3 col-md-3 lb-info"><div class="lb-title lines-r"><h2>{{shoe.category}}</h2></div><div class="lb-group"><h3>{{shoe.model}}</h3><h3>Style Number {{shoe.style}}</h3></div><div class="lb-description"><p>{{shoe.description}}</p><h3>Collection F/W 2016</h3></div><div class="lb-color"><h3>Colour: {{shoe.colorName}} </h3><ul class=""><li ng-repeat="color in shoe.colors"><img src={{color.img}} height="50" width="50" ng-click="updateTemp(color)"/></li></ul></div><div class="lb-size"><div class="lb-size"><select name="EU SIZE"><option value="" disabled selected>EU SIZE</option><option value="35">35/UK Size 2.5</option><option value="35.5">35.5/UK Size 3</option><option value="36">36/UK Size 3.5</option><option value="37">37/UK Size 4</option><option value="37.5">37.5/UK Size 4.5</option><option value="38">38/UK Size 5</option><option value="38.5">38.5/UK Size 5.5</option><option value="39">39/UK Size 6</option><option value="39.5">39.5/UK Size 6.5</option><option value="40">40/UK Size 7</option></select><a href="#" class="lb-button">SIZE CHART</a><div class="share"></div></div></div></div></div></div><div class="lb-dataContainer"><div class="lb-data"><div class="lb-details"><span class="lb-caption"></span><span class="lb-number"></span></div><div class="lb-closeContainer"><a class="lb-close "></a></div></div></div></div>').appendTo($('body'));
+    $('<div id="lightboxOverlay" class="lightboxOverlay"></div><div id="lightbox" class="lightbox angular" ng-controller="shoeDescriptionCtrl"><div class="lb-outerContainer "><div class="table-responsive"><table class="table table-bordered"><tbody><tr><td>European [EU]</td><td>35</td><td>35.5</td><td>36</td><td>37</td><td>37.5</td><td>38</td><td>38.5</td><td>39</td><td>39.5</td><td>40</td></tr><tr><td>United Kingdom [UK]</td><td>2.5</td><td>3</td><td>3.5</td><td>4</td><td>4.5</td><td>5</td><td>5.5</td><td>6</td><td>6.5</td><td>7</td></tr><tr><td>United States of America [US]</td><td>5</td><td>5.5</td><td>6</td><td>6.5</td><td>7</td><td>7.5</td><td>8</td><td>8.5</td><td>9</td><td>9.5</td></tr></tbody></table></div><div class="lb-container row"><div id="gallery_01" class="col-lg-2 col-md-2"><a  href="#" class="elevatezoom-gallery" data-update="" data-image={{shoe.pview}} data-zoom-image={{shoe.pview}}><img src={{shoe.pmview}} width="100"  /></a><a  href="#" class="elevatezoom-gallery active" data-image={{shoe.lview}} data-zoom-image={{shoe.lview}}><img src={{shoe.lmview}} height="70"  /></a><a  href="#" class="elevatezoom-gallery" data-image={{shoe.sview}} data-zoom-image={{shoe.sview}}><img src={{shoe.smview}} width="100"  /></a><a  href="#" class="elevatezoom-gallery" data-image={{shoe.hview}} data-zoom-image={{shoe.hview}}><img src={{shoe.hmview}} width="100"  /></a><a  href="#" class="elevatezoom-gallery" data-image={{shoe.bview}} data-zoom-image={{shoe.bview}}><img src={{shoe.bmview}} width="100"  /></a></div><div class="col-lg-7 col-md-7"><img class="lb-image" data-image="" data-zoom-image="" src={{shoe.pview}} /><div class="lb-nav"><a class="lb-prev" href="" ></a><a class="lb-next" href="" ></a><div class="lb-loader"><a class="lb-cancel"></a></div></div></div><div class="col-lg-3 col-md-3 lb-info"><div class="lb-title lines-r"><h2>{{shoe.category}}</h2></div><div class="lb-group"><h3>{{shoe.model}}</h3><h3>Style Number {{shoe.style}}</h3></div><div class="lb-description"><p>{{shoe.description}}</p><h3>Collection F/W 2016</h3></div><div class="lb-color"><h3>Colour: {{shoe.colorName}} </h3><ul class=""><li ng-repeat="color in shoe.colors"><img src={{color.img}} height="50" width="50" ng-click="updateTemp(color)"/></li></ul></div><div class="lb-size"><div class="lb-size"><select name="EU SIZE"><option value="" disabled selected>EU SIZE</option><option value="35">35/UK Size 2.5</option><option value="35.5">35.5/UK Size 3</option><option value="36">36/UK Size 3.5</option><option value="37">37/UK Size 4</option><option value="37.5">37.5/UK Size 4.5</option><option value="38">38/UK Size 5</option><option value="38.5">38.5/UK Size 5.5</option><option value="39">39/UK Size 6</option><option value="39.5">39.5/UK Size 6.5</option><option value="40">40/UK Size 7</option></select><a href="#" class="lb-button">SIZE CHART</a><div class="share"></div></div></div></div></div></div><div class="lb-dataContainer"><div class="lb-data"><div class="lb-details"><span class="lb-caption"></span><span class="lb-number"></span></div><div class="lb-closeContainer"><a class="lb-close "></a></div></div></div></div>').appendTo($('body'));
 
   // Cache jQuery objects
     this.$lightbox       = $('#lightbox');
@@ -368,11 +376,16 @@
         ctrlSc.shoe.bview = uriShoe+'/b0.jpg';
         ctrlSc.shoe.pview = uriShoe+'/p0.jpg';
 
+        ctrlSc.shoe.lmview= uriShoe+'/l0m.jpg';
+        ctrlSc.shoe.bmview= uriShoe+'/b0m.jpg';
+        ctrlSc.shoe.smview= uriShoe+'/s0m.jpg';
+        ctrlSc.shoe.hmview= uriShoe+'/h0m.jpg';
+        ctrlSc.shoe.pmview= uriShoe+'/p0m.jpg';
+
         ctrlSc.shoe.description = ctrlSc.shoe.colors[0].description;
         ctrlSc.shoe.colorName = ctrlSc.shoe.colors[0].name;
 
       });
-
 
     } else {
       // multiple items found
