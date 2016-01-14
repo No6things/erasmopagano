@@ -89,103 +89,191 @@
         {'category':'Ballerina',
          'model': 'Darring Medanos',
          'style': 'EP1104',
-         'description': 'Low cut ballerina. Round toe shape. Draped fabric with a bow holding a silver metal lock and key accessory. Tonal piping. Goat Leather lining. Leather sole. Comfortable insole.',
-         'colors': ['img/portfolio/fu/EP1104/c0.jpg','img/portfolio/fu/EP1104/c1.jpg','img/portfolio/fu/EP1104/c2.jpg']},
+         'colors': [{'name':'Champagne',
+                     'img':'img/portfolio/fu/EP1104/c0.jpg',
+                     'description': 'Low cut ballerina. Round toe shape. Draped fabric with a bow holding a silver metal lock and key accessory. Tonal piping. Goat Leather lining. Leather sole. Comfortable insole.'},
+                    {'name':'Grey',
+                     'img':'img/portfolio/fu/EP1104/c1.jpg',
+                     'description': 'Low cut ballerina. Round toe shape. Draped fabric with a bow holding a silver metal lock and key accessory. Tonal piping. Goat Leather lining. Leather sole. Comfortable insole.'},
+                    {'name':'Magenta',
+                     'img':'img/portfolio/fu/EP1104/c2.jpg',
+                     'description': 'Low cut ballerina. Round toe shape. Draped fabric with a bow holding a silver metal lock and key accessory. Tonal piping. Goat Leather lining. Leather sole. Comfortable insole.'}]},
         {'category':'Ballerina',
          'model': 'Acarigua Lights',
          'style': 'EP0201',
-         'description': 'High cut ballerina. Almond-shaped toe. Printed leather in a colored mosaic-like with leather piping. Goat leather lining. Man made sole. Comfortable insole.',
-         'colors': ['img/portfolio/fu/EP0201/c0.jpg','img/portfolio/fu/EP0201/c1.jpg']},
+         'colors': [{'name':'Red Trend',
+                    'img':'img/portfolio/fu/EP0201/c0.jpg',
+                    'description': 'High cut ballerina. Almond-shaped toe. Printed leather in a colored mosaic-like with leather piping. Goat leather lining. Man made sole. Comfortable insole.'},
+                    {'name':'Blue Trend',
+                    'img':'img/portfolio/fu/EP0201/c1.jpg',
+                    'description': 'High cut ballerina. Almond-shaped toe. Printed leather in a colored mosaic-like with leather piping. Goat leather lining. Man made sole. Comfortable insole.'}]},
+         {'category':'Ballerina',
+          'model': 'Darring Medanos',
+          'style': 'EP1101',
+          'colors': [{'name':'Cobalt Blue',
+                    'img':'img/portfolio/fu/EP1101/c0.jpg',
+                    'description': 'Low cut ballerina. Round toe shape. Velvet fabric with a  sparkle Cameo  accessory. Black piping. Goat leather lining. Man made sole. Comfortable insole.'
+                    },
+                    {'name':'Red',
+                    'img':'img/portfolio/fu/EP1101/c1.jpg',
+                    'description': 'Low cut ballerina. Round toe shape. Velvet fabric with a  sparkle Cameo  accessory. Black piping. Goat leather lining. Man made sole. Comfortable insole.'}]},
         {'category':'Loafer',
          'model': 'Parada di Cera',
          'style': 'EP0102',
-         'description': 'Loafer with a sparkle Cameo accessory. Velvet fabric with a solid  tonal or colored piping. Goat leather lining. Man made sole. Comfortable insole.',
-         'colors': ['img/portfolio/fu/EP0102/c0.jpg','img/portfolio/fu/EP0102/c1.jpg','img/portfolio/fu/EP0102/c2.jpg']},
+         'colors': [{'name':'Bottle Green',
+                    'img':'img/portfolio/fu/EP0102/c0.jpg',
+                    'description': 'Loafer with a sparkle Cameo accessory. Velvet fabric with a solid colored piping. Goat leather lining. Man made sole. Comfortable insole.'},
+                    {'name':'Black',
+                    'img':'img/portfolio/fu/EP0102/c1.jpg',
+                    'description': 'Loafer with a sparkle Cameo accessory. Velvet fabric with a solid  tonal  piping. Goat leather lining. Man made sole. Comfortable insole.'},
+                    {'name':'Dark Brown',
+                    'img':'img/portfolio/fu/EP0102/c2.jpg',
+                    'description': 'Loafer with a sparkle Cameo accessory. Velvet fabric with a solid  tonal  piping. Goat leather lining. Man made sole. Comfortable insole.'},
+                    {'name':'Dark Blue',
+                    'img':'img/portfolio/fu/EP0102/c3.jpg',
+                    'description': 'Loafer with a sparkle Cameo accessory. Velvet fabric with a solid  tonal piping. Goat leather lining. Man made sole. Comfortable insole.'}]},
         {'category':'Loafer',
          'model': 'Orinoco del Venti',
          'style': 'EP0101',
-         'description': 'Loafer with a cravate accessory. Zebra/Leopard hair leather with a solid tonal or colored piping. Goat leather lining. Man made sole. Comfortable insole',
-         'colors': ['img/portfolio/fu/EP0101/c0.jpg','img/portfolio/fu/EP0101/c1.jpg','img/portfolio/fu/EP0101/c2.jpg']},
+         'colors': [{'name':'Leopard with Red Binding',
+                    'img':'img/portfolio/fu/EP0101/c0.jpg',
+                    'description': 'Loafer with a cravate accessory. Leopard hair leather with a solid tonal piping. Goat leather lining. Man made sole. Comfortable insole'},
+                    {'name':'Black, White and Pink',
+                    'img':'img/portfolio/fu/EP0101/c1.jpg',
+                    'description': 'Loafer with a cravate accessory. Zebra hair leather with a solid colored piping. Goat leather lining. Man made sole. Comfortable insole'},
+                    {'name':'Black & White',
+                    'img':'img/portfolio/fu/EP0101/c2.jpg',
+                    'description': 'Loafer with a cravate accessory. Zebra hair leather with a solid tonal piping. Goat leather lining. Man made sole. Comfortable insole'}]},
         {'category':'Wedge Ballerina',
          'model': 'Glaring Tepuy',
          'style': 'EP0302',
-         'description': 'High cut wedge ballerina. Lightweight. Suede with Crocodile/Snake printed fabric toe cap and piping. Goat leather lining. EVA Tepuy style sole. Comfortable insole.',
-         'colors': ['img/portfolio/fu/EP0302/c0.jpg','img/portfolio/fu/EP0302/c1.jpg','img/portfolio/fu/EP0302/c2.jpg']},
+         'colors': [{'name':'Olive Green',
+                    'img':'img/portfolio/fu/EP0302/c0.jpg',
+                    'description': 'High cut wedge ballerina. Lightweight. Suede with Crocodile printed fabric toe cap and piping. Goat leather lining. EVA Tepuy style sole. Comfortable insole.'},
+                    {'name':'Bordeaux',
+                    'img':'img/portfolio/fu/EP0302/c1.jpg',
+                    'description': 'High cut wedge ballerina. Lightweight. Suede with Crocodile printed fabric toe cap and piping. Goat leather lining. EVA Tepuy style sole. Comfortable insole.'},
+                    {'name':'Black',
+                    'img':'img/portfolio/fu/EP0302/c2.jpg',
+                    'description': 'High cut wedge ballerina. Lightweight. Suede with Crocodile printed fabric toe cap and piping. Goat leather lining. EVA Tepuy style sole. Comfortable insole.'}]},
         {'category':'Wedge Ballerina',
          'model': 'Glaring Tepuy',
          'style': 'EP0301',
-         'description': 'High cut wedge ballerina. Lightweight. Holographic metallic upper with a grosgrain lace and tonal piping. Goat leather lining. EVA Tepuy style sole. Comfortable insole.',
-         'colors': ['img/portfolio/fu/EP0301/c0.jpg','img/portfolio/fu/EP0301/c1.jpg','img/portfolio/fu/EP0301/c2.jpg']},
-        {'category':'Loafer',
-         'model': 'Tempting Warao',
-         'style': 'EP0104',
-         'description': 'Plain loafer. Round toe shape. Indian pattern fabric with a colored solid piping. Goat leather lining. Leather sole. Comfortable insole.',
-         'colors': ['img/portfolio/fu/EP0104/c0.jpg']},
+         'colors': [{'name':'Blue',
+                    'img':'img/portfolio/fu/EP0301/c0.jpg',
+                    'description': 'High cut wedge ballerina. Lightweight. Holographic metallic upper with a grosgrain lace and tonal piping. Goat leather lining. EVA Tepuy style sole. Comfortable insole.'},
+                    {'name':'Taupe',
+                    'img':'img/portfolio/fu/EP0301/c1.jpg',
+                    'description': 'High cut wedge ballerina. Lightweight. Holographic metallic upper with a grosgrain lace and tonal piping. Goat leather lining. EVA Tepuy style sole. Comfortable insole.'}]},
         {'category':'Loafer',
          'model': 'Tempting Warao',
          'style': 'EP0103',
-         'description': 'Plain loafer. Almond - shaped. Indian pattern fabric with a colored/beige solid piping or Black perforated laser leather with Goat leather lining. Man made sole. Comfortable insole.',
-         'colors': ['img/portfolio/fu/EP0103/c0.jpg','img/portfolio/fu/EP0103/c1.jpg','img/portfolio/fu/EP0103/c2.jpg']},
+         'colors': [{'name':'Black, Ivory and Gold',
+                    'img':'img/portfolio/fu/EP0103/c0.jpg',
+                    'description': 'Plain loafer. Almond - shaped. Indian pattern fabric with a black solid piping with Goat leather lining. Man made sole. Comfortable insole.'},
+                    {'name':'Black',
+                    'img':'img/portfolio/fu/EP0103/c1.jpg',
+                    'description': 'Plain loafer. Almond - shaped. Black perforared laser leather with Goat leather lining. Man made sole. Comfortable insole.'},
+                    {'name':'Brown',
+                    'img':'img/portfolio/fu/EP0103/c2.jpg',
+                    'description': 'Plain loafer. Almond - shaped. Textured glitering fabric with a beige solid piping with Goat leather lining. Man made sole. Comfortable insole.'}]},
         {'category':'Loafer',
          'model': 'Caballo Vecchio',
          'style': 'EP0602',
-         'description': 'Loafer with 2 cm heel. Almond - shaped toe. Soft suede with patent/leather piping or Blue Jean suede with leather piping, and tassels accessory. Leather lining. Rubber sole. Comfortable insole.',
-         'colors': ['img/portfolio/fu/EP0602/c0.jpg','img/portfolio/fu/EP0602/c1.jpg','img/portfolio/fu/EP0602/c2.jpg']},
+         'colors': [{'name':'Blue Jean',
+                    'img':'img/portfolio/fu/EP0602/c0.jpg',
+                    'description': 'Loafer with 2 cm heel. Almond - shaped toe. Blue Jean with leather piping and tassels accessory. Leather lining . Rubber sole. Comfortable insole.'},
+                    {'name':'Black',
+                    'img':'img/portfolio/fu/EP0602/c1.jpg',
+                    'description': 'Loafer with 2 cm heel. Almond - shaped toe. Soft suede with patent piping and tassels accessory. Leather lining. Rubber sole. Comfortable insole.'},
+                    {'name':'Olive Green',
+                    'img':'img/portfolio/fu/EP0602/c2.jpg',
+                    'description': 'Loafer with 2 cm heel. Almond - shaped toe. Soft suede with leather piping and tassels accessory. Leather lining. Rubber sole. Comfortable insole.'}]},
         {'category':'Ballerina',
          'model': 'Aqua di Andes',
          'style': 'EP1102',
-         'description': 'Low cut ballerina. Round toe shape. Soft suede with a  foggy effect  printed fabric toe cap. Tonal piping. Goat leather lining. Leather sole. Comfortable insole.',
-         'colors': ['img/portfolio/fu/EP1102/c0.jpg','img/portfolio/fu/EP1102/c1.jpg']},
-        {'category':'Ballerina',
-         'model': 'Aqua di Andes',
-         'style': 'EP1103',
-         'description': 'Low cut ballerina. Round toe shape. Shiny suede with a sparkly black suede toe cap. Tonal piping. Goat leather lining. Man made sole. Comfortable insole.',
-         'colors': ['img/portfolio/fu/EP1103/c0.jpg']},
+         'colors': [{'name':'Sand',
+                    'img':'img/portfolio/fu/EP1102/c0.jpg',
+                    'description': 'Low cut ballerina. Round toe shape. Soft suede with a  foggy effect  printed fabric toe cap. Tonal piping. Goat leather lining. Leather sole. Comfortable insole.'},
+                    {'name':'Grey',
+                    'img':'img/portfolio/fu/EP1102/c1.jpg',
+                    'description': 'Low cut ballerina. Round toe shape. Soft suede with a  foggy effect  printed fabric toe cap. Tonal piping. Goat leather lining. Leather sole. Comfortable insole.'}]},
+         {'category':'Ballerina',
+          'model': 'Aqua di Andes',
+          'style': 'EP1105',
+          'colors': [{'name':'Olive Green',
+                      'img':'img/portfolio/fu/EP1105/c0.jpg',
+                      'description': 'Low cut ballerina. Round toe shape.  Soft suede with a black and bronce embossed leather toe cap. Tonal piping. Goat leather lining. Leather sole. Comfortable insole.'},
+                      {'name':'Sand',
+                      'img':'img/portfolio/fu/EP1105/c1.jpg',
+                      'description': 'Low cut ballerina. Round toe shape.  Soft suede with a black and bronce embossed leather toe cap. Tonal piping. Goat leather lining. Leather sole. Comfortable insole.'},
+                      {'name':'Grey',
+                      'img':'img/portfolio/fu/EP1105/c1.jpg',
+                      'description': 'Low cut ballerina. Round toe shape.  Soft suede with a black and bronce embossed leather toe cap. Tonal piping. Goat leather lining. Leather sole. Comfortable insole.'}]},
         {'category':'Ballerina',
          'model': 'Llano di Miele',
          'style': 'EP0202',
-         'description': 'High cut ballerina. Almond - shaped toe. Three leather colours upper and piping or suede upper with snake embossed leather, toe cap. Goat leather lining. Man made sole. Comfortable insole.',
-         'colors': ['img/portfolio/fu/EP0202/c0.jpg','img/portfolio/fu/EP0202/c1.jpg','img/portfolio/fu/EP0202/c2.jpg']},
+         'colors': [{'name':'Blue',
+                    'img':'img/portfolio/fu/EP0202/c0.jpg',
+                    'description': 'High cut ballerina. Almond - shaped toe. Suede upper with snake embossed leather, toe cap. Goat leather lining. Man made sole. Comfortable insole.'},
+                    {'name':'Beige & Black',
+                    'img':'img/portfolio/fu/EP0202/c1.jpg',
+                    'description': 'High cut ballerina. Almond - shaped toe. Two leather colours: upper, toe cap and piping. Goat leather lining. Man made sole. Comfortable insole.'},
+                    {'name':'Beige, Burgundy and Black',
+                    'img':'img/portfolio/fu/EP0202/c2.jpg',
+                    'description': 'High cut ballerina. Almond - shaped toe. Three leather colours: upper, toe cap and piping. Goat leather lining. Man made sole. Comfortable insole.'}]},
         {'category':'Oxford',
          'model': 'Mochima Specchio',
          'style': 'EP1701',
-         'description': 'Mirror effect material with lace-up. Natural leather lining. Sole. Comfortable insole.',
-         'colors': ['img/portfolio/fu/EP1701/c0.jpg']},
+         'colors': [{'name':'Copper',
+                    'img':'img/portfolio/fu/EP1701/c0.jpg',
+                    'description': 'Mirror effect material with lace-up. Natural leather lining. Sole. Comfortable insole.'}]},
         {'category':'Oxford',
          'model': 'Mochima Specchio',
          'style': 'EP1702',
-         'description': 'Leather material with lace-up. Natural leather lining. Sole. Comfortable insole.',
-         'colors': ['img/portfolio/fu/EP1702/c0.jpg']},
+         'colors': [{'name':'Pink',
+                    'img':'img/portfolio/fu/EP1702/c0.jpg',
+                    'description': 'Leather material with lace-up. Natural leather lining. Sole. Comfortable insole.'}]},
         {'category':'Ballerina',
          'model': 'Dolce Avila',
          'style': 'EP0402',
-         'description': 'Low cut ballerina. Round toe shape. Soft suede with a patent toe cap and spotted bow. Goat Leather lining. Man made sole. Comfortable insole.',
-         'colors': ['img/portfolio/fu/EP0402/c0.jpg']},
-        {'category':'Ballerina',
-         'model': 'Dolce Avila',
-         'style': 'EP0401',
-         'description': 'Low cut ballerina. Round toe shape. Patterned suede with a gold metal leopard accessory held by a tonal velvet ribbon. Goat Leather lining. Man made sole. Comfortable insole.',
-         'colors': ['img/portfolio/fu/EP0401/c0.jpg']},
+         'colors': [{'name':'Black & Red',
+                    'img':'img/portfolio/fu/EP0402/c0.jpg',
+                    'description': 'Low cut ballerina. Round toe shape. Soft suede with a patent toe cap and spotted bow. Goat Leather lining. Man made sole. Comfortable insole.'}]},
         {'category':'Ballerina',
          'model': 'Dolce Avila',
          'style': 'EP0204',
-         'description': 'High cut ballerina. Almond-shaped  toe. Patterned suede with a solver metal leopard accessory held by a tonal velvet ribbon. Goat Leather lining. Man made sole. Comfortable insole.',
-         'colors': ['img/portfolio/fu/EP0204/c0.jpg']}
+         'colors': [{'name':'Black',
+                    'img':'img/portfolio/fu/EP0204/c0.jpg',
+                    'description': 'High cut ballerina. Almond-shaped  toe. Patterned suede with a solver metal leopard accessory held by a tonal velvet ribbon. Goat Leather lining. Man made sole. Comfortable insole.'}]}
       ];
       sc.$watch('shoe', function(newValue, oldValue) {
         if (newValue !== oldValue) {
           console.log('Shoe updated:', newValue);
+          var zoomImage=$(".lb-image");
+          var newImg=sc.shoe.pview;
+          console.log(newImg);
+
+          $('.zoomContainer').remove();
+          zoomImage.removeData('elevateZoom');
+          // Update source for images
+          zoomImage.attr('src', newImg);
+          zoomImage.data('zoom-image', newImg);
+          // Reinitialize EZ
+          zoomImage.elevateZoom(zoomConfig);
         }
       }, true);
 
-      sc.updateTemp= function( color){ //pick new id and replace current id on views - ez way to swap
-        console.log(sc.shoe);
-        var id= color[color.length-5];
+      sc.updateTemp= function( color){ // function triggered picking colors. Swap views of the shoe description accord to color
+        var id= color.img[color.img.length-5]; //number of the color
         sc.shoe.lview= replaceAt(sc.shoe.lview,sc.shoe.lview.length-5,id);
         sc.shoe.bview= replaceAt(sc.shoe.bview,sc.shoe.bview.length-5,id);
         sc.shoe.sview= replaceAt(sc.shoe.sview,sc.shoe.sview.length-5,id);
         sc.shoe.hview= replaceAt(sc.shoe.hview,sc.shoe.hview.length-5,id);
         sc.shoe.pview= replaceAt(sc.shoe.pview,sc.shoe.pview.length-5,id);
+        sc.shoe.description = color.description;
+        sc.shoe.colorName = color.name;
+
         var zoomImage=$(".lb-image");
         var newImg=sc.shoe.pview;
         console.log(newImg);
@@ -201,7 +289,7 @@
 
     }]);
 
-    $('<div id="lightboxOverlay" class="lightboxOverlay"></div><div id="lightbox" class="lightbox angular" ng-controller="shoeDescriptionCtrl"><div class="lb-outerContainer "><div class="table-responsive"><table class="table table-bordered"><tbody><tr><td>European [EU]</td><td>35</td><td>35.5</td><td>36</td><td>37</td><td>37.5</td><td>38</td><td>38.5</td><td>39</td><td>39.5</td><td>40</td></tr><tr><td>United Kingdom [UK]</td><td>2.5</td><td>3</td><td>3.5</td><td>4</td><td>4.5</td><td>5</td><td>5.5</td><td>6</td><td>6.5</td><td>7</td></tr><tr><td>United States of America [US]</td><td>5</td><td>5.5</td><td>6</td><td>6.5</td><td>7</td><td>7.5</td><td>8</td><td>8.5</td><td>9</td><td>9.5</td></tr></tbody></table></div><div class="lb-container row"><div id="gallery_01" class="col-lg-2 col-md-2"><a  href="#" class="elevatezoom-gallery active" data-image={{shoe.lview}} data-zoom-image={{shoe.lview}}><img src={{shoe.lview}} height="70"  /></a><a  href="#" class="elevatezoom-gallery" data-update="" data-image={{shoe.hview}} data-zoom-image={{shoe.hview}}><img src={{shoe.hview}} width="100"  /></a><a  href="#" class="elevatezoom-gallery" data-image={{shoe.sview}} data-zoom-image={{shoe.sview}}><img src={{shoe.sview}} width="100"  /></a></div><div class="col-lg-7 col-md-7"><img class="lb-image" data-image="" data-zoom-image="" src={{shoe.pview}} /><div class="lb-nav"><a class="lb-prev" href="" ></a><a class="lb-next" href="" ></a><div class="lb-loader"><a class="lb-cancel"></a></div></div></div><div class="col-lg-3 col-md-3 lb-info"><div class="lb-title lines-r"><h2>{{shoe.category}}</h2></div><div class="lb-group"><h3>{{shoe.model}}</h3><h3>Style Number {{shoe.style}}</h3></div><div class="lb-description"><p>{{shoe.description}}</p><h3>Collection F/W 2016</h3></div><div class="lb-color"><h3>Colour: </h3><ul class=""><li ng-repeat="color in shoe.colors"><img src={{color}} height="50" width="50" ng-click="updateTemp(color)"/></li></ul></div><div class="lb-size"><div class="lb-size"><select name="EU SIZE"><option value="" disabled selected>EU SIZE</option><option value="35">35/UK Size 2.5</option><option value="35.5">35.5/UK Size 3</option><option value="36">36/UK Size 3.5</option><option value="37">37/UK Size 4</option><option value="37.5">37.5/UK Size 4.5</option><option value="38">38/UK Size 5</option><option value="38.5">38.5/UK Size 5.5</option><option value="39">39/UK Size 6</option><option value="39.5">39.5/UK Size 6.5</option><option value="40">40/UK Size 7</option></select><a href="#" class="lb-button">SIZE CHART</a><div class="share"></div></div></div></div></div></div><div class="lb-dataContainer"><div class="lb-data"><div class="lb-details"><span class="lb-caption"></span><span class="lb-number"></span></div><div class="lb-closeContainer"><a class="lb-close "></a></div></div></div></div>').appendTo($('body'));
+    $('<div id="lightboxOverlay" class="lightboxOverlay"></div><div id="lightbox" class="lightbox angular" ng-controller="shoeDescriptionCtrl"><div class="lb-outerContainer "><div class="table-responsive"><table class="table table-bordered"><tbody><tr><td>European [EU]</td><td>35</td><td>35.5</td><td>36</td><td>37</td><td>37.5</td><td>38</td><td>38.5</td><td>39</td><td>39.5</td><td>40</td></tr><tr><td>United Kingdom [UK]</td><td>2.5</td><td>3</td><td>3.5</td><td>4</td><td>4.5</td><td>5</td><td>5.5</td><td>6</td><td>6.5</td><td>7</td></tr><tr><td>United States of America [US]</td><td>5</td><td>5.5</td><td>6</td><td>6.5</td><td>7</td><td>7.5</td><td>8</td><td>8.5</td><td>9</td><td>9.5</td></tr></tbody></table></div><div class="lb-container row"><div id="gallery_01" class="col-lg-2 col-md-2"><a  href="#" class="elevatezoom-gallery" data-update="" data-image={{shoe.pview}} data-zoom-image={{shoe.pview}}><img src={{shoe.pview}} width="100"  /></a><a  href="#" class="elevatezoom-gallery active" data-image={{shoe.lview}} data-zoom-image={{shoe.lview}}><img src={{shoe.lview}} height="70"  /></a><a  href="#" class="elevatezoom-gallery" data-image={{shoe.sview}} data-zoom-image={{shoe.sview}}><img src={{shoe.sview}} width="100"  /></a><a  href="#" class="elevatezoom-gallery" data-image={{shoe.hview}} data-zoom-image={{shoe.hview}}><img src={{shoe.hview}} width="100"  /></a><a  href="#" class="elevatezoom-gallery" data-image={{shoe.bview}} data-zoom-image={{shoe.bview}}><img src={{shoe.bview}} width="100"  /></a></div><div class="col-lg-7 col-md-7"><img class="lb-image" data-image="" data-zoom-image="" src={{shoe.pview}} /><div class="lb-nav"><a class="lb-prev" href="" ></a><a class="lb-next" href="" ></a><div class="lb-loader"><a class="lb-cancel"></a></div></div></div><div class="col-lg-3 col-md-3 lb-info"><div class="lb-title lines-r"><h2>{{shoe.category}}</h2></div><div class="lb-group"><h3>{{shoe.model}}</h3><h3>Style Number {{shoe.style}}</h3></div><div class="lb-description"><p>{{shoe.description}}</p><h3>Collection F/W 2016</h3></div><div class="lb-color"><h3>Colour: {{shoe.colorName}} </h3><ul class=""><li ng-repeat="color in shoe.colors"><img src={{color.img}} height="50" width="50" ng-click="updateTemp(color)"/></li></ul></div><div class="lb-size"><div class="lb-size"><select name="EU SIZE"><option value="" disabled selected>EU SIZE</option><option value="35">35/UK Size 2.5</option><option value="35.5">35.5/UK Size 3</option><option value="36">36/UK Size 3.5</option><option value="37">37/UK Size 4</option><option value="37.5">37.5/UK Size 4.5</option><option value="38">38/UK Size 5</option><option value="38.5">38.5/UK Size 5.5</option><option value="39">39/UK Size 6</option><option value="39.5">39.5/UK Size 6.5</option><option value="40">40/UK Size 7</option></select><a href="#" class="lb-button">SIZE CHART</a><div class="share"></div></div></div></div></div></div><div class="lb-dataContainer"><div class="lb-data"><div class="lb-details"><span class="lb-caption"></span><span class="lb-number"></span></div><div class="lb-closeContainer"><a class="lb-close "></a></div></div></div></div>').appendTo($('body'));
 
   // Cache jQuery objects
     this.$lightbox       = $('#lightbox');
@@ -265,7 +353,6 @@
 //Angular Management for information loading on Template --------START
     var ctrlSc=jQuery('#lightbox').scope(); //Scope of angular
     srcParts= $link.attr('href').split('/');  //imgSrc viewImage
-
     var result = $.grep(ctrlSc.shoes, function(e){ return e.style == srcParts[3]; }); //look for shoe style number on database
     if (result.length == 0) {
       console.log('there isnt any match with '+srcParts[3]);
@@ -281,12 +368,15 @@
         ctrlSc.shoe.bview = uriShoe+'/b0.jpg';
         ctrlSc.shoe.pview = uriShoe+'/p0.jpg';
 
+        ctrlSc.shoe.description = ctrlSc.shoe.colors[0].description;
+        ctrlSc.shoe.colorName = ctrlSc.shoe.colors[0].name;
+
       });
 
 
     } else {
       // multiple items found
-      console.log('hue');
+      console.log('The shoe is repeated ');
     }
 
 // --- END

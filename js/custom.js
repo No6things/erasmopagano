@@ -80,11 +80,11 @@ $(window).scroll(function() {  //toggle size of nav
   }
 });
 
-$(".nav a").on("click", function(){
-    $(".nav").children(".active").removeClass("active");
-    $(".nav").children(".current").removeClass("current");
-    $('#portfolio-wrap').hide(500);
-});
+$("nav a").click(function () { //toggle color of nav
+      $("nav a").css("color", "#334378");
+      $(this).css("color", "#f47721");
+    });
+
 
 jQuery("#navigation").sticky({topSpacing:0});
 $("body").scrollspy({ target: "#navigation" });
@@ -93,21 +93,9 @@ $("body").scrollspy({ target: "#navigation" });
 
 
 /*==========================*/
-/* Navigation Scrolling
-/*==========================*//*
-var navigationHeight = jQuery("#navigation").outerHeight();
-var contPadding = $("section").css("padding-top");
- jQuery('.align-center a, .caption-inside a, .top-logo a').click(function(){
-        jQuery('html, body').animate({
-            scrollTop: jQuery( $.attr(this, 'href') ).offset().top - navigationHeight + contPadding
-        }, 800);
-        /* Fix jumping of navigation
-        setTimeout(function() {
-            jQuery(window).trigger('scroll');
-        }, 00);
+/* Contact Focus
+/*==========================*/
 
-        return false;
-    });*/
 
     $(".form-control").focusin( function(){
         $(this).css("border-color","#334378");
@@ -292,16 +280,7 @@ jQuery(document).ready(function(){
           slideSelector: '.slide',
           nextText: '<img src="img/right-arrow.png" />',
           prevText: '<img src="img/left-arrow.png" />',
-          //Esto asegura que se actualice el lastIndex cada vez que nos movamos entre slides
-          onSlideAfter: function($slideElement, oldIndex, newIndex){
-            console.log(sliderIndex); //slider actual
-            var amount=sliders[sliderIndex].getSlideCount(); //slides en el slider actual
-            if ((newIndex > oldIndex) && (newIndex== amount-1)) {
-              lastIndex+=1;
-            }else if (  (newIndex < oldIndex) && (newIndex==0) ){
-              lastIndex-=1;
-            }
-          }
+
         });
     });
 
