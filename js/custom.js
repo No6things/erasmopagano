@@ -15,10 +15,6 @@ var sliders = new Array(),
     };
 
 
-
-
-
-
 jQuery(document).ready(function () {
   /*-------------------------------------------------*/
   /* Keep same Heights on Filter img from Collection
@@ -144,7 +140,13 @@ $("body").scrollspy({ target: "#navigation" });
         jQuery(window).scroll(function () {
             if (jQuery(this).scrollTop() > 100) {
                 jQuery('.scrollup').fadeIn();
+                jQuery('.kickstarter').removeClass('kickTrans').fadeOut( function() {
+                  $(this).addClass('kickTrans');
+                });
             } else {
+                jQuery('.kickstarter').removeClass('kickTrans').fadeIn( function() {
+                  $(this).addClass('kickTrans');
+                });
                 jQuery('.scrollup').fadeOut();
             }
         });
@@ -248,7 +250,7 @@ jQuery(document).ready(function(){
       autoDirection: 'prev',
       controls:false,
       pager: false,
-      speed:700,
+      speed:900,
       infiniteLoop: true,
       easing: 'ease-in-out'
     });
@@ -258,7 +260,7 @@ jQuery(document).ready(function(){
       autoDirection: 'next',
       controls:false,
       pager: false,
-      speed:700,
+      speed:900,
       infiniteLoop: true,
       easing: 'ease-in-out'
     });
@@ -387,7 +389,7 @@ jQuery(document).ready(function(){
             $('#filters a').on('click', function() {
                     $('#portfolio-wrap').show();
                     jQuery("html, body").animate({
-                        scrollTop: 1395
+                        scrollTop: "+=800px"
                     }, 600);
                     var selector = $(this).attr('data-filter');
                     $container.isotope({ filter: selector }, refreshWaypoints());

@@ -1546,10 +1546,7 @@ section .container, footer .container, section.portfolio {
     background: #f47721;
     z-index: 9999;
     outline: none;
-    -webkit-transition:all .5s ease-in-out;
-    -moz-transition:all .5s ease-in-out;
-    -o-transition:all .5s ease-in-out;
-    transition:all .5s ease-in-out;}
+}
 
 .scrollup i {
     line-height: 38px;
@@ -1560,6 +1557,57 @@ a.scrollup:hover i,a.scrollup:focus i {
     color: #fafafa;
     opacity: 1;
     outline: none;
+}
+
+.kickstarter{
+  width: 120px;
+  height: 120px;
+  padding: 20px;
+  border-style: solid;
+  opacity: 1;
+  border-width: 1px;
+  border-color: #f47721;
+  -moz-border-radius: 100px;
+  -webkit-border-radius: 140px;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+  filter: alpha(opacity=70);
+  position: absolute;
+  top: 92vh;
+  left: -2vh;
+  text-align: center;
+  color: #fff;
+  font-size: 28px;
+  background: #f47721;
+  z-index: 9999;
+  outline: none;
+}
+
+.kickTrans, .kickTrans img {
+  -webkit-transition:all .5s ease-in-out;
+  -moz-transition:all .5s ease-in-out;
+  -o-transition:all .5s ease-in-out;
+  transition:all .5s ease-in-out;
+}
+
+/*.kickTrans img{
+  -webkit-transition:all .8s ease-in-out;
+  -moz-transition:all .8s ease-in-out;
+  -o-transition:all .8s ease-in-out;
+  transition:all .8s ease-in-out;
+}*/
+
+.kickstarter img{
+  width: 60px;
+}
+
+.kickstarter:hover{
+  top:91vh !important;
+  width: 140px;
+  height: 140px
+}
+
+.kickstarter:hover img{
+  width: 70px!important;
 }
 
 

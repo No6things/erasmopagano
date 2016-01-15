@@ -267,6 +267,7 @@
       sc.updateTemp= function( color){ // function triggered picking colors. Swap views of the shoe description accord to color
         var id= color.img[color.img.length-5]; //number of the color
 
+
         sc.shoe.lview= replaceAt(sc.shoe.lview,sc.shoe.lview.length-5,id);
         sc.shoe.bview= replaceAt(sc.shoe.bview,sc.shoe.bview.length-5,id);
         sc.shoe.sview= replaceAt(sc.shoe.sview,sc.shoe.sview.length-5,id);
