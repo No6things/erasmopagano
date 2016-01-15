@@ -384,7 +384,7 @@ jQuery(document).ready(function(){
             $('#filters a').on('click', function() {
                     $('#portfolio-wrap').show();
                     jQuery("html, body").animate({
-                        scrollTop: 1500
+                        scrollTop: 1395
                     }, 600);
                     var selector = $(this).attr('data-filter');
                     $container.isotope({ filter: selector }, refreshWaypoints());
@@ -477,7 +477,7 @@ jQuery(document).ready(function(){
    $('input').on('input',function(){
      $(this).css('color','rgb(82, 82, 82)');
    });
-   
+
    if (!String.prototype.splice) {
        /**
         * {JSDoc}

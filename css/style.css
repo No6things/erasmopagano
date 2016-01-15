@@ -1162,8 +1162,9 @@ section .container, footer .container, section.portfolio {
       margin-bottom: 50px;
     }
 
-    .future .col-lg-5{
-      margin-bottom: 70px;
+    .future .col-lg-6{
+      margin-top: 70px;
+      margin-bottom: 30px;
     }
 
     .portfolio-item {
@@ -1536,7 +1537,7 @@ section .container, footer .container, section.portfolio {
     filter: alpha(opacity=70);
     opacity: 0.3;
     position: fixed;
-    bottom: 100px;
+    bottom: 50px;
     right: 15px;
     display: none;
     text-align: center;
