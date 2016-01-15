@@ -14,26 +14,29 @@ var sliders = new Array(),
        responsive: "true"
     };
 
-/*-------------------------------------------------*/
-/* Loader Gif duration related to backgound images loaded
-/*-------------------------------------------------*/
+
+
+
+
 
 jQuery(document).ready(function () {
-  jQuery.waitForImages.hasImgProperties = ['background','backgroundImage'];
+  /*-------------------------------------------------*/
+  /* Keep same Heights on Filter img from Collection
+  /*-------------------------------------------------*/
+  var heights = $("#futFilter img").height()+30;
+
+  $("#preFilter img").height('35vh');
+  $("#curFilter img").height('35vh');
+  $("#futFilter img").height('70vh');
+
+  /*-------------------------------------------------*/
+  /* Loader Gif duration related to backgound images loaded
+  /*-------------------------------------------------*/
+  jQuery.waitForImages.hasImgProperties = ['background-image'];
     jQuery('body').waitForImages(function() {
         jQuery(".page-mask").delay(1000).fadeOut('slow');
         jQuery('body').css('overflowY','auto');
 
-/*-------------------------------------------------*/
-/* Keep same Heights on Filter img from Collection
-/*-------------------------------------------------*/
-        var heights = $("#futFilter img").height()+30;
-        /*$("#preFilter img").height(heights/2);
-        $("#curFilter img").height(heights/2);
-        $("#futFilter img").height(heights)*/
-        $("#preFilter img").height('35vh');
-        $("#curFilter img").height('35vh');
-        $("#futFilter img").height('70vh');
     });
 
 
