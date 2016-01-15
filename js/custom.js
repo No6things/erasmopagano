@@ -63,7 +63,7 @@ $(".nav a[href^='#']").on('click', function(e) { //anchor behavior
    var contPadding = $("section").css("padding-top");
    console.log( $(hash).offset().top-navigationHeight+contPadding);
    $('html, body').animate({
-       scrollTop: $(hash).offset().top - navigationHeight + 85
+       scrollTop: $(hash).offset().top - navigationHeight + 20
      }, 900, function(){
        // when done, add hash to url
        // (default click behaviour)
@@ -87,8 +87,6 @@ $("nav a").click(function () { //toggle color of nav
 
 jQuery("#navigation").sticky({topSpacing:0});
 $("body").scrollspy({ target: "#navigation" });
-
-
 
 
 /*==========================*/
