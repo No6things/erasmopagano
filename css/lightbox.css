@@ -162,7 +162,7 @@ body:after {
 }
 
 .lb-button {
-  display: inline!important;
+  display: inline-block;!important;
 }
 
 .lb-button:hover {
