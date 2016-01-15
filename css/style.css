@@ -898,18 +898,18 @@ section .container, footer .container, section.portfolio {
   opacity:1;
 }
 
- .bxslider2   li, .bxslider3   li, .bxslider4 li, .caption1 > ul > li{
+ .bxslider2   li, .bxslider3   li, .bxslider4 li, .caption1 > ul > li, .bxslidert li{
   margin: 0;
 }
+
+.bxslider3, .bxslider2{
+  height: 100vh !important;
+}
+
 
 .homeslider .col-lg-4, .homeslider .col-lg-5, .homeslider .col-lg-3{
   padding: 0;
 }
-
-.bxslidert li{
-  margin:  0;
-}
-
 
 
 
@@ -1737,6 +1737,14 @@ a.scrollup:hover i,a.scrollup:focus i {
 
     body{
       font-size: 25px!important;
+    }
+
+    ul li{
+      margin: 30px 0;
+    }
+
+    .product-wrap li, .about-subwrap li {
+        margin: 45px 0;
     }
 
     .big-title h2{
